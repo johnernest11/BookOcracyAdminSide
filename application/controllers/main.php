@@ -54,13 +54,12 @@
            $this->index();  
       }  
       public function update_data(){  
-           $user_id = $this->uri->segment(3); 
-           $this->load->view('sidebar'); 
-           $this->load->model("main_model");  
-           $data["user_data"] = $this->main_model->fetch_single_data($user_id);  
-           $data["fetch_data"] = $this->main_model->fetch_data();  
-           $this->load->view("UserSetting/Personal-Information", $data);  
-      }  
+          $user_id = $this->uri->segment(3);  
+          $this->load->model("main_model");  
+          $data["user_data"] = $this->main_model->fetch_single_data($user_id);  
+          $data["fetch_data"] = $this->main_model->fetch_data();  
+          $this->load->view("UserSetting/Personal-Information", $data);  
+     }  
       public function updated()  
       {  
            $this->index();  

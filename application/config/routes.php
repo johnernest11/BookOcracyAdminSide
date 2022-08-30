@@ -54,9 +54,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'user';
 $route['Dashboard'] = 'user/Dashboard';
-$route['main_view'] = 'main';
 $route['Account-Settings'] = 'PageController/AccountSettings';
-$route['Personal-Information'] = 'AccountSettingController/Edit';
+
+
+
+
+
 $route['translate_uri_dashes'] = FALSE;
 
 

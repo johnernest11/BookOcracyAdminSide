@@ -35,4 +35,15 @@ class PageController extends CI_Controller {
 		
 		
 	}
+
+	public function AccountSettingsEdit()
+	{
+		$this->load->model("main_model");  
+		$data["fetch_single_data"] = $this->main_model->fetch_single_data();  
+		//$this->load->view("main_view");  
+		$this->load->view('sidebar');
+		$this->load->view("UserSetting/list", $data);  
+		
+		
+	}
 }

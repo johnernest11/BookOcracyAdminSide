@@ -20,14 +20,14 @@
            return $query;  
       }  
       function delete_data($id){  
-           $this->db->where("id", $id);  
-           $this->db->delete("tbl_user");  
+           $this->db->where("AID", $id);  
+           $this->db->delete("accounts");  
            //DELETE FROM tbl_user WHERE id = $id  
       }  
       function fetch_single_data($id)  
       {  
-           $this->db->where("id", $id);  
-           $query = $this->db->get("tbl_user");  
+           $this->db->where("AID", $id);  
+           $query = $this->db->get("accounts");  
            return $query;  
            //Select * FROM tbl_user where id = '$id'  
       }  

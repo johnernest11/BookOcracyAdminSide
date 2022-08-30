@@ -12,7 +12,7 @@
         <meta name="keywords" content="admin, dashboard, dashboard ui, admin dashboard template, admin panel dashboard, admin panel html, admin panel html template, admin panel template, admin ui templates, administrative templates, best admin dashboard, best admin templates, bootstrap 4 admin template, bootstrap admin dashboard, bootstrap admin panel, html css admin templates, html5 admin template, premium bootstrap templates, responsive admin template, template admin bootstrap 4, themeforest html">
 
         <!-- FAVICON -->
-        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/favicon.ico" />
+        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/booklogo.png" />
 
         <!-- TITLE -->
         <title>BookOcracy – Admin</title>
@@ -37,9 +37,9 @@
     <body class="app sidebar-mini ltr light-mode">
 
         <!-- GLOBAL-LOADER -->
-        <!-- <div id="global-loader">
+        <div id="global-loader">
             <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
-        </div> -->
+        </div>
         <!-- /GLOBAL-LOADER -->
 
         <!-- PAGE -->
@@ -53,14 +53,14 @@
                             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
                             <div class="responsive-logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="../assets/images/brand/logo-3.png" class="mobile-logo logo-1" alt="logo">
-                                    <img src="../assets/images/brand/logo.png" class="mobile-logo dark-logo-1" alt="logo">
+                                    <img src="../assets/images/brand/booklogo.png" class="mobile-logo logo-1" alt="logo">
+                                    <img src="../assets/images/brand/booklogo.png" class="mobile-logo dark-logo-1" alt="logo">
                                 </a>
                             </div>
                             <!-- sidebar-toggle-->
                             <a class="logo-horizontal " href="index.html">
-                                <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1"
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo1"
                                     alt="logo">
                             </a>
                             <!-- LOGO -->
@@ -268,10 +268,10 @@
                     <aside class="app-sidebar">
                         <div class="side-header">
                             <a class="header-brand1" href="index.html">
-                                <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
-                                <img src="../assets/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
-                                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img toggle-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo1" alt="logo">
                             </a>
                             <!-- LOGO -->
                         </div>
