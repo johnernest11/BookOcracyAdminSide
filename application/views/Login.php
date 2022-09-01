@@ -57,7 +57,7 @@
 					<div class="container-login100">
 						<div class="wrap-login100 p-0">
 							<div class="card-body">
-							<form method="POST" action="<?php echo base_url(); ?>index.php/user/login">
+							<form method="POST" action="<?php echo base_url(); ?>index.php/AuthController/login">
 									<span class="login100-form-title">
 										Login
 									</span>

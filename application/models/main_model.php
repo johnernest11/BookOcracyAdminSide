@@ -5,10 +5,11 @@
       {  
            echo "This is model function";  
       }  
-      function insert_data($data)  
-      {  
-           $this->db->insert("tbl_user", $data);  
-      }  
+      public function createData($data)
+	{
+		$query = $this->db->insert('person',$data);
+		return $query;
+	}
       function fetch_data()  
       {  
            //$query = $this->db->get("tbl_user");  

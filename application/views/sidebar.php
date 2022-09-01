@@ -295,7 +295,7 @@
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
                                         <li><a href="<?php echo site_url('Account-Settings'); ?>"  class="slide-item">Account Settings</a></li>
-                                        <li><a href="#" class="slide-item">Authors/Users</a></li>
+                                        <li><a href="<?php echo site_url('product_view'); ?>" class="slide-item">Authors/Users</a></li>
                                         <li><a href="#" class="slide-item">Admin Settings</a></li>
                                     </ul>
                                 </li>
@@ -421,7 +421,7 @@
                                         </div>
                                     </div>
                                 </a>
-                                <a class="dropdown-item d-flex border-bottom" href="<?php echo base_url(); ?>index.php/user/logout"">
+                                <a class="dropdown-item d-flex border-bottom" href="<?php echo base_url(); ?>index.php/AuthController/logout"">
                                     <div class="d-flex"><i class="fe fe-power me-3 tx-20 text-muted"></i>
                                         <div class="pt-1">
                                             <h6 class="mb-0">Sign Out</h6>
