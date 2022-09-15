@@ -1,10 +1,11 @@
 <!-- PAGE-HEADER -->
 <div class="page-header">
 	<div>
-		<h1 class="page-title">User Settings</h1>
+		<h1 class="page-title">Settings</h1>
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item"><a href="javascript:void(0);">User Settings</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Authors/Users</li>
+			<li class="breadcrumb-item"><a href="javascript:void(0);">Settings</a></li>
+			<li class="breadcrumb-item active" aria-current="page">Backup History</li>
+      <li class="breadcrumb-item active" aria-current="page">Admin Account Archieved</li>
 		</ol>
 	</div>
 </div>
@@ -14,7 +15,7 @@
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title"> <i class="side-menu__icon fe fe-settings"> Authors/Users</i></h3>
+				<h3 class="card-title"> <i class="side-menu__icon fe fe-settings"> Admin Account Archieved</i></h3>
 		
 			</div>
 			<div class="card-body">
@@ -187,12 +188,8 @@
                                                 '</a>'+
                                 '<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">'+
                                                     '<div class="dropdown-divider m-0"></div>'+
-                                                        '<a href="#" class="dropdown-item item_edit"'+
-                                                            'data-account_id="'+data[i].Id+'" data-account_photo="'+data[i].Profile_Photo+'" data-account_fullname="'+data[i].Full_Name+'" data-account_username="'+data[i].Username+'"'+
-                                                            'data-account_phone="'+data[i].Phone_Number+'" data-account_birth="'+data[i].Birth_Date+'"'+
-                                                            'data-account_email="'+data[i].Email+'" ><i class="dropdown-icon fe fe-edit item_edit"></i>Update</a>'+' '+
-                                                        '<a href="#" class="dropdown-item reset_password" data-account_id="'+data[i].Id+'" data-account_password="'+data[i].Password+'"><i class="dropdown-icon fe fe-refresh-cw"></i>Reset Password</a>'+
-                                                        '<a href="#" class="dropdown-item archieve_data" data-account_id_archieve="'+data[i].Id+'"data-account_archieve="'+data[i].Archieve_Data+'"><i class="dropdown-icon fe fe-folder"></i>Archive</a>'+
+                                                        '<a href="#" class="dropdown-item archieve_data" data-account_id_archieve="'+data[i].Id+'"data-account_archieve="'+data[i].Archieve_Data+'"><i class="dropdown-icon fe fe-folder"></i>Retrieve</a>'+
+                                                        '<a href="#" class="dropdown-item reset_password" data-account_id="'+data[i].Id+'" data-account_password="'+data[i].Password+'"><i class="dropdown-icon fe fe-refresh-cw"></i>Delete</a>'+
                                   '</div>'+
                                 '</td>'+
                                 '</tr>';

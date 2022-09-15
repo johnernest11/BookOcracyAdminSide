@@ -7,6 +7,9 @@ class AuthController extends CI_Controller {
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->model('users_model');
+		
+		$this->load->model('main_model');
+		
 	}
  
 	public function index(){
@@ -47,12 +50,12 @@ class AuthController extends CI_Controller {
  
 		//restrict users to go to home if not logged in
 		if($this->session->userdata('user')){
-            $this->load->view('sidebar');
-			$this->load->model("main_model");  
-           $data["fetch_data"] = $this->main_model->fetch_data();  
-           //$this->load->view("main_view");  
-           $this->load->view("Dashboard", $data);  
-			// $this->load->view('home');
+			//fetch  most reader books
+			$data = array();
+			$data['book'] = $this->main_model->Most_Read_books();
+			$data['author'] = $this->main_model->Top_Authors();
+            $this->load->view('sidebar');       
+            $this->load->view("Dashboard", $data);  
 		}
 		else{
 			redirect('/');

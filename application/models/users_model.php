@@ -6,7 +6,7 @@
 		}
  
 		public function login($email, $password){
-			$query = $this->db->get_where('users', array('email'=>$email, 'password'=>$password));
+			$query = $this->db->get_where('admin', array('Email'=>$email, 'Password'=>$password));
 			return $query->row_array();
 		}
 

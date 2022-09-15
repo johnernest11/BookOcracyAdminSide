@@ -11,10 +11,11 @@
 							<!-- PAGE-HEADER -->
 							<div class="page-header">
 								<div>
-									<h1 class="page-title">User Setting</h1>
+									<h1 class="page-title">Book</h1>
 									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="javascript:void(0);">User Setting</a></li>
-										<li class="breadcrumb-item active" aria-current="page">Account Setting</li>
+										<li class="breadcrumb-item"><a href="javascript:void(0);">Reports</a></li>
+										<li class="breadcrumb-item active" aria-current="page">List of Books</li>
+										<li class="breadcrumb-item active" aria-current="page">Books</li>
 									</ol>
 								</div>
 							</div>
@@ -26,12 +27,12 @@
 									<div class="card panel-theme">
 										<div class="card-header">
 											<div class="float-start">
-												<h3 class="card-title">Title:</h3>
+												<h3 class="card-title">Title: <?php echo $book->Book_Title; ?></h3>
 											</div>
 											<div class="clearfix"></div>
 										</div>
 										<div class="card-body no-padding">
-                                             <img src="<?php echo  base_url();?>/assets/images/users/21.jpg" alt="profile-user" class="avatar  profile-user brround cover-image">
+													<img src="<?php echo  base_url();?>/assets/images/books/sample.png"  class="center"  >
 										</div>
 									</div>
 								</div>
@@ -40,21 +41,24 @@
 										<div class="card-header">
 											<h3 class="card-title">Edit Details</h3>
 										</div>
+										<?php
+											$id=$book->Book_ID;
+											?>
 										
-										<form action="" method="POST">
+										<form action="<?php echo site_url('BookController/update/'. $book->Book_ID)?>" method="POST">
                                         <input type="hidden" name="_method" value="PUT">
 										<div class="card-body">
 											<div class="row">
 												<div class="col-lg-6 col-md-12">
 													<div class="form-group">
 														<label for="exampleInputname">Book Title</label>
-														<input type="text" class="form-control" id="exampleInputname" name="Book_Title" value="" >
+														<input type="text" class="form-control" id="exampleInputname" name="Book_Title" value="<?php echo $book->Book_Title; ?>" >
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-12">
 													<div class="form-group">
 														<label for="exampleInputEmail1">Book Category</label>
-														<input type="text" class="form-control" id="exampleInputEmail1" name="Book_Category" value="" placeholder="email address">
+														<input type="text" class="form-control" id="exampleInputEmail1" name="Book_Category" value="<?php echo $book->Book_Category; ?>" placeholder="email address">
 													</div>
 												</div>
 											</div>
@@ -62,19 +66,26 @@
 												<div class="col-lg-6 col-md-12">
 													<div class="form-group">
 														<label for="exampleInputnumber">Tag</label>
-														<input type="text" class="form-control" id="exampleInputnumber" name="Book_Tag" value="" placeholder="ph number">
+														<input type="text" class="form-control" id="exampleInputnumber" name="Book_Tag" value="<?php echo $book->Book_Tag; ?>" placeholder="ph number">
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-12">
 													<div class="form-group">
 															<label class="form-label">Status</label>
-															<input class="form-control" placeholder="">
+															<input class="form-control" value="<?php 
+																	$Status=$book->Book_Status;
+																	if ($Status ==1) {
+																		$Status1="Publish";
+																	} else {
+																		$Status1="Unpublish";
+																	}
+														             echo $Status1; ?>" placeholder="">
 													</div>
 												</div>
 											</div>
 											<div class="form-group">
 												<label class="form-label">Description</label>
-												<textarea type="message"  class="form-control" name="Book_Description"></textarea>
+												<textarea type="message"  class="form-control" name="Book_Description"><?php echo $book->Book_Description; ?></textarea>
 											</div>
 										</div>
 										<div class="card-footer text-end">

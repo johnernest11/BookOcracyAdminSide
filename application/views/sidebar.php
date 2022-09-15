@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 
     <head>
+        
 
         <!-- META DATA -->
         <meta charset="UTF-8">
@@ -12,25 +13,24 @@
         <meta name="keywords" content="admin, dashboard, dashboard ui, admin dashboard template, admin panel dashboard, admin panel html, admin panel html template, admin panel template, admin ui templates, administrative templates, best admin dashboard, best admin templates, bootstrap 4 admin template, bootstrap admin dashboard, bootstrap admin panel, html css admin templates, html5 admin template, premium bootstrap templates, responsive admin template, template admin bootstrap 4, themeforest html">
 
         <!-- FAVICON -->
-        <link rel="shortcut icon" type="image/x-icon" href="../assets/images/brand/booklogo.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo  base_url();?>/assets/images/brand/booklogo1.png" />
 
         <!-- TITLE -->
         <title>BookOcracy – Admin</title>
-
         <!-- BOOTSTRAP CSS -->
-        <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link id="style" href="<?php echo  base_url();?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
         <!-- STYLE CSS -->
-        <link href="../assets/css/style.css" rel="stylesheet" />
-        <link href="../assets/css/dark-style.css" rel="stylesheet" />
-        <link href="../assets/css/skin-modes.css" rel="stylesheet" />
-        <link href="../assets/css/transparent-style.css" rel="stylesheet" />
-
+        <link href="<?php echo  base_url();?>/assets/css/style.css" rel="stylesheet" />
+        <link href="<?php echo  base_url();?>/assets/css/dark-style.css" rel="stylesheet" />
+        <link href="<?php echo  base_url();?>/assets/css/skin-modes.css" rel="stylesheet" />
+        <link href="<?php echo  base_url();?>/assets/css/transparent-style.css" rel="stylesheet" />
+        <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
         <!--- FONT-ICONS CSS -->
-        <link href="../assets/css/icons.css" rel="stylesheet" />
+        <link href="<?php echo  base_url();?>/assets/css/icons.css" rel="stylesheet" />
 
         <!-- COLOR SKIN CSS -->
-        <link id="theme" rel="stylesheet" type="text/css" media="all" href="../assets/colors/color1.css" />
+        <link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo  base_url();?>/assets/colors/color1.css" />
 
     </head>
 
@@ -38,7 +38,8 @@
 
         <!-- GLOBAL-LOADER -->
         <div id="global-loader">
-            <img src="../assets/images/loader.svg" class="loader-img" alt="Loader">
+        <span id="year" class="hidden">
+            <img src="<?php echo  base_url();?>/assets/images/loader.svg" class="loader-img" alt="Loader">
         </div>
         <!-- /GLOBAL-LOADER -->
 
@@ -53,20 +54,20 @@
                             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
                             <div class="responsive-logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="../assets/images/brand/booklogo.png" class="mobile-logo logo-1" alt="logo">
-                                    <img src="../assets/images/brand/booklogo.png" class="mobile-logo dark-logo-1" alt="logo">
+                                    <img src="../assets/images/brand/booklogo1.png" class="mobile-logo logo-1" alt="logo">
+                                    <img src="../assets/images/brand/booklogo1.png" class="mobile-logo dark-logo-1" alt="logo">
                                 </a>
                             </div>
                             <!-- sidebar-toggle-->
                             <a class="logo-horizontal " href="index.html">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo1"
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo1"
                                     alt="logo">
                             </a>
                             <!-- LOGO -->
-                            <div class="main-header-center ms-3 d-none d-lg-block">
+                            <!-- <div class="main-header-center ms-3 d-none d-lg-block">
                                 <input class="form-control" placeholder="Search for anything..." type="search"> <button class="btn"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </div>
+                            </div> -->
                             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                                 <!-- SEARCH -->
                                 <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
@@ -101,7 +102,7 @@
                                                 </a>
                                             </div>
                                             <!-- FULL-SCREEN -->
-                                            <div class="dropdown d-md-flex notifications">
+                                            <!-- <div class="dropdown d-md-flex notifications">
                                                 <a class="nav-link icon" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span class=" pulse"></span>
                                                     </a>
                                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow ">
@@ -145,9 +146,9 @@
                                                     <div class="dropdown-divider m-0"></div>
                                                     <a href="javascript:void(0);" class="dropdown-item text-center p-3 text-muted">View all Notification</a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- NOTIFICATIONS -->
-                                            <div class="dropdown d-md-flex message">
+                                            <!-- <div class="dropdown d-md-flex message">
                                                 <a class="nav-link icon text-center" data-bs-toggle="dropdown">
                                                     <i class="fe fe-message-square"></i><span class=" pulse-danger"></span>
                                                 </a>
@@ -213,12 +214,12 @@
                                                     <div class="dropdown-divider m-0"></div>
                                                     <a href="javascript:void(0);" class="dropdown-item text-center p-3 text-muted">See all Messages</a>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- MESSAGE-BOX -->
                                             <div class="dropdown d-md-flex profile-1">
                                                 <a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">
                                                     <span>
-                                                            <img src="../assets/images/users/8.jpg" alt="profile-user" class="avatar  profile-user brround cover-image">
+                                                            <img src="../assets/images/users/21.jpg" alt="profile-user" class="avatar  profile-user brround cover-image">
                                                         </span>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -229,29 +230,29 @@
                                                         </div>
                                                     </div>
                                                     <div class="dropdown-divider m-0"></div>
-                                                    <a class="dropdown-item" href="profile.html">
+                                                    <a class="dropdown-item" href="#">
                                                         <i class="dropdown-icon fe fe-user"></i> Profile
                                                     </a>
-                                                    <a class="dropdown-item" href="email.html">
+                                                    <a class="dropdown-item" href="#">
                                                         <i class="dropdown-icon fe fe-mail"></i> Inbox
                                                         <span class="badge bg-secondary float-end">3</span>
                                                     </a>
-                                                    <a class="dropdown-item" href="emailservices.html">
+                                                    <a class="dropdown-item" href="#">
                                                         <i class="dropdown-icon fe fe-settings"></i> Settings
                                                     </a>
-                                                    <a class="dropdown-item" href="faq.html">
+                                                    <a class="dropdown-item" href="#">
                                                         <i class="dropdown-icon fe fe-alert-triangle"></i> Need help?
                                                     </a>
-                                                    <a class="dropdown-item" href="login.html">
+                                                    <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/AuthController/logout"">
                                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="dropdown d-md-flex header-settings">
+                                            <!-- <div class="dropdown d-md-flex header-settings">
                                                 <a href="javascript:void(0);" class="nav-link icon " data-bs-toggle="sidebar-right" data-target=".sidebar-right">
                                                     <i class="fe fe-menu"></i>
                                                 </a>
-                                            </div>
+                                            </div> -->
                                             <!-- SIDE-MENU -->
                                         </div>
                                     </div>
@@ -268,10 +269,10 @@
                     <aside class="app-sidebar">
                         <div class="side-header">
                             <a class="header-brand1" href="index.html">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img toggle-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo.png" class="header-brand-img light-logo1" alt="logo">
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img toggle-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo" alt="logo">
+                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo1" alt="logo">
                             </a>
                             <!-- LOGO -->
                         </div>
@@ -291,16 +292,16 @@
                                     <h3>Account</h3>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-database"></i><span class="side-menu__label">User Settings</span><i class="angle fa fa-angle-right"></i></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">User Settings</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
-                                        <li><a href="<?php echo site_url('Account-Settings'); ?>"  class="slide-item">Account Settings</a></li>
-                                        <li><a href="<?php echo site_url('product_view'); ?>" class="slide-item">Authors/Users</a></li>
-                                        <li><a href="#" class="slide-item">Admin Settings</a></li>
+                                        <li><a href="<?php echo site_url('Personal-Information'); ?>" class="slide-item">Account Settings</a></li>
+                                        <li><a href="<?php echo site_url('Authors-Users'); ?>"  class="slide-item">Authors/Users</a></li>
+                                        <li><a href="<?php echo site_url('Admin-Setting'); ?>" class="slide-item">Admin Settings</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-package"></i><span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
                                         <li><a href="#" class="slide-item"> Sales Stats</a></li>
@@ -308,33 +309,35 @@
                                         <li><a href="#" class="slide-item"> Credits</a></li>
                                         <li><a href="#" class="slide-item">Visitors</a></li>
                                         <li><a href="#" class="slide-item">List of Authors</a></li>
-                                        <li><a href="#" class="slide-item">List of Books</a></li>
+                                        <li><a href="<?php echo site_url('List-Book'); ?>" class="slide-item">List of Books</a></li>
                                         <li><a href="#" class="slide-item">User Status</a></li>
                                         <li><a href="#" class="slide-item"> User Overtime</a></li>
                                         <li><a href="#" class="slide-item"> Revenue</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('home'); ?>"><i class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Email</span></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="#"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Email</span></a>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-package"></i><span class="side-menu__label">Transactions</span><i class="angle fa fa-angle-right"></i></a>
-                                    <ul class="slide-menu">
-                                        <li class="side-menu-label1"><a href="javascript:void(0)">Transactions</a></li>
-                                        <li><a href="#" class="slide-item"> Recent Transactions</a></li>
-                                        <li><a href="#" class="slide-item"> Statistics</a></li>
-                                        <li><a href="#" class="slide-item"> Expenses</a></li>
-                                        <li><a href="#" class="slide-item">Transaction History</a></li>
-                                    </ul>
+                                <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Transaction'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Transaction</span></a>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-package"></i><span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-sliders"></i><span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Settings</a></li>
                                         <li><a href="#" class="slide-item"> Branding</a></li>
                                         <li><a href="#" class="slide-item"> Notification</a></li>
                                         <li><a href="#" class="slide-item"> Security</a></li>
-                                        <li><a href="#" class="slide-item">Backup History</a></li>
+                                        <li class="sub-slide">
+                                            <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0);"><span class="sub-side-menu__label">Backup History</span><i class="sub-angle fa fa-angle-right"></i></a>
+                                            <ul class="sub-slide-menu">
+                                                <li><a href="<?php echo site_url('Admin-Account-Archieved'); ?>" class="sub-slide-item">Admin Accounts</a></li>
+                                                <li><a href="<?php echo site_url('Authors-Users-Archieved'); ?>" class="sub-slide-item">Authors/Users Accounts</a></li>
+                                                <li><a href="#" class="sub-slide-item">Books</a></li>
+                                                <li><a href="#" class="sub-slide-item">Authors/Users Accounts</a></li>
+                                                <li><a href="#" class="sub-slide-item">Authors/Users Accounts</a></li>
+                                            </ul>
+                                        </li>
                                         <li><a href="#" class="slide-item">Ticket</a></li>
                                         <li><a href="#" class="slide-item">All tickets</a></li>
                                     </ul>
@@ -348,6 +351,7 @@
                     </aside>
                 </div>
                 <!--/APP-SIDEBAR-->
+                
 
                 <!--app-content open-->
                 <div class="main-content app-content mt-0">
@@ -358,373 +362,100 @@
 
 
 
-                             <!-- Sidebar-right -->
-            <div class="sidebar sidebar-right sidebar-animate">
-                <div class="panel panel-primary card mb-0 shadow-none border-0">
-                    <div class="tab-menu-heading border-0 d-flex p-3">
-                        <div class="card-title mb-0">Notifications</div>
-                        <div class="card-options ms-auto">
-                            <a href="javascript:void(0);" class="sidebar-icon text-end float-end me-1" data-bs-toggle="sidebar-right" data-target=".sidebar-right"><i class="fe fe-x text-white"></i></a>
-                        </div>
-                    </div>
-                    <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
-                        <div class="tabs-menu border-bottom">
-                            <!-- Tabs -->
-                            <ul class="nav panel-tabs">
-                                <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i class="fe fe-user me-1"></i> Profile</a></li>
-                                <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-users me-1"></i> Contacts</a></li>
-                                <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-settings me-1"></i> Settings</a></li>
-                            </ul>
-                        </div>
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="side1">
-                                <div class="card-body text-center">
-                                    <div class="dropdown user-pro-body">
-                                        <div class="">
-                                            <img alt="user-img" class="avatar avatar-xl brround mx-auto text-center" src="../assets/images/faces/6.jpg"><span class="avatar-status profile-status bg-green"></span>
-                                        </div>
-                                        <div class="user-info mg-t-20">
-                                            <h6 class="fw-semibold  mt-2 mb-0">Mintrona Pechon</h6>
-                                            <span class="mb-0 text-muted fs-12">Premium Member</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a class="dropdown-item d-flex border-bottom border-top" href="profile.html">
-                                    <div class="d-flex"><i class="fe fe-user me-3 tx-20 text-muted"></i>
-                                        <div class="pt-1">
-                                            <h6 class="mb-0">My Profile</h6>
-                                            <p class="tx-12 mb-0 text-muted">Profile Personal information</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex border-bottom" href="chat.html">
-                                    <div class="d-flex"><i class="fe fe-message-square me-3 tx-20 text-muted"></i>
-                                        <div class="pt-1">
-                                            <h6 class="mb-0">My Messages</h6>
-                                            <p class="tx-12 mb-0 text-muted">Person message information</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex border-bottom" href="emailservices.html">
-                                    <div class="d-flex"><i class="fe fe-mail me-3 tx-20 text-muted"></i>
-                                        <div class="pt-1">
-                                            <h6 class="mb-0">My Mails</h6>
-                                            <p class="tx-12 mb-0 text-muted">Persons mail information</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex border-bottom" href="editprofile.html">
-                                    <div class="d-flex"><i class="fe fe-settings me-3 tx-20 text-muted"></i>
-                                        <div class="pt-1">
-                                            <h6 class="mb-0">Account Settings</h6>
-                                            <p class="tx-12 mb-0 text-muted">Settings Information</p>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex border-bottom" href="<?php echo base_url(); ?>index.php/AuthController/logout"">
-                                    <div class="d-flex"><i class="fe fe-power me-3 tx-20 text-muted"></i>
-                                        <div class="pt-1">
-                                            <h6 class="mb-0">Sign Out</h6>
-                                            <p class="tx-12 mb-0 text-muted">Account Signout</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="tab-pane" id="side2">
-                                <div class="list-group list-group-flush ">
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/9.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Mozelle Belt</div>
-                                            <p class="mb-0 tx-12 text-muted">mozellebelt@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/11.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Florinda Carasco</div>
-                                            <p class="mb-0 tx-12 text-muted">florindacarasco@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/10.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Alina Bernier</div>
-                                            <p class="mb-0 tx-12 text-muted">alinaaernier@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/2.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Zula Mclaughin</div>
-                                            <p class="mb-0 tx-12 text-muted">zulamclaughin@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/13.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Isidro Heide</div>
-                                            <p class="mb-0 tx-12 text-muted">isidroheide@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/12.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Mozelle Belt</div>
-                                            <p class="mb-0 tx-12 text-muted">mozellebelt@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/4.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Florinda Carasco</div>
-                                            <p class="mb-0 tx-12 text-muted">florindacarasco@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/7.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Alina Bernier</div>
-                                            <p class="mb-0 tx-12 text-muted">alinabernier@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/2.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Zula Mclaughin</div>
-                                            <p class="mb-0 tx-12 text-muted">zulamclaughin@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/14.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Isidro Heide</div>
-                                            <p class="mb-0 tx-12 text-muted">isidroheide@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/11.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Florinda Carasco</div>
-                                            <p class="mb-0 tx-12 text-muted">florindacarasco@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/9.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Alina Bernier</div>
-                                            <p class="mb-0 tx-12 text-muted">alinabernier@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/15.jpg"><span class="avatar-status bg-success"></span></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Zula Mclaughin</div>
-                                            <p class="mb-0 tx-12 text-muted">zulamclaughin@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item d-flex  align-items-center">
-                                        <div class="me-2">
-                                            <span class="avatar avatar-md brround cover-image" data-bs-image-src="../assets/images/faces/4.jpg"></span>
-                                        </div>
-                                        <div class="">
-                                            <div class="fw-semibold" data-bs-toggle="modal" data-target="#chatmodel">Isidro Heide</div>
-                                            <p class="mb-0 tx-12 text-muted">isidroheide@gmail.com</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="side3">
-                                <a class="dropdown-item bg-gray-100 pd-y-10" href="javascript:void(0);">
-                                        Account Settings
-                                    </a>
-                                <div class="card-body">
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Updates Automatically</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Allow Location Map</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show Contacts</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show Notication</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show Tasks Statistics</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show Email Notification</span>
-                                            </label>
-                                    </div>
-                                </div>
-                                <a class="dropdown-item bg-gray-100 pd-y-10" href="javascript:void(0);">
-                                        General Settings
-                                    </a>
-                                <div class="card-body">
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show User Online</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Website Notication</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Show Recent activity</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Logout Automatically</span>
-                                            </label>
-                                    </div>
-                                    <div class="form-group mg-b-10">
-                                        <label class="custom-switch ps-0">
-                                                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" checked>
-                                                <span class="custom-switch-indicator"></span>
-                                                <span class="custom-switch-description mg-l-10">Allow All Notifications</span>
-                                            </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--/Sidebar-right-->
+                            
 
            
         </div>
 
+        
+       
         <!-- BACK-TO-TOP -->
 		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
+        
 <!-- JQUERY JS -->
-<script src="../assets/js/jquery.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/jquery.min.js"></script>
+
 
 <!-- BOOTSTRAP JS -->
-<script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/bootstrap/js/popper.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+        <!-- PIETY CHART JS-->
+        <script src="<?php echo  base_url();?>/assets/plugins/peitychart/jquery.peity.min.js"></script>
+        <script src="<?php echo  base_url();?>/assets/plugins/peitychart/peitychart.init.js"></script>
 
 <!-- SPARKLINE JS-->
-<script src="../assets/js/jquery.sparkline.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/jquery.sparkline.min.js"></script>
 
 <!-- CHART-CIRCLE JS-->
-<script src="../assets/js/circle-progress.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/circle-progress.min.js"></script>
 
 <!-- CHARTJS CHART JS-->
-<script src="../assets/plugins/chart/Chart.bundle.js"></script>
-<script src="../assets/plugins/chart/utils.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/chart/Chart.bundle.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/chart/utils.js"></script>
 
 <!-- C3 CHART JS -->
-<script src="../assets/plugins/charts-c3/d3.v5.min.js"></script>
-<script src="../assets/plugins/charts-c3/c3-chart.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/charts-c3/d3.v5.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/charts-c3/c3-chart.js"></script>
 
 <!-- INPUT MASK JS-->
-<script src="../assets/plugins/input-mask/jquery.mask.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/input-mask/jquery.mask.min.js"></script>
 
 <!-- SIDE-MENU JS -->
-<script src="../assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/sidemenu/sidemenu.js"></script>
 
 <!-- Sticky js -->
-<script src="../assets/js/sticky.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/sticky.js"></script>
 
 <!-- INTERNAL SELECT2 JS -->
-<script src="../assets/plugins/select2/select2.full.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/select2/select2.full.min.js"></script>
 
 <!-- DATA TABLE JS-->
-<script src="../assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-<script src="../assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-<script src="../assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
-<script src="../assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
-<script src="../assets/plugins/datatable/js/jszip.min.js"></script>
-<script src="../assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
-<script src="../assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
-<script src="../assets/plugins/datatable/js/buttons.html5.min.js"></script>
-<script src="../assets/plugins/datatable/js/buttons.print.min.js"></script>
-<script src="../assets/plugins/datatable/js/buttons.colVis.min.js"></script>
-<script src="../assets/plugins/datatable/dataTables.responsive.min.js"></script>
-<script src="../assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
-<script src="../assets/js/table-data.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/jszip.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.html5.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.print.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/dataTables.responsive.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/dataTables.select.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/table-data.js"></script>
 
 <!-- APEXCHART JS -->
-<script src="../assets/js/apexcharts.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/apexcharts.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/echarts/echarts.js"></script>
 
 <!-- SIDEBAR JS -->
-<script src="../assets/plugins/sidebar/sidebar.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/sidebar/sidebar.js"></script>
 
 <!-- Perfect SCROLLBAR JS-->
-<script src="../assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-<script src="../assets/plugins/p-scroll/pscroll.js"></script>
-<script src="../assets/plugins/p-scroll/pscroll-1.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/perfect-scrollbar.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/pscroll.js"></script>
+<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/pscroll-1.js"></script>
 
 <!-- Color Theme js -->
-<script src="../assets/js/themeColors.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/themeColors.js"></script>
 
 <!-- CUSTOM JS -->
-<script src="../assets/js/custom.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/custom.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/index.js"></script>
+<script src="<?php echo  base_url();?>/assets/js/index1.js"></script>
+<script src="../assets/js/jquery.sparkline.min.js"></script>
+
+<!-- SWEET-ALERT JS -->
+<script src="<?php echo  base_url();?>/assets/plugins/sweet-alert/sweetalert.min.js"></script>
+		<script src="<?php echo  base_url();?>/assets/js/sweet-alert.js"></script>
+        <script src="<?php echo  base_url();?>/assets/js/sweetalert2.all.js"></script>
+        <script src="<?php echo  base_url();?>/assets/js/sweetalert2.min.js"></script>
+
+
 
     </body>
 
