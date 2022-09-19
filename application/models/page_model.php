@@ -5,10 +5,9 @@ class page_model extends CI_Model{
     
     //AUTHORS/USERS
     function Author_list(){
-        $Type=$this->input->post('Type1');
         $this->db->select('*');
         $this->db->from('accounts');
-        $this->db->where('Account_Status', 0 )->like('Type', $Type,'before' );
+        $this->db->where('Account_Status', 0 );
         $hasil = $this->db->get();
         return $hasil->result();
     }

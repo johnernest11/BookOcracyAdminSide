@@ -3,10 +3,9 @@ class setting_model extends CI_Model{
 
 //Author-Users Accounts
     function historyAdmin_list(){
-        $account_Status=$this->input->post('Account_Status');
         $this->db->select('*');
         $this->db->from('accounts');
-        $this->db->where('Account_Status', $account_Status );
+        $this->db->where('Account_Status !=',0 );
         $hasil = $this->db->get();
         return $hasil->result();
     }

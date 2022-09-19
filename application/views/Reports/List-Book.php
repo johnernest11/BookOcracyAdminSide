@@ -7,10 +7,13 @@
 			<li class="breadcrumb-item active" aria-current="page">List of Books</li>
 		</ol>
 	</div>
-    <div class="ms-auto pageheader-btn">
-        <div class="form-group text-right">
-            <select name="beast" id="select-beast" class="form-control form-select select2 ">
-                <option value="0">--Categories--</option>
+    <div class="col-lg-4">
+    <div class="">
+      <div class="card-body">
+        <div class="wd-200 mg-b-30">
+          <div class="input-group">
+          <select name="beast" id="select-beast" class="form-control form-select filter-Dropdown " >
+                <option value="">--Filter Categories--</option>
                 <option value="Adventure">Adventure</option>
                 <option value="Romance">Romance</option>
                 <option value="Contemporary">Contemporary</option>
@@ -23,13 +26,11 @@
                 <option value="Classics">Classics</option>
                 <option value="Suspense">Suspense</option>
             </select>
-        <a href="javascript:void(0);" class="btn btn-primary btn-icon text-white me-2">
-            <span>
-                <i class="fe fe-plus"></i>
-            </span> Filter
-        </a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- PAGE-HEADER END -->
 <!-- TABLE -->
@@ -44,12 +45,10 @@
                     <table id="example" class="table table-bordered text-nowrap border-bottom">
 						<thead>
 							<tr>
-								<th class="wd-15p border-bottom-0">AID</th>
-                                <th class="wd-15p border-bottom-0">Book Title</th>
 								<th class="wd-15p border-bottom-0">Book Cover</th>
+                                <th class="wd-15p border-bottom-0">Book Title</th>
+								<th class="wd-15p border-bottom-0">Book Author</th>
 								<th class="wd-15p border-bottom-0">Category</th>
-                                <th class="wd-15p border-bottom-0">Tag</th>
-                                <th class="wd-15p border-bottom-0">Description</th>
                                 <th class="wd-15p border-bottom-0">Status</th>
                                 <th class="wd-15p border-bottom-0"></th>
 							</tr>
@@ -69,12 +68,10 @@
                                         ?>
                                                                             
                                 <tr>
-                                    <td><?php echo $dataa->AID; ?></td>
-                                    <td><?php echo $dataa->Book_Title; ?></td>
                                     <td><?php echo $dataa->Book_Cover; ?></td>
+                                    <td><?php echo $dataa->Book_Title; ?></td>
+                                    <td><?php echo $dataa->Full_Name; ?></td>
                                     <td><?php echo $dataa->Book_Category; ?></td>
-                                    <td><?php echo $dataa->Book_Tag; ?></td>
-                                    <td><pre><?php echo $dataa->Book_Description; ?></pre></td>
                                     <td><?php echo $Status1; ?></td>   
                                     <td><a href="<?php echo base_url('/index.php/Book/'.$id); ?>" class="btn btn-primary">View</a></td>
                                     
@@ -169,6 +166,14 @@ $(document).ready(function() {
     $('#button').click( function () {
         table.row('.selected').remove().draw( false );
     } );
+
+    $('.filter-Dropdown').on('change', function(e){
+                      var Type = $(this).val();
+                      $('.filter-Dropdown').val(Type)
+                      console.log(Type)
+                      //dataTable.column(6).search('\\s' + status + '\\s', true, false, true).draw();
+                      table.column(3).search(Type).draw();
+                    })
 
     
     

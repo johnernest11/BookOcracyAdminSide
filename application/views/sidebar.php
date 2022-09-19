@@ -295,7 +295,7 @@
                                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">User Settings</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
-                                        <li><a href="<?php echo site_url('Personal-Information'); ?>" class="slide-item">Account Settings</a></li>
+                                        <li><a href="#" class="slide-item">Account Settings</a></li>
                                         <li><a href="<?php echo site_url('Authors-Users'); ?>"  class="slide-item">Authors/Users</a></li>
                                         <li><a href="<?php echo site_url('Admin-Setting'); ?>" class="slide-item">Admin Settings</a></li>
                                     </ul>
@@ -304,15 +304,15 @@
                                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
-                                        <li><a href="#" class="slide-item"> Sales Stats</a></li>
+                                        <!-- <li><a href="#" class="slide-item"> Sales Stats</a></li>
                                         <li><a href="#" class="slide-item"> Tranding Activities</a></li>
                                         <li><a href="#" class="slide-item"> Credits</a></li>
                                         <li><a href="#" class="slide-item">Visitors</a></li>
-                                        <li><a href="#" class="slide-item">List of Authors</a></li>
+                                        <li><a href="#" class="slide-item">List of Authors</a></li> -->
                                         <li><a href="<?php echo site_url('List-Book'); ?>" class="slide-item">List of Books</a></li>
-                                        <li><a href="#" class="slide-item">User Status</a></li>
+                                        <!-- <li><a href="#" class="slide-item">User Status</a></li>
                                         <li><a href="#" class="slide-item"> User Overtime</a></li>
-                                        <li><a href="#" class="slide-item"> Revenue</a></li>
+                                        <li><a href="#" class="slide-item"> Revenue</a></li> -->
                                     </ul>
                                 </li>
                                 <li class="slide">
@@ -324,22 +324,22 @@
                                 <li class="slide">
                                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-sliders"></i><span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
-                                        <li class="side-menu-label1"><a href="javascript:void(0)">Settings</a></li>
+                                        <!-- <li class="side-menu-label1"><a href="javascript:void(0)">Settings</a></li>
                                         <li><a href="#" class="slide-item"> Branding</a></li>
                                         <li><a href="#" class="slide-item"> Notification</a></li>
-                                        <li><a href="#" class="slide-item"> Security</a></li>
+                                        <li><a href="#" class="slide-item"> Security</a></li> -->
                                         <li class="sub-slide">
                                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0);"><span class="sub-side-menu__label">Backup History</span><i class="sub-angle fa fa-angle-right"></i></a>
                                             <ul class="sub-slide-menu">
                                                 <li><a href="<?php echo site_url('Admin-Account-Archieved'); ?>" class="sub-slide-item">Admin Accounts</a></li>
                                                 <li><a href="<?php echo site_url('Authors-Users-Archieved'); ?>" class="sub-slide-item">Authors/Users Accounts</a></li>
-                                                <li><a href="#" class="sub-slide-item">Books</a></li>
+                                                <!-- <li><a href="#" class="sub-slide-item">Books</a></li>
                                                 <li><a href="#" class="sub-slide-item">Authors/Users Accounts</a></li>
-                                                <li><a href="#" class="sub-slide-item">Authors/Users Accounts</a></li>
+                                                <li><a href="#" class="sub-slide-item">Authors/Users Accounts</a></li> -->
                                             </ul>
                                         </li>
-                                        <li><a href="#" class="slide-item">Ticket</a></li>
-                                        <li><a href="#" class="slide-item">All tickets</a></li>
+                                        <!-- <li><a href="#" class="slide-item">Ticket</a></li>
+                                        <li><a href="#" class="slide-item">All tickets</a></li> -->
                                     </ul>
                                 </li>
                             </ul>

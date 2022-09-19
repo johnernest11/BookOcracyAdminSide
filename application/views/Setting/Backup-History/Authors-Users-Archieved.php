@@ -1,28 +1,32 @@
-<!-- PAGE-HEADER -->
-<div class="page-header">
-	<div>
+ <!-- PAGE-HEADER -->
+ <div class="page-header">
+ <div>
 		<h1 class="page-title">Setting</h1>
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="javascript:void(0);">Backup History</a></li>
 			<li class="breadcrumb-item active" aria-current="page">Authors/Users Archieved</li>
 		</ol>
 	</div>
-  <div class="ms-auto pageheader-btn">
-        <div class="form-group text-right">
-            <select name="beast" id="account_Status" class="form-control form-select select2 ">
+    <div class="col-lg-4">
+    <div class="">
+      <div class="card-body">
+        <div class="wd-200 mg-b-30">
+          <div class="input-group">
+          <select class="form-control form-select status-dropdown" data-placeholder="Filter Account Type">
+                <optgroup label="Search Account Type">
                 <option value="">--Account Status--</option>
-                <option value="1">Suspended</option>
-                <option value="2">Banned</option>
-                <option value="3">Deleted</option>
+                <option value="Suspended">Suspended</option>
+                <option value="Banned">Banned</option>
+                </optgroup>
             </select>
-        <a href="javascript:void(0);" id="btn_filter" class="btn btn-primary btn-icon text-white me-2">
-        <i class="fa fa-search" aria-hidden="true"></i> Filter
-        </a>
-        <button id="reset" class="btn btn-danger btn-icon text-white me-2"><i class="fa fa-refresh" aria-hidden="true"></i>RESET</button>
+          </div>
         </div>
+      </div>
+    </div>
   </div>
 </div>
 <!-- PAGE-HEADER END -->
+
 <!-- TABLE -->
 <div class="row row-sm">
 	<div class="col-lg-12">
@@ -35,8 +39,7 @@
         <!-- <div class="text-wrap">
             <div class="example"> -->
             <div class="btn-list text-end">
-                  <button  class="btn btn-secondary"  id="btnRetrieve"><i class="fa fa-file-archive-o" aria-hidden="true"></i>Retrieve Account</button> 
-                  <button class="btn btn-danger" id="btnDelete"><i class="fa fa-trash" aria-hidden="true"></i> Delete Account</button> 
+                  <button  class="btn btn-secondary"  id="btnRetrieve"><i class="fa fa-file-archive-o" aria-hidden="true"> Unsuspend/Unbanned Account</i></button> 
                 </div>
 
               <!-- </div>
@@ -48,7 +51,6 @@
 						<thead>
 							<tr>
                 <th></th>
-								<th class="wd-15p border-bottom-0">AID</th>
 								<th class="wd-15p border-bottom-0">Photo</th>
 								<th class="wd-15p border-bottom-0">Fullname</th>
                 <th class="wd-15p border-bottom-0">Username</th>
@@ -79,18 +81,11 @@
           
         //function show all product
         function show_product(){
-          $("#reset").click(function(){ 
-            location.reload();
-            });
-            $('#btn_filter').on('click',function(){
-          var Account_Status   = $('#account_Status').val();
-         alert(Account_Status);
             $.ajax({
-                type  : 'POST',
+                type  : 'ajax',
                 url   : '<?php echo site_url('SettingController/historyAdmin_data')?>',
                 async : true,
                 dataType : 'json',
-                data : {Account_Status:Account_Status},
                 success : function(data){
                     var html = '';
                     var i;
@@ -100,10 +95,9 @@
                         $Status ="Suspended"
                       }else
                       {
-                        $Status ="Deleted"
+                        $Status ="Banned"
                       }
                         html += '<tr>'+
-                                '<td></td>'+
                                 '<td>'+data[i].AID+'</td>'+
                                 '<td>'+data[i].Profile_Photo+'</td>'+
 								                '<td>'+data[i].Full_Name+'</td>'+
@@ -140,13 +134,21 @@
                               $(this).addClass('selected');
                           }
                       });
+
+                      $('.status-dropdown').on('change', function(e){
+                      var Type = $(this).val();
+                      $('.status-dropdown').val(Type)
+                      console.log(Type)
+                      //dataTable.column(6).search('\\s' + status + '\\s', true, false, true).draw();
+                      table.column(9).search(Type).draw();
+                    })
                       // RETRIEVE DATA BUTTON
                       $('#btnRetrieve').click(function () {
                               var arr = [];
                               var arr1 = [];
                               $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
+                                  arr.push(this[0]);
+                                  arr1.push(this[1]);
                                   console.log(arr.toString());
                                   console.log(arr1.toString());
                                   alert(arr.toString());
@@ -187,56 +189,8 @@
                                 
                     });
                     // RETRIEVE DATA BUTTON
-
-                    // DELETE DATA BUTTON
-                    $('#btnDelete').click(function () {
-                              var arr = [];
-                              var arr1 = [];
-                              $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
-                                  console.log(arr.toString());
-                                  console.log(arr1.toString());
-                                  alert(arr.toString());
-                                  alert(arr1.toString());
-                              });
-                              Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, Delete it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_delete  =arr.toString();
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('SettingController/historyAuthors_delete')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_delete:account_delete}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Deleted!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
-                                
-                    });
-                     // DELETE DATA BUTTON
                 }
             });
-          });
         }
 
  

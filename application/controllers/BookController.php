@@ -72,7 +72,7 @@ class BookController extends CI_Controller {
   public function edit($id)
   {
     
-    $data['book'] = $this->book->get($id);
+    $data['book'] = $this->book_model->get($id);
     $this->load->view('sidebar');       
     $this->load->view('Reports/Book',$data);     
   }

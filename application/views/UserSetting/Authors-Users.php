@@ -5,19 +5,20 @@
 		<ol class="breadcrumb">
 		</ol>
 	</div>
-  <div class="ms-auto pageheader-btn">
-        <div class="form-group text-right">
-            <select name="beast" id="account_Type" class="form-control form-select select2 ">
-                <option value="">--Account Type--</option>
+  <div class="col-lg-4">
+    <div class="">
+      <div class="card-body">
+        <div class="wd-200 mg-b-30">
+          <div class="input-group">
+            <select class="form-control form-select status-dropdown" data-placeholder="Filter Account Type">
+                <option value="">--Filter Account Type--</option>
                 <option value="Author">Author</option>
                 <option value="User">User</option>
-                <option value="r">All</option>
             </select>
-        <a href="javascript:void(0);" id="btn_filter" class="btn btn-primary btn-icon text-white me-2">
-        <i class="fa fa-search" aria-hidden="true"></i> Filter
-        </a>
-        <button id="reset" class="btn btn-danger btn-icon text-white me-2"><i class="fa fa-refresh" aria-hidden="true"></i>RESET</button>
+          </div>
         </div>
+      </div>
+    </div>
   </div>
 </div>
 <hr>
@@ -44,29 +45,24 @@
                         <a class="dropdown-item" href="javascript:void(0)"  id="btn7daySuspend">7 Days</a>
                         <a class="dropdown-item" href="javascript:void(0)"  id="btn1monthSuspend">1 Month</a>
                       </div>
-                <button  class="btn btn-secondary"  id="btnArchieve"><i class="fa fa-archive" aria-hidden="true"></i> Archive Account</button> 
                 <button class="btn btn-danger" id="btnBan"><i class="fa fa-ban" aria-hidden="true"></i> Ban Account</button>
           </div>
         </div>
 			</div>
       
 			<div class="card-body">
+        
         <div class="table-responsive deleted-table">
             <br>
             <br>
           <table id="datatable" class="table table-bordered text-nowrap border-bottom">
 						<thead>
 							<tr>
-              <th></th>
-								<th class="wd-15p border-bottom-0">AID</th>
-								<th class="wd-15p border-bottom-0">Photo</th>
-								<th class="wd-15p border-bottom-0">Fullname</th>
-                <th class="wd-15p border-bottom-0">Username</th>
-                <th class="wd-15p border-bottom-0">Phone Number</th>
-                <th class="wd-15p border-bottom-0">Birth Date</th>
-                <th class="wd-15p border-bottom-0">Credits</th>
-                <th class="wd-15p border-bottom-0">Votes Credit</th>
+                <th></th>
+								<th class="wd-15p border-bottom-0"></th>
 								<th class="wd-10p border-bottom-0">Email</th>
+                <th class="wd-10p border-bottom-0">Type</th>
+                <th class="wd-15p border-bottom-0">Date Added</th>
 								<th class="wd-10p border-bottom-0"></th>
                 
 							</tr>
@@ -192,49 +188,37 @@
         //function show all product
         
         function show_product(){
-          $("#reset").click(function(){ 
-            location.reload();
-            });
-          $('#btn_filter').on('click',function(){
-          var Type1   = $('#account_Type').val();
-         alert(Type1);
-          
             $.ajax({
-                type  : 'POST',
+                type  : 'ajax',
                 url   : '<?php echo site_url('PageController/product_data')?>',
                 async : true,
                 dataType : 'json',
-                data : {Type1:Type1},
                 success : function(data){
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+                      
+                     var date = data[i].Date_created;
                         html += '<tr>'+
-                                '<td></td>'+
                                 '<td>'+data[i].AID+'</td>'+
-                                '<td>'+data[i].Profile_Photo+'</td>'+
-								                '<td>'+data[i].Full_Name+'</td>'+
-                                '<td>'+data[i].Username+'</td>'+
-                                '<td>'+data[i].Phone_Number+'</td>'+
-                                '<td>'+data[i].Birth_Date+'</td>'+
-                                '<td>'+data[i].Credits+'</td>'+
-                                '<td>'+data[i].Votes_Credit+'</td>'+
+                                '<td>'+data[i].Full_Name+'</td>'+
                                 '<td>'+data[i].Email+'</td>'+
+                                '<td>'+data[i].Type+'</td>'+
+								                '<td>'+date+'</td>'+
                                 '<td style="text-align:right;">'+
                                 '<a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">'+
-                               '<i class="fa fa-ellipsis-v"></i>'+
-                                                '</a>'+
+                                '<i class="fa fa-ellipsis-v"></i></a>'+
                                 '<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">'+
-                                                    '<div class="dropdown-divider m-0"></div>'+
-                                                        '<a href="#" class="dropdown-item item_edit"'+
-                                                            'data-account_id="'+data[i].AID+'" data-account_photo="'+data[i].Profile_Photo+'" data-account_fullname="'+data[i].Full_Name+'" data-account_username="'+data[i].Username+'"'+
-                                                            'data-account_phone="'+data[i].Phone_Number+'" data-account_birth="'+data[i].Birth_Date+'" data-account_credits="'+data[i].Credits+'"'+
-                                                            'data-account_votes="'+data[i].Votes_Credit+'" data-account_email="'+data[i].Email+'" ><i class="dropdown-icon fe fe-edit item_edit"></i>Update</a>'+' '+
-                                                        '<a href="#" class="dropdown-item reset_password" data-account_id="'+data[i].AID+'" data-account_password="'+data[i].Password+'"><i class="dropdown-icon fe fe-refresh-cw"></i>Reset Password</a>'+
-                                  '</div>'+
+                                '<div class="dropdown-divider m-0"></div>'+
+                                  '<a href="#" class="dropdown-item item_edit"'+
+                                      'data-account_id="'+data[i].AID+'" data-account_photo="'+data[i].Profile_Photo+'" data-account_fullname="'+data[i].Full_Name+'" data-account_username="'+data[i].Username+'"'+
+                                      'data-account_phone="'+data[i].Phone_Number+'" data-account_birth="'+data[i].Birth_Date+'" data-account_credits="'+data[i].Credits+'"'+
+                                      'data-account_votes="'+data[i].Votes_Credit+'" data-account_email="'+data[i].Email+'" ><i class="dropdown-icon fe fe-edit item_edit"></i>Update</a>'+' '+
+                                  '<a href="#" class="dropdown-item reset_password" data-account_id="'+data[i].AID+'" data-account_password="'+data[i].Password+'"><i class="dropdown-icon fe fe-refresh-cw"></i>Reset Password</a>'+
+                                '</div>'+
                                 '</td>'+
                                 '</tr>';
-                    }
+                      }
                     $('#show_data').html(html);
                       var table = $('#datatable').DataTable({
                         'columnDefs': [
@@ -247,8 +231,8 @@
                         ],
                         'select': {
                           'style': 'multi'
-                        }
-                  });
+                          }
+                       });
                       $('#datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {
@@ -258,219 +242,177 @@
                               $(this).addClass('selected');
                           }
                       });
-          // BAN DATA BUTTON
+                    
+                  
+                    $('.status-dropdown').on('change', function(e){
+                      var Type = $(this).val();
+                      $('.status-dropdown').val(Type)
+                      console.log(Type)
+                      //dataTable.column(6).search('\\s' + status + '\\s', true, false, true).draw();
+                      table.column(3).search(Type).draw();
+                    })
+                            // BAN DATA BUTTON
                       $('#btnBan').click(function () {
                               var arr = [];
                               var arr1 = [];
                               $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
+                                  arr.push(this[0]);
+                                  arr1.push(this[1]);
                                   console.log(arr.toString());
                                   console.log(arr1.toString());
                                   alert(arr.toString());
                                   alert(arr1.toString());
                               });
                               Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, Banned it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_id  =arr.toString();
-                                            var account_status = "3";
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('PageController/banned')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_id:account_id ,account_status:account_status}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Banned!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
-                                
-                    });
+                                title: 'Are you sure?',
+                                text: "You won't be able to revert this!",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonColor: '#3085d6',
+                                cancelButtonColor: '#d33',
+                                confirmButtonText: 'Yes, Banned it!'
+                              }).then((result) => {
+                                  if (result.isConfirmed) {
+                                    var account_id  =arr.toString();
+                                    var account_status = "2";
+                                  $.ajax({
+                                          type : "POST",
+                                          url  : "<?php echo site_url('PageController/banned')?>",
+                                          dataType : "JSON",
+                                          data : {account_id:account_id ,account_status:account_status}
+                                      })
+                                      .done(function(data) {
+                                        Swal.fire({
+                                        position: 'bottom-end',
+                                        icon: 'success',
+                                        title: 'Account as been successfully  Banned!',
+                                        showConfirmButton: false,
+                                        timer: 3000
+                                        }),
+                                        setTimeout(function(){
+                                          window.location.reload(1);
+                                        }, 3000);
+                                    }); 
+                                  }
+                                })
+                              });
                     // BAN DATA BUTTON
-
-
-                     // ARCHIEVE DATA BUTTON
-                     $('#btnArchieve').click(function () {
-                              var arr = [];
-                              var arr1 = [];
-                              $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
-                                  console.log(arr.toString());
-                                  console.log(arr1.toString());
-                                  alert(arr.toString());
-                                  alert(arr1.toString());
-                              });
-                              Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, Archieve it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_id  =arr.toString();
-                                            var account_status = "2";
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('PageController/archieve')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_id:account_id ,account_archieve:account_archieve}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Archieved!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
-                                
-                    });
-                    // DELETE DATA BUTTON
 
 
 
                     // 3 DAYS BAN DATA BUTTON
                     $('#btn3daySuspend').click(function () {
-                              Date.prototype.addDays = function(days) {
-                                  this.setDate(this.getDate() + parseInt(days));
-                                  return this;
-                              };
-                              var today = new Date();
-                              today.addDays(3);
-                              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                              var dateTime = date+' '+time;
-                              alert(dateTime);
-                              var arr = [];
-                              var arr1 = [];
-                              $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
-                                  console.log(arr.toString());
-                                  console.log(arr1.toString());
-                                  alert(arr.toString());
-                                  alert(arr1.toString());
-                              });
-                              Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, suspend   it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_id  =arr.toString();
-                                            var account_status = "1";
-                                            var account_suspend = dateTime;
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('PageController/suspend')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Suspended!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
-                                
+                      Date.prototype.addDays = function(days) {
+                      this.setDate(this.getDate() + parseInt(days));
+                      return this;
+                      };
+                        var today = new Date();
+                        today.addDays(3);
+                        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                        var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                        var dateTime = date+' '+time;
+                        alert(dateTime);
+                        var arr = [];
+                        var arr1 = [];
+                      $.each(table.rows('.selected').data(), function() {
+                              arr.push(this[0]);
+                              arr1.push(this[1]);
+                          console.log(arr.toString());
+                          console.log(arr1.toString());
+                          alert(arr.toString());
+                          alert(arr1.toString());
+                      });
+                      Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, suspend   it!'
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                            var account_id  =arr.toString();
+                            var account_status = "1";
+                            var account_suspend = dateTime;
+                          $.ajax({
+                                  type : "POST",
+                                  url  : "<?php echo site_url('PageController/suspend')?>",
+                                  dataType : "JSON",
+                                  data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
+                              })
+                              .done(function(data) {
+                                Swal.fire({
+                                position: 'bottom-end',
+                                icon: 'success',
+                                title: 'Account as been successfully  Suspended!',
+                                showConfirmButton: false,
+                                timer: 3000
+                                }),
+                                setTimeout(function(){
+                                  window.location.reload(1);
+                                }, 3000);
+                            }); 
+                          }
+                        })    
                     });
                      // 3 DAYS BAN DATA BUTTON
 
                       // 7 DAYS BAN DATA BUTTON
                     $('#btn7daySuspend').click(function () {
-                              Date.prototype.addDays = function(days) {
-                                  this.setDate(this.getDate() + parseInt(days));
-                                  return this;
-                              };
-                              var today = new Date();
-                              today.addDays(7);
-                              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                              var dateTime = date+' '+time;
-                              alert(dateTime);
-                              var arr = [];
-                              var arr1 = [];
-                              $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
-                                  console.log(arr.toString());
-                                  console.log(arr1.toString());
-                                  alert(arr.toString());
-                                  alert(arr1.toString());
-                              });
+                      Date.prototype.addDays = function(days) {
+                      this.setDate(this.getDate() + parseInt(days));
+                      return this;
+                      };
+                      var today = new Date();
+                      today.addDays(7);
+                      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                      var dateTime = date+' '+time;
+                      alert(dateTime);
+                      var arr = [];
+                      var arr1 = [];
+                      $.each(table.rows('.selected').data(), function() {
+                            arr.push(this[0]);
+                            arr1.push(this[1]);
+                          console.log(arr.toString());
+                          console.log(arr1.toString());
+                          alert(arr.toString());
+                          alert(arr1.toString());
+                        });
+                      Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, Suspend it!'
+                      }).then((result) => {
+                          if (result.isConfirmed) {
+                            var account_id  =arr.toString();
+                            var account_status = "1";
+                            var account_suspend = dateTime;
+                            $.ajax({
+                                  type : "POST",
+                                  url  : "<?php echo site_url('PageController/suspend')?>",
+                                  dataType : "JSON",
+                                  data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
+                            })
+                            .done(function(data) {
                               Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, Suspend it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_id  =arr.toString();
-                                            var account_status = "1";
-                                            var account_suspend = dateTime;
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('PageController/suspend')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Suspended!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
+                              position: 'bottom-end',
+                              icon: 'success',
+                              title: 'Account as been successfully  Suspended!',
+                              showConfirmButton: false,
+                              timer: 3000
+                              }),
+                              setTimeout(function(){
+                                window.location.reload(1);
+                              }, 3000);
+                            }); 
+                          }
+                        })
                                 
                     });
                      // 7 DAYS BAN DATA BUTTON
@@ -479,69 +421,71 @@
 
                        // 1 Month BAN DATA BUTTON
                     $('#btn1monthSuspend').click(function () {
-                              Date.prototype.addDays = function(months) {
-                                  this.setDate(this.getDate() + parseInt(months));
-                                  return this;
-                              };
-                              var today = new Date();
-                              today.addDays(30);
-                              alert(today);
-                              var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-                              var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-                              var dateTime = date+' '+time;
-                              alert(dateTime);
-                              var arr = [];
-                              var arr1 = [];
-                              $.each(table.rows('.selected').data(), function() {
-                                  arr.push(this[1]);
-                                  arr1.push(this[2]);
-                                  console.log(arr.toString());
-                                  console.log(arr1.toString());
-                                  alert(arr.toString());
-                                  alert(arr1.toString());
-                              });
-                              Swal.fire({
-                                          title: 'Are you sure?',
-                                          text: "You won't be able to revert this!",
-                                          icon: 'warning',
-                                          showCancelButton: true,
-                                          confirmButtonColor: '#3085d6',
-                                          cancelButtonColor: '#d33',
-                                          confirmButtonText: 'Yes, Suspend  it!'
-                                        }).then((result) => {
-                                          if (result.isConfirmed) {
-                                            var account_id  =arr.toString();
-                                            var account_status = "1";
-                                            var account_suspend = dateTime;
-                                          $.ajax({
-                                                  type : "POST",
-                                                  url  : "<?php echo site_url('PageController/suspend')?>",
-                                                  dataType : "JSON",
-                                                  data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
-                                              })
-                                              .done(function(data) {
-                                                Swal.fire({
-                                                position: 'bottom-end',
-                                                icon: 'success',
-                                                title: 'Account as been successfully  Suspended!',
-                                                showConfirmButton: false,
-                                                timer: 3000
-                                                }),
-                                                setTimeout(function(){
-                                                  window.location.reload(1);
-                                                }, 3000);
-                                            }); 
-                                          }
-                                        })
+                      Date.prototype.addDays = function(months) {
+                      this.setDate(this.getDate() + parseInt(months));
+                      return this;
+                      };
+                      var today = new Date();
+                      today.addDays(30);
+                      alert(today);
+                      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+                      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+                      var dateTime = date+' '+time;
+                      alert(dateTime);
+                      var arr = [];
+                      var arr1 = [];
+                      $.each(table.rows('.selected').data(), function() {
+                        arr.push(this[0]);
+                        arr1.push(this[1]);
+                        console.log(arr.toString());
+                        console.log(arr1.toString());
+                        alert(arr.toString());
+                        alert(arr1.toString());
+                      });
+                      Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, Suspend  it!'
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                          var account_id  =arr.toString();
+                          var account_status = "1";
+                          var account_suspend = dateTime;
+                        $.ajax({
+                                type : "POST",
+                                url  : "<?php echo site_url('PageController/suspend')?>",
+                                dataType : "JSON",
+                                data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
+                        })
+                        .done(function(data) {
+                            Swal.fire({
+                            position: 'bottom-end',
+                            icon: 'success',
+                            title: 'Account as been successfully  Suspended!',
+                            showConfirmButton: false,
+                            timer: 3000
+                            }),
+                            setTimeout(function(){
+                              window.location.reload(1);
+                            }, 3000);
+                        }); 
+                      }
+                    })
                                 
-                    });
+                });
                      // 1 Month BAN DATA BUTTON
 
                     
                 }
             });
-          });
+         
         }
+            
+
 
 
    
@@ -690,8 +634,9 @@
               timer: 3000
               })
            }); 
+           
         });
- 
+  
     });
 
 
