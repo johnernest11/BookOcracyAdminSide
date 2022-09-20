@@ -13,7 +13,7 @@ $route['Admin-Setting'] = 'PageController/index_Admin';
 
 
 // REPORTS
-$route['List-Book'] = 'BookController/index';
+$route['Report'] = 'BookController/index';
 $route['Book/(:num)'] = 'BookController/edit/$1';
 $route['Book/update(:num)']['put'] = 'BookController/update';
 

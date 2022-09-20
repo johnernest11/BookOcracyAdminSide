@@ -301,19 +301,7 @@
                                     </ul>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-layers"></i><span class="side-menu__label">Reports</span><i class="angle fa fa-angle-right"></i></a>
-                                    <ul class="slide-menu">
-                                        <li class="side-menu-label1"><a href="javascript:void(0)">Reports</a></li>
-                                        <!-- <li><a href="#" class="slide-item"> Sales Stats</a></li>
-                                        <li><a href="#" class="slide-item"> Tranding Activities</a></li>
-                                        <li><a href="#" class="slide-item"> Credits</a></li>
-                                        <li><a href="#" class="slide-item">Visitors</a></li>
-                                        <li><a href="#" class="slide-item">List of Authors</a></li> -->
-                                        <li><a href="<?php echo site_url('List-Book'); ?>" class="slide-item">List of Books</a></li>
-                                        <!-- <li><a href="#" class="slide-item">User Status</a></li>
-                                        <li><a href="#" class="slide-item"> User Overtime</a></li>
-                                        <li><a href="#" class="slide-item"> Revenue</a></li> -->
-                                    </ul>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Report'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Report</span></a>
                                 </li>
                                 <li class="slide">
                                     <a class="side-menu__item" data-bs-toggle="slide" href="#"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Email</span></a>

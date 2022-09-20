@@ -285,10 +285,6 @@
   
 })(jQuery);
 </script>
-<script>
-
-
-</script>
 
 
 

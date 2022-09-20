@@ -17,7 +17,7 @@ class BookController extends CI_Controller {
   {
     $data['book'] = $this->book_model->get_all();
     $this->load->view('sidebar');       
-    $this->load->view('Reports/List-Book',$data);
+    $this->load->view('Reports/Report',$data);
   }
  
   /*

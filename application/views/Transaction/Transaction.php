@@ -1,3 +1,4 @@
+
 <!-- PAGE-HEADER -->
 <div class="page-header">
 	<div>
@@ -23,7 +24,6 @@
 							<tr>
 								<th class="wd-15p border-bottom-0">Transaction No.</th>
 								<th class="wd-15p border-bottom-0">Transaction Details</th>
-                                <th class="wd-15p border-bottom-0">Transaction Order No.</th>
                                 <th class="wd-15p border-bottom-0">Value</th>
 								<th class="wd-15p border-bottom-0">TimeStamp</th>
                                 <th class="wd-15p border-bottom-0"></th>
@@ -39,54 +39,82 @@
 	<!-- MODAL TRANSACTION RECIEPT RECENT VIEW/EDIT -->
 	<form>
             <div class="modal fade" id="Transaction_ReceiptRecent_Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
+              <<div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" name="order_id_edit"><label for="fname" ></label>TRANSACTION RECIEPT</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">TRANSACTION RECIEPT</h5>
                           <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                   </div>
-                  <div class="modal-body">
-                        <div class="row row-sm">
-                            <!-- <input type="text" name="order_id_edit" id="order_id_edit" class="form-control"  readonly> -->
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Fist Name</label>
-                                  <input type="text" name="First_Name_edit" id="First_Name_edit" class="form-control"readonly >
-                              </div>
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Last Name</label>
-                                  <input type="text" name="Last_Name_edit" id="Last_Name_edit" class="form-control"readonly >
-                              </div>
-							  <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Phone Number</label>
-                                  <input type="text" name="Phone_Number_edit" id="Phone_Number_edit" class="form-control"readonly >
-                              </div>
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-6">
-                                <label class="col-md-6 col-form-label">Email</label>
-                                  <input type="text" name="Email_edit" id="Email_edit" class="form-control" readonly>
-                              </div>
-                              <div class="col-lg-6">
-                                <label class="col-md-6 col-form-label">Street</label>
-                                  <input type="text" name="Street_Address_edit" id="Street_Address_edit" class="form-control" readonly>
-                              </div>
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">State</label>
-                                  <input type="text" name="State_edit" id="State_edit" class="form-control"  readonly>
-                              </div>
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">City</label>
-                                  <input type="text" name="City_edit" id="City_edit" class="form-control"  readonly>
-                              </div>
-							  <div class="col-lg-4">
-							  <label class="col-md-12 col-form-label">Postal Code</label>
-                                  <input type="text" name="Postal_Code_edit" id="Postal_Code_edit" class="form-control" readonly>
-                              </div>
-                        </div>
+						<div class="modal-body">
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Transaction Id:</label>
+								<div class="col-md-9">
+								<input type="text" name="order_id_edit" id="order_id_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Amount Purchased:</label>
+								<div class="col-md-9">
+								<input type="text" name="amount_edit" id="amount_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Date Posted:</label>
+								<div class="col-md-9">
+								<input type="text" name="created_edit" id="created_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Description</label>
+								<div class="col-md-9">
+								<input type="text" name="description_edit" id="description_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<hr>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">First Name:</label>
+								<div class="col-md-9">
+									<input type="text" name="First_Name_editt" id="First_Name_editt" class="form-control border-0" placeholder="First name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputEmail3" class="col-md-3 form-label">Last Name:</label>
+								<div class="col-md-9">
+									<input type="text" name="Last_Name_editt" id="Last_Name_editt" class="form-control border-0" placeholder="Last name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Email address:</label>
+								<div class="col-md-9">
+									<input type="email" name="Email_editt" id="Email_editt" class="form-control border-0" placeholder="Email">
+								</div>
+							</div>
+							<hr>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Address:</label>
+								<div class="col-md-9">
+									<input type="text" name="Street_Address_editt" id="Street_Address_editt" class="form-control border-0" placeholder="Home Address">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">City:</label>
+								<div class="col-md-9">
+									<input type="text" name="City_editt" id="City_editt" class="form-control border-0" placeholder="City">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputEmail3" class="col-md-3 form-label">Country:</label>
+								<div class="col-md-9">
+								<input type="text" class="form-control border-0" name="State_editt" id="State_editt" placeholder="Company name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Postal Code:</label>
+								<div class="col-md-9">
+									<input type="number" name="Postal_Code_editt" id="Postal_Code_editt" class="form-control border-0" placeholder="ZIP Code">
+								</div>
+							</div>
+					</div>
 						<div class="modal-footer">
                     			<h5 class="modal-title" id="exampleModalLabel" name="Email_edit"><label for="fname" ></label>TRANSACTION RECIEPT</h5>
 						</div>
@@ -175,12 +203,12 @@
 				
         <div class="table-responsive deleted-table">
             <br>
+			
           <table id="history_transaction_datatable" class="table table-bordered text-nowrap border-bottom">
 						<thead>
 							<tr>
-							<th class="wd-15p border-bottom-0">Transaction No.</th>
+								<th class="wd-15p border-bottom-0">Transaction No.</th>
 								<th class="wd-15p border-bottom-0">Transaction Details</th>
-                                <th class="wd-15p border-bottom-0">Transaction Order No.</th>
                                 <th class="wd-15p border-bottom-0">Value</th>
 								<th class="wd-15p border-bottom-0">TimeStamp</th>
                                 <th class="wd-15p border-bottom-0"></th>
@@ -194,56 +222,84 @@
 		</div>
 	</div>
 	<!-- MODAL TRANSACTION RECIEPT HISTORY VIEW/EDIT -->
-	<form>
+	<form class="form-horizontal">
             <div class="modal fade" id="Transaction_ReceiptHistory_Modal_Edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-dialog modal-md" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel" name="order_id_edit"><label for="fname" ></label>TRANSACTION RECIEPT</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">TRANSACTION RECIEPT</h5>
                           <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                   </div>
-                  <div class="modal-body">
-                        <div class="row row-sm">
-                            <!-- <input type="text" name="order_id_edit" id="order_id_edit" class="form-control"  readonly> -->
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Fist Name</label>
-                                  <input type="text" name="First_Name_editt" id="First_Name_editt" class="form-control"readonly >
-                              </div>
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Last Name</label>
-                                  <input type="text" name="Last_Name_editt" id="Last_Name_editt" class="form-control"readonly >
-                              </div>
-							  <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">Phone Number</label>
-                                  <input type="text" name="Phone_Number_edit" id="Phone_Number_edit" class="form-control"readonly >
-                              </div>
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-6">
-                                <label class="col-md-6 col-form-label">Email</label>
-                                  <input type="text" name="Email_editt" id="Email_editt" class="form-control" readonly>
-                              </div>
-                              <div class="col-lg-6">
-                                <label class="col-md-6 col-form-label">Street</label>
-                                  <input type="text" name="Street_Address_editt" id="Street_Address_editt" class="form-control" readonly>
-                              </div>
-                        </div>
-                        <div class="row row-sm">
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">State</label>
-                                  <input type="text" name="State_editt" id="State_editt" class="form-control"  readonly>
-                              </div>
-                              <div class="col-lg-4">
-                                <label class="col-md-6 col-form-label">City</label>
-                                  <input type="text" name="City_editt" id="City_editt" class="form-control"  readonly>
-                              </div>
-							  <div class="col-lg-4">
-							  <label class="col-md-12 col-form-label">Postal Code</label>
-                                  <input type="text" name="Postal_Code_editt" id="Postal_Code_editt" class="form-control" readonly>
-                              </div>
-                        </div>
+						<div class="modal-body">
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Transaction Id:</label>
+								<div class="col-md-9">
+								<input type="text" name="order_id_edit" id="order_id_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Amount Purchased:</label>
+								<div class="col-md-9">
+								<input type="text" name="amount_edit" id="amount_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Date Posted:</label>
+								<div class="col-md-9">
+								<input type="text" name="created_edit" id="created_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">Description</label>
+								<div class="col-md-9">
+								<input type="text" name="description_edit" id="description_edit" class="form-control border-0" >
+								</div>
+							</div>
+							<hr>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">First Name:</label>
+								<div class="col-md-9">
+									<input type="text" name="First_Name_editt" id="First_Name_editt" class="form-control border-0" placeholder="First name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputEmail3" class="col-md-3 form-label">Last Name:</label>
+								<div class="col-md-9">
+									<input type="text" name="Last_Name_editt" id="Last_Name_editt" class="form-control border-0" placeholder="Last name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Email address:</label>
+								<div class="col-md-9">
+									<input type="email" name="Email_editt" id="Email_editt" class="form-control border-0" placeholder="Email">
+								</div>
+							</div>
+							<hr>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Address:</label>
+								<div class="col-md-9">
+									<input type="text" name="Street_Address_editt" id="Street_Address_editt" class="form-control border-0" placeholder="Home Address">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputName" class="col-md-3 form-label">City:</label>
+								<div class="col-md-9">
+									<input type="text" name="City_editt" id="City_editt" class="form-control border-0" placeholder="City">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputEmail3" class="col-md-3 form-label">Country:</label>
+								<div class="col-md-9">
+								<input type="text" class="form-control border-0" name="State_editt" id="State_editt" placeholder="Company name">
+								</div>
+							</div>
+							<div class=" row mb-4">
+								<label for="inputPassword3" class="col-md-3 form-label">Postal Code:</label>
+								<div class="col-md-9">
+									<input type="number" name="Postal_Code_editt" id="Postal_Code_editt" class="form-control border-0" placeholder="ZIP Code">
+								</div>
+							</div>
+					</div>
 						<div class="modal-footer">
                     			<h5 class="modal-title" id="exampleModalLabel" name="Email_edit"><label for="fname" ></label>TRANSACTION RECIEPT</h5>
 						</div>
@@ -270,16 +326,19 @@
 				success : function(data){
                     var html = '';
                     var i;
-                    for(i=0; i<data.length; i++){
+					for(i=0; i<data.length; i++){
                         html += '<tr>'+
-						        '<td>'+data[i].cnum+'</td>'+
+								'<td>'+data[i].order_id+'</td>'+
 								'<td>'+data[i].description+'</td>'+
-                                '<td>'+data[i].order_id+'</td>'+
                                 '<td> $ '+data[i].amount+'</td>'+
                                 '<td>'+data[i].created_at+'</td>'+
                                 '<td>'+
                                 '<a  class="btn  btn-sm recent_transactionbtn"'+
                                 ' data-trasaction_tid="'+data[i].TID+'"'+
+								' data-trasaction_orderid="'+data[i].order_id+'"'+
+								' data-trasaction_amount="'+data[i].amount+'"'+
+								' data-trasaction_description="'+data[i].description+'"'+
+								' data-trasaction_created_at="'+data[i].created_at+'"'+
 								' data-trasaction_firstname="'+data[i].First_Name+'"'+
                                 ' data-trasaction_lastname="'+data[i].Last_Name+'"'+
 								' data-trasaction_email="'+data[i].Email+'"'+
@@ -293,6 +352,7 @@
                                 '</tr>';
                     }
                     $('#recent_transaction').html(html);  
+					
                     var table = $('#recent_transaction_datatable').DataTable();
                     $('#recent_transaction_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
@@ -306,10 +366,14 @@
                 }
             });
         
-			//RECENT TRANSACTION//
+			//RECENT TRANSACTION//trasaction_orderid
 			    //get data for view record from database to  modal
 			$('#recent_transaction').on('click','.recent_transactionbtn',function(){
-                var transaction_TID = $(this).data('trasaction_tid');
+				var transaction_TID = $(this).data('trasaction_tid');
+				var transaction_OrderId = $(this).data('trasaction_orderid');
+				var transaction_Amount = $(this).data('trasaction_amount');
+				var transaction_Description = $(this).data('trasaction_description');
+				var transaction_Created = $(this).data('trasaction_created_at');
                 var transaction_First_Name = $(this).data('trasaction_firstname');
                 var transaction_Last_Name = $(this).data('trasaction_lastname');
                 var transaction_Email = $(this).data('trasaction_email');
@@ -317,23 +381,19 @@
                 var transaction_State = $(this).data('trasaction_state');
                 var transaction_City = $(this).data('trasaction_city');
                 var transaction_Postal_Code = $(this).data('trasaction_postalcode');
-				var transaction_Phone_Number = $(this).data('trasaction_phonenumber');
-                alert(transaction_TID);
-				alert(transaction_First_Name);
-				console.log('Street_Address',transaction_Street_Address);
-                console.log('First_Name',transaction_First_Name);
-                console.log('LastName',transaction_Last_Name);
-                console.log('Email',transaction_Postal_Code);
                 
                 $('#Transaction_ReceiptRecent_Modal_Edit').modal('show');
-                $('[name="First_Name_edit"]').val(transaction_First_Name);
-                $('[name="Last_Name_edit"]').val(transaction_Last_Name);
-                $('[name="Email_edit"]').val(transaction_Email);
-                $('[name="Street_Address_edit"]').val(transaction_Street_Address);
-                $('[name="State_edit"]').val(transaction_State);
-                $('[name="City_edit"]').val(transaction_City);
-                $('[name="Postal_Code_edit"]').val(transaction_Postal_Code);
-				$('[name="Phone_Number_edit"]').val(transaction_Phone_Number);
+				$('[name="order_id_edit"]').val(transaction_OrderId);
+				$('[name="amount_edit"]').val(transaction_Amount);
+				$('[name="description_edit"]').val(transaction_Description);
+				$('[name="created_edit"]').val(transaction_Created);
+                $('[name="First_Name_editt"]').val(transaction_First_Name);
+                $('[name="Last_Name_editt"]').val(transaction_Last_Name);
+                $('[name="Email_editt"]').val(transaction_Email);
+                $('[name="Street_Address_editt"]').val(transaction_Street_Address);
+                $('[name="State_editt"]').val(transaction_State);
+                $('[name="City_editt"]').val(transaction_City);
+                $('[name="Postal_Code_editt"]').val(transaction_Postal_Code);
             });
 
 
@@ -350,14 +410,17 @@
                     var i;
                     for(i=0; i<data.length; i++){
                         html += '<tr>'+
-								'<td>'+data[i].cnum+'</td>'+
-								'<td>'+data[i].description+'</td>'+
                                 '<td>'+data[i].order_id+'</td>'+
+								'<td>'+data[i].description+'</td>'+
                                 '<td> $ '+data[i].amount+'</td>'+
                                 '<td>'+data[i].created_at+'</td>'+
                                 '<td>'+
                                 '<a  class="btn  btn-sm history_transactionbtn"'+
                                 ' data-trasaction_tid="'+data[i].TID+'"'+
+								' data-trasaction_orderid="'+data[i].order_id+'"'+
+								' data-trasaction_amount="'+data[i].amount+'"'+
+								' data-trasaction_description="'+data[i].description+'"'+
+								' data-trasaction_created_at="'+data[i].ocreated_at+'"'+
 								' data-trasaction_firstname="'+data[i].First_Name+'"'+
                                 ' data-trasaction_lastname="'+data[i].Last_Name+'"'+
 								' data-trasaction_email="'+data[i].Email+'"'+
@@ -403,6 +466,10 @@
 			    //get data for view record from database to  modal
 				$('#history_transaction').on('click','.history_transactionbtn',function(){
                 var transaction_TID = $(this).data('trasaction_tid');
+				var transaction_OrderId = $(this).data('trasaction_orderid');
+				var transaction_Amount = $(this).data('trasaction_amount');
+				var transaction_Description = $(this).data('trasaction_description');
+				var transaction_Created = $(this).data('trasaction_created_at');
                 var transaction_First_Name = $(this).data('trasaction_firstname');
                 var transaction_Last_Name = $(this).data('trasaction_lastname');
                 var transaction_Email = $(this).data('trasaction_email');
@@ -410,14 +477,12 @@
                 var transaction_State = $(this).data('trasaction_state');
                 var transaction_City = $(this).data('trasaction_city');
                 var transaction_Postal_Code = $(this).data('trasaction_postalcode');
-                alert(transaction_TID);
-				alert(transaction_First_Name);
-				console.log('Street_Address',transaction_Street_Address);
-                console.log('First_Name',transaction_First_Name);
-                console.log('LastName',transaction_Last_Name);
-                console.log('Email',transaction_Postal_Code);
                 
                 $('#Transaction_ReceiptHistory_Modal_Edit').modal('show');
+				$('[name="order_id_edit"]').val(transaction_OrderId);
+				$('[name="amount_edit"]').val(transaction_Amount);
+				$('[name="description_edit"]').val(transaction_Description);
+				$('[name="created_edit"]').val(transaction_Created);
                 $('[name="First_Name_editt"]').val(transaction_First_Name);
                 $('[name="Last_Name_editt"]').val(transaction_Last_Name);
                 $('[name="Email_editt"]').val(transaction_Email);
@@ -657,6 +722,10 @@
 	});
 </script>
 
+
+<script>
+	
+	</script>
 
 
 		
