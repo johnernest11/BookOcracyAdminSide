@@ -12,18 +12,7 @@ class Book_model extends CI_Model{
     /*
         Get all the records from the database
     */
-    public function get_all()
-    {
-        $this->db->select('*');
-        $this->db->from('book');
-        $this->db->join('accounts','accounts.AID = book.AID');
-        $this->db->join('book_chapter','book_chapter.Book_ID = book.Book_ID');
-        $this->db->where('accounts.Account_Status = 0 ');
-        $transaction = $this->db->get();
-        return $transaction->result();
-        $projects = $this->db->get("book")->result();
-        return $projects;
-    }
+  
 
 
 
@@ -48,9 +37,17 @@ class Book_model extends CI_Model{
     */
     public function get($id)
     {
+        
         $project = $this->db->get_where('book', ['BOOK_ID' => $id ])->row();
         return $project;
     }
+        public function getchapter($id)
+    {
+        $project1 = $this->db->get_where('book_chapter', ['BOOK_ID' => $id ])->result();
+        return $project1;
+    }
+
+    
  
  
     /*

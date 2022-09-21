@@ -8,7 +8,7 @@ class AuthController extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->model('Users_model');
 		
-		$this->load->model('main_model');
+		$this->load->model('Main_model');
 		
 	}
  

@@ -145,7 +145,7 @@
                                                                 <div class="row">
                                                                     <div class="col">
                                                                         <h6 class="">Trending Activities</h6>
-                                                                        <table id="example" class="table  text-nowrap border-bottom">
+                                                                        <!-- <table id="example" class="table  text-nowrap border-bottom">
                                                                             <thead>
                                                                                 <tr>
                                                                                     <th class="wd-15p border-bottom-0">Book Title</th>
@@ -175,7 +175,7 @@
                                                                                     </tr>
                                                                                     <?php endforeach; ?>
                                                                             </tbody>
-                                                                        </table>
+                                                                        </table> -->
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -385,29 +385,14 @@
                                                     <tr>
                                                         <th class="wd-15p border-bottom-0">Author</th>
                                                         <th class="wd-15p border-bottom-0">Number of Books</th>
-                                                        <th class="wd-15p border-bottom-0">Status</th>
-                                                        <th class="wd-15p border-bottom-0"></th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                        <?php foreach($book as $dataa):  ?>
-                                                            <?php
-
-                                                                $id=$dataa->Book_ID;
-                                                                $Status=$dataa->Book_Status;
-
-                                                                if ($Status ==1) {
-                                                                    $Status1="Publish";
-                                                                } else {
-                                                                    $Status1="Unpublish";
-                                                                }
-                                                                ?>
-                                                                                                    
+                                                        <?php foreach($accounts as $dataa):  ?>    
                                                         <tr>
                                                             <td><?php echo $dataa->Full_Name; ?></td>
-                                                            <td><?php echo $dataa->Full_Name; ?></td>
-                                                            <td><?php echo $Status1; ?></td>   
-                                                            <td><a href="<?php echo base_url('/index.php/Book/'.$id); ?>"><i class="fa fa-user" aria-hidden="true"></i></a></td>
+                                                            <td><?php echo $dataa->Book_Title; ?></td>
+                                                           
                                                             
                                                             
                                                         </tr>

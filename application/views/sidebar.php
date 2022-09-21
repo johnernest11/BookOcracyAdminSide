@@ -54,14 +54,14 @@
                             <a aria-label="Hide Sidebar" class="app-sidebar__toggle" data-bs-toggle="sidebar" href="javascript:void(0);"></a>
                             <div class="responsive-logo">
                                 <a href="index.html" class="header-logo">
-                                    <img src="../assets/images/brand/booklogo1.png" class="mobile-logo logo-1" alt="logo">
-                                    <img src="../assets/images/brand/booklogo1.png" class="mobile-logo dark-logo-1" alt="logo">
+                                    <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="mobile-logo logo-1" alt="logo">
+                                    <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="mobile-logo dark-logo-1" alt="logo">
                                 </a>
                             </div>
                             <!-- sidebar-toggle-->
                             <a class="logo-horizontal " href="index.html">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo1"
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img light-logo1"
                                     alt="logo">
                             </a>
                             <!-- LOGO -->
@@ -219,7 +219,7 @@
                                             <div class="dropdown d-md-flex profile-1">
                                                 <a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">
                                                     <span>
-                                                            <img src="../assets/images/users/21.jpg" alt="profile-user" class="avatar  profile-user brround cover-image">
+                                                            <img src="<?php echo site_url('assets/images/users/21.jpg')?>" alt="profile-user" class="avatar  profile-user brround cover-image">
                                                         </span>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -269,10 +269,10 @@
                     <aside class="app-sidebar">
                         <div class="side-header">
                             <a class="header-brand1" href="index.html">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img desktop-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img toggle-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo" alt="logo">
-                                <img src="../assets/images/brand/booklogo1.png" class="header-brand-img light-logo1" alt="logo">
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img desktop-logo" alt="logo">
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img toggle-logo" alt="logo">
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img light-logo" alt="logo">
+                                <img src="<?php echo site_url('assets/images/brand/booklogo1.png')?>" class="header-brand-img light-logo1" alt="logo">
                             </a>
                             <!-- LOGO -->
                         </div>

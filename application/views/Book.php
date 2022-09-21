@@ -23,7 +23,7 @@
 
 							<!-- ROW-1 OPEN -->
 							<div class="row">
-								<div class="col-xl-4 col-md-12 col-sm-12">
+								<div class="col-xl-2 col-md-12 col-sm-12">
 									<div class="card panel-theme">
 										<div class="card-header">
 											<div class="float-start">
@@ -36,7 +36,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-8 col-md-12 col-sm-12">
+								<div class="col-xl-10 col-md-12 col-sm-12">
 								<div class="col-xl-12">
 									<div class="card">
 										<div>
@@ -46,9 +46,8 @@
 														<!-- Tabs -->
 														<ul class="nav panel-tabs">
 															<li ><a href="#tab1" class="active me-1" data-bs-toggle="tab">Book Details</a></li>
-															<?php foreach($book as $dataa):  ?>
-															<li><a href="#tab2" data-bs-toggle="tab" class="me-1"> Chapters <?php echo $dataa->Book_Title; ?></a></li>
-															<?php endforeach; ?>
+															<li><a href="#tab2" data-bs-toggle="tab" class="me-1"> Chapters</a></li>
+															
 														</ul>
 													</div>
 												</div>
@@ -114,12 +113,37 @@
 															</div>
 														</div>
 
-									
+													
 														<div class="tab-pane  " id="tab2">
-															<p> default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like</p>
-															<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et</p>
+															<div class="card-body">
+																<div class="col-lg-12 col-md-12">
+																	<table id="example" class="table table-bordered text-nowrap border-bottom">
+																		<thead>
+																			<tr>
+																				<th class="wd-15p border-bottom-0">#</th>
+																				<th class="wd-15p border-bottom-0">Title</th>
+																				<th class="wd-15p border-bottom-0">Content</th>
+																			</tr>
+																		</thead>
+																		<tbody>
+																				<?php foreach($book_chapter as $dataa):  ?>
+																				
+																															
+																				<tr>
+																					<td><?php echo $dataa->Chapter_No; ?></td>
+																					<td><?php echo $dataa->Chapter_Title; ?></td>
+																					<td><p><?php echo $dataa->Chapter_Content; ?></p></td>   
+																					
+																					
+																					
+																				</tr>
+																				<?php endforeach; ?>
+																		</tbody>
+																	</table>
+																</div>
+															</div>
 														</div>
-													</div>
+													
 												</div>
 											</div>
 										</div>

@@ -13,13 +13,7 @@ class BookController extends CI_Controller {
    /*
       Display all records in page
    */
-  public function index()
-  {
-    $data['book'] = $this->Book_model->get_all();
-    $this->load->view('sidebar');       
-    $this->load->view('Reports/Report',$data);
-  }
-
+  
 
  
   /*
@@ -73,8 +67,9 @@ class BookController extends CI_Controller {
   */
   public function edit($id)
   {
-    
+    $data = array();
     $data['book'] = $this->Book_model->get($id);
+    $data['book_chapter'] = $this->Book_model->getchapter($id);
     $this->load->view('sidebar');       
     $this->load->view('Book',$data);     
   }
