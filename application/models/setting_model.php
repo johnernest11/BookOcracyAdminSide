@@ -1,5 +1,5 @@
 <?php
-class setting_model extends CI_Model{
+class Setting_model extends CI_Model{
 
 //Author-Users Accounts
     function historyAdmin_list(){

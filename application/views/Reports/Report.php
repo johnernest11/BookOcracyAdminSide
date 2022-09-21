@@ -439,7 +439,7 @@
                                                             <th class="wd-15p border-bottom-0">Author</th>
                                                             <th class="wd-15p border-bottom-0">Views</th>
                                                             <th class="wd-15p border-bottom-0">Votes</th>
-                                                            <th class="wd-15p border-bottom-0"></th>
+                                                            <!-- <th class="wd-15p border-bottom-0"></th> -->
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -461,7 +461,7 @@
                                                                 <td><?php echo $dataa->Full_Name; ?></td>
                                                                 <td><?php echo $dataa->Book_Category; ?></td>
                                                                 <td><?php echo $Status1; ?></td>   
-                                                                <td><a href="<?php echo site_url('/Book/'.$id); ?>"><i class="fa fa-book" aria-hidden="true"></i></a></td>
+                                                                <!-- <td><a href="<?php echo site_url('/Book/'.$id); ?>"><i class="fa fa-book" aria-hidden="true"></i></a></td> -->
                                                                 
                                                                 
                                                             </tr>

@@ -1,7 +1,7 @@
 <?php
  
  
-class book_model extends CI_Model{
+class Book_model extends CI_Model{
  
     public function __construct()
     {
@@ -17,12 +17,17 @@ class book_model extends CI_Model{
         $this->db->select('*');
         $this->db->from('book');
         $this->db->join('accounts','accounts.AID = book.AID');
+        $this->db->join('book_chapter','book_chapter.Book_ID = book.Book_ID');
         $this->db->where('accounts.Account_Status = 0 ');
         $transaction = $this->db->get();
         return $transaction->result();
         $projects = $this->db->get("book")->result();
         return $projects;
     }
+
+
+
+
  
     /*
         Store the record in the database

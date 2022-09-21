@@ -2,7 +2,7 @@
 class ReportController extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->model('report_model');
+        $this->load->model('Report_model');
     }
     public function TotalCredits(){
 		//load session library
@@ -12,8 +12,8 @@ class ReportController extends CI_Controller{
 		if($this->session->userdata('user')){
 			//fetch  most reader books
 			$data = array();
-			$data['book'] = $this->main_model->Most_Read_books();
-			$data['author'] = $this->main_model->Top_Authors();
+			$data['book'] = $this->Main_model->Most_Read_books();
+			$data['author'] = $this->Main_model->Top_Authors();
             $this->load->view('sidebar');       
             $this->load->view("Dashboard", $data);  
 		}

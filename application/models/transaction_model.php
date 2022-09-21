@@ -1,5 +1,5 @@
 <?php
-class transaction_model extends CI_Model{
+class Transaction_model extends CI_Model{
 
 //TRANSACTION RECENT
     function transaction_recent(){

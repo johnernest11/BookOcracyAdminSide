@@ -2,7 +2,7 @@
 class TransactionController extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->model('transaction_model');
+        $this->load->model('Transaction_model');
     }
 // SETTING\
 
@@ -14,12 +14,12 @@ class TransactionController extends CI_Controller{
     }
  
     function transaction_recent_data(){
-        $data=$this->transaction_model->transaction_recent();
+        $data=$this->Transaction_model->transaction_recent();
         echo json_encode($data);
     }
 
     function transaction_history_data(){
-        $data=$this->transaction_model->transaction_history();
+        $data=$this->Transaction_model->transaction_history();
         echo json_encode($data);
     }
  

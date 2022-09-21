@@ -1,5 +1,5 @@
 <?php
-class page_model extends CI_Model{
+class Page_model extends CI_Model{
  
     // USER SETTING 
     

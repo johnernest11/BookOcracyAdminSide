@@ -6,7 +6,7 @@ class AuthController extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->helper('url');
-		$this->load->model('users_model');
+		$this->load->model('Users_model');
 		
 		$this->load->model('main_model');
 		
@@ -32,7 +32,7 @@ class AuthController extends CI_Controller {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
  
-		$data = $this->users_model->login($email, $password);
+		$data = $this->Users_model->login($email, $password);
  
 		if($data){
 			$this->session->set_userdata('user', $data);
@@ -52,8 +52,8 @@ class AuthController extends CI_Controller {
 		if($this->session->userdata('user')){
 			//fetch  most reader books
 			$data = array();
-			$data['book'] = $this->main_model->Most_Read_books();
-			$data['author'] = $this->main_model->Top_Authors();
+			$data['book'] = $this->Main_model->Most_Read_books();
+			$data['author'] = $this->Main_model->Top_Authors();
             $this->load->view('sidebar');       
             $this->load->view("Dashboard", $data);  
 		}

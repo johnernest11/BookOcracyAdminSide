@@ -2,7 +2,7 @@
 class PageController extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->model('page_model');
+        $this->load->model('Page_model');
     }
 // USER SETTING\
 
@@ -13,7 +13,7 @@ class PageController extends CI_Controller{
     }
  
     function product_data(){
-        $data=$this->page_model->Author_list();
+        $data=$this->Page_model->Author_list();
         // echo "<pre>";
         // echo print_r ($data);
 
@@ -23,29 +23,29 @@ class PageController extends CI_Controller{
   
  
     function update(){
-        $data=$this->page_model->update_author();
+        $data=$this->Page_model->update_author();
         echo json_encode($data);
     }   
 
     function reset(){
-        $data=$this->page_model->reset_author();
+        $data=$this->Page_model->reset_author();
         echo json_encode($data);
     }
 
 
     function archieve(){
-        $data=$this->page_model->archieve_author();
+        $data=$this->Page_model->archieve_author();
         echo json_encode($data);
     }
 
 
     function banned(){
-        $data=$this->page_model->banned_author();
+        $data=$this->Page_model->banned_author();
         echo json_encode($data);
     }
 
     function suspend(){
-        $data=$this->page_model->suspend_author();
+        $data=$this->Page_model->suspend_author();
         echo json_encode($data);
     }
  
@@ -55,7 +55,7 @@ class PageController extends CI_Controller{
 // REPORTS SETTING
 //PERSONAL INFORMATION
     function index_Information(){
-        $data=$this->page_model->PesonalInfo();
+        $data=$this->Page_model->PesonalInfo();
         echo json_encode($data);
         $this->load->view('sidebar');
         $this->load->view('UserSetting/Personal-Information');
@@ -63,7 +63,7 @@ class PageController extends CI_Controller{
 
      // show single user
      public function book_dataget(){
-        $data = $this->page_model->fetch_book();
+        $data = $this->Page_model->fetch_book();
         echo json_encode($data);
          echo "<pre>";
         echo print_r ($data);
@@ -91,7 +91,7 @@ function index_Admin(){
 }
 
 function AdminSetting_data(){
-    $data=$this->page_model->AdminSetting();
+    $data=$this->Page_model->AdminSetting();
     // echo "<pre>";
     // echo print_r ($data);
 
@@ -99,18 +99,18 @@ function AdminSetting_data(){
 }
 
 function update_admin(){
-    $data=$this->page_model->update_adminsetting();
+    $data=$this->Page_model->update_adminsetting();
     echo json_encode($data);
 }  
 
 function update_reset(){
-    $data=$this->page_model->reset_adminsetting();
+    $data=$this->Page_model->reset_adminsetting();
     echo json_encode($data);
 }
 
 
 function update_archieve(){
-    $data=$this->page_model->archieve_adminsetting();
+    $data=$this->Page_model->archieve_adminsetting();
     echo json_encode($data);
 }
 

@@ -6,7 +6,7 @@ class BookController extends CI_Controller {
       parent::__construct(); 
       $this->load->library('form_validation');
       $this->load->library('session');
-      $this->load->model('book_model');
+      $this->load->model('Book_model');
  
    }
  
@@ -15,10 +15,12 @@ class BookController extends CI_Controller {
    */
   public function index()
   {
-    $data['book'] = $this->book_model->get_all();
+    $data['book'] = $this->Book_model->get_all();
     $this->load->view('sidebar');       
     $this->load->view('Reports/Report',$data);
   }
+
+
  
   /*
  
@@ -72,10 +74,17 @@ class BookController extends CI_Controller {
   public function edit($id)
   {
     
-    $data['book'] = $this->book_model->get($id);
+    $data['book'] = $this->Book_model->get($id);
     $this->load->view('sidebar');       
     $this->load->view('Book',$data);     
   }
+
+  
+  // public function chapterview($id)
+  // {
+  //   $data['chapter_book'] = $this->book_model->get_chapterview($id);
+  //   $this->load->view('Book',$data);    
+  // }
  
   /*
     Update the submitted record
@@ -88,13 +97,13 @@ class BookController extends CI_Controller {
     if (!$this->form_validation->run())
     {
         $this->session->set_flashdata('errors', validation_errors());
-        redirect(base_url('Bozxcok/' . $id));
+        redirect(base_url('Book/' . $id));
     }
     else
     {
        $this->book->update($id);
        $this->session->set_flashdata('success', "Updated Successfully!");
-       redirect(base_url('index.php/Book/' . $id));
+       redirect(base_url('Book/' . $id));
        return false;
     }
   }
