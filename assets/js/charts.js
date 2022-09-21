@@ -171,7 +171,18 @@
  			x: {
  				type: 'category',
  				// name of each category
- 				categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+ 				categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			axisBorder: {
+				show: false,
+				color: 'rgba(119, 119, 142, 0.08)',
+			},
+			labels: {
+				style: {
+					color: '#8492a6',
+					fontSize: '12px',
+				},
+
+			},
  			},
  		},
  		legend: {

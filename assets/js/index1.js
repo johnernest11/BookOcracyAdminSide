@@ -70,7 +70,7 @@ $(function(e) {
 		}],
 		xaxis: {
 			type: "month",
-			categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+			categories: ["Jasdadasan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			axisBorder: {
 				show: false,
 				color: 'rgba(119, 119, 142, 0.08)',
