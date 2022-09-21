@@ -67,7 +67,7 @@ class AuthController extends CI_Controller {
 		//load session library
 		$this->load->library('session');
 		$this->session->unset_userdata('user');
-		redirect('../');
+		redirect('/');
 	}
  
 }

@@ -13,24 +13,24 @@
         <meta name="keywords" content="admin, dashboard, dashboard ui, admin dashboard template, admin panel dashboard, admin panel html, admin panel html template, admin panel template, admin ui templates, administrative templates, best admin dashboard, best admin templates, bootstrap 4 admin template, bootstrap admin dashboard, bootstrap admin panel, html css admin templates, html5 admin template, premium bootstrap templates, responsive admin template, template admin bootstrap 4, themeforest html">
 
         <!-- FAVICON -->
-        <link rel="shortcut icon" type="image/x-icon" href="<?php echo  base_url();?>/assets/images/brand/booklogo1.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url('assets/images/brand/booklogo1.png')?>" />
 
         <!-- TITLE -->
         <title>BookOcracy – Admin</title>
         <!-- BOOTSTRAP CSS -->
-        <link id="style" href="<?php echo  base_url();?>/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link id="style" href="<?php echo site_url('assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet')?>" />
 
         <!-- STYLE CSS -->
-        <link href="<?php echo  base_url();?>/assets/css/style.css" rel="stylesheet" />
-        <link href="<?php echo  base_url();?>/assets/css/dark-style.css" rel="stylesheet" />
-        <link href="<?php echo  base_url();?>/assets/css/skin-modes.css" rel="stylesheet" />
-        <link href="<?php echo  base_url();?>/assets/css/transparent-style.css" rel="stylesheet" />
+        <link href="<?php echo site_url('assets/css/style.css')?>" rel="stylesheet" />
+        <link href="<?php echo site_url('assets/css/dark-style.css')?>" rel="stylesheet" />
+        <link href="<?php echo site_url('assets/css/skin-modes.css')?>" rel="stylesheet" />
+        <link href="<?php echo site_url('assets/css/transparent-style.css')?>" rel="stylesheet" />
         <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
         <!--- FONT-ICONS CSS -->
-        <link href="<?php echo  base_url();?>/assets/css/icons.css" rel="stylesheet" />
+        <link href="<?php echo site_url('assets/css/icons.css')?>" rel="stylesheet" />
 
         <!-- COLOR SKIN CSS -->
-        <link id="theme" rel="stylesheet" type="text/css" media="all" href="<?php echo  base_url();?>/assets/colors/color1.css" />
+        <link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />
 
     </head>
 
@@ -39,7 +39,7 @@
         <!-- GLOBAL-LOADER -->
         <div id="global-loader">
         <span id="year" class="hidden">
-            <img src="<?php echo  base_url();?>/assets/images/loader.svg" class="loader-img" alt="Loader">
+            <img src="<?php echo site_url('assets/images/loader.svg')?>" class="loader-img" alt="Loader">
         </div>
         <!-- /GLOBAL-LOADER -->
 
@@ -354,97 +354,88 @@
 
            
         </div>
+<!-- BACK-TO-TOP -->
+<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-        
-       
-        <!-- BACK-TO-TOP -->
-		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
-
-        
 <!-- JQUERY JS -->
-<script src="<?php echo  base_url();?>/assets/js/jquery.min.js"></script>
-
+<script src="<?php echo site_url('assets/js/jquery.min.js') ?>"></script>
 
 <!-- BOOTSTRAP JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/bootstrap/js/popper.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo site_url('assets/plugins/bootstrap/js/popper.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/bootstrap/js/bootstrap.min.js') ?>"></script>
 
-
-        <!-- PIETY CHART JS-->
-        <script src="<?php echo  base_url();?>/assets/plugins/peitychart/jquery.peity.min.js"></script>
-        <script src="<?php echo  base_url();?>/assets/plugins/peitychart/peitychart.init.js"></script>
+<!-- PIETY CHART JS-->
+<script src="<?php echo site_url('assets/plugins/peitychart/jquery.peity.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/peitychart/peitychart.init.js') ?>"></script>
 
 <!-- SPARKLINE JS-->
-<script src="<?php echo  base_url();?>/assets/js/jquery.sparkline.min.js"></script>
+<script src="<?php echo site_url('assets/js/jquery.sparkline.min.js') ?>"></script>
 
 <!-- CHART-CIRCLE JS-->
-<script src="<?php echo  base_url();?>/assets/js/circle-progress.min.js"></script>
+<script src="<?php echo site_url('assets/js/circle-progress.min.js') ?>"></script>
 
 <!-- CHARTJS CHART JS-->
-<script src="<?php echo  base_url();?>/assets/plugins/chart/Chart.bundle.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/chart/utils.js"></script>
+<script src="<?php echo site_url('assets/plugins/chart/Chart.bundle.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/chart/utils.js') ?>"></script>
 
 <!-- C3 CHART JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/charts-c3/d3.v5.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/charts-c3/c3-chart.js"></script>
+<script src="<?php echo site_url('assets/plugins/charts-c3/d3.v5.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/charts-c3/c3-chart.js') ?>"></script>
 
 <!-- INPUT MASK JS-->
-<script src="<?php echo  base_url();?>/assets/plugins/input-mask/jquery.mask.min.js"></script>
+<script src="<?php echo site_url('assets/plugins/input-mask/jquery.mask.min.js') ?>"></script>
 
 <!-- SIDE-MENU JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/sidemenu/sidemenu.js"></script>
+<script src="<?php echo site_url('assets/plugins/sidemenu/sidemenu.js') ?>"></script>
 
 <!-- Sticky js -->
-<script src="<?php echo  base_url();?>/assets/js/sticky.js"></script>
+<script src="<?php echo site_url('assets/js/sticky.js') ?>"></script>
 
 <!-- INTERNAL SELECT2 JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/select2/select2.full.min.js"></script>
+<script src="<?php echo site_url('assets/plugins/select2/select2.full.min.js') ?>"></script>
 
 <!-- DATA TABLE JS-->
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/dataTables.bootstrap5.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/dataTables.buttons.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.bootstrap5.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/jszip.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/pdfmake/pdfmake.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/pdfmake/vfs_fonts.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.html5.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.print.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/js/buttons.colVis.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/dataTables.responsive.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/dataTables.select.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/datatable/responsive.bootstrap5.min.js"></script>
-<script src="<?php echo  base_url();?>/assets/js/table-data.js"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/jquery.dataTables.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/dataTables.bootstrap5.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/dataTables.buttons.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/buttons.bootstrap5.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/jszip.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/pdfmake/pdfmake.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/pdfmake/vfs_fonts.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/buttons.html5.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/buttons.print.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/js/buttons.colVis.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/dataTables.responsive.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/dataTables.select.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/datatable/responsive.bootstrap5.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/table-data.js') ?>"></script>
 
 <!-- APEXCHART JS -->
-<script src="<?php echo  base_url();?>/assets/js/apexcharts.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/echarts/echarts.js"></script>
+<script src="<?php echo site_url('assets/js/apexcharts.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/echarts/echarts.js') ?>"></script>
 
 <!-- SIDEBAR JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/sidebar/sidebar.js"></script>
+<script src="../assets/plugins/sidebar/sidebar.js') ?>"></script>
 
 <!-- Perfect SCROLLBAR JS-->
-<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/perfect-scrollbar.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/pscroll.js"></script>
-<script src="<?php echo  base_url();?>/assets/plugins/p-scroll/pscroll-1.js"></script>
+<script src="<?php echo site_url('assets/plugins/p-scroll/perfect-scrollbar.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/p-scroll/pscroll.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/p-scroll/pscroll-1.js') ?>"></script>
 
 <!-- Color Theme js -->
-<script src="<?php echo  base_url();?>/assets/js/themeColors.js"></script>
+<script src="<?php echo site_url('assets/js/themeColors.js') ?>"></script>
 
 <!-- CUSTOM JS -->
-<script src="<?php echo  base_url();?>/assets/js/custom.js"></script>
-<script src="<?php echo  base_url();?>/assets/js/index.js"></script>
-<script src="<?php echo  base_url();?>/assets/js/index1.js"></script>
-<script src="../assets/js/jquery.sparkline.min.js"></script>
+<script src="<?php echo site_url('assets/js/custom.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/index.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/index1.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/jquery.sparkline.min.js') ?>"></script>
 
 <!-- SWEET-ALERT JS -->
-<script src="<?php echo  base_url();?>/assets/plugins/sweet-alert/sweetalert.min.js"></script>
-		<script src="<?php echo  base_url();?>/assets/js/sweet-alert.js"></script>
-        <script src="<?php echo  base_url();?>/assets/js/sweetalert2.all.js"></script>
-        <script src="<?php echo  base_url();?>/assets/js/sweetalert2.min.js"></script>
-
-
+<script src="<?php echo site_url('assets/plugins/sweet-alert/sweetalert.min.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/sweet-alert.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/sweetalert2.all.js') ?>"></script>
+<script src="<?php echo site_url('assets/js/sweetalert2.min.js') ?>"></script>
 
     </body>
-
 </html>
