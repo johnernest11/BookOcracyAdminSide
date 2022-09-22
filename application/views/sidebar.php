@@ -415,7 +415,7 @@
 <script src="<?php echo site_url('assets/plugins/echarts/echarts.js') ?>"></script>
 
 <!-- SIDEBAR JS -->
-<script src="../assets/plugins/sidebar/sidebar.js') ?>"></script>
+<script src="<?php echo site_url('assets/plugins/sidebar/sidebar.js') ?>"></script>
 
 <!-- Perfect SCROLLBAR JS-->
 <script src="<?php echo site_url('assets/plugins/p-scroll/perfect-scrollbar.js') ?>"></script>

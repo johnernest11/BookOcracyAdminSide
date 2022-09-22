@@ -116,7 +116,7 @@
 													
 														<div class="tab-pane  " id="tab2">
 															<div class="card-body">
-																<div class="col-lg-12 col-md-12">
+																<div class="col-lg-2 col-md-2">
 																	<table id="example" class="table table-bordered text-nowrap border-bottom">
 																		<thead>
 																			<tr>
@@ -160,3 +160,34 @@
 				</div>
 				<!--CONTAINER CLOSED -->
 			</div>
+
+
+
+			<script type="text/javascript">
+  
+  $(document).ready(function(){
+	var table = $('#example').DataTable({
+					  'columnDefs': [
+						{
+							'targets': 0,
+							'checkboxes': {
+							  'selectRow': false
+							}
+						}
+					  ],
+					  'select': {
+						'style': 'multi'
+						}
+					 });
+					$('#datatable tbody').on('click', 'tr', function () {
+					  console.log( table.row( this ).data() );
+						if ($(this).hasClass('selected')) {
+							$(this).removeClass('selected');
+						} else {
+							table.$('tr.selected').removeClass('selected');
+							$(this).addClass('selected');
+						}
+					});
+	  
+  });
+</script>

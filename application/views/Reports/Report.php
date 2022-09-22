@@ -379,8 +379,8 @@
                                             <h3 class="card-title">List of Authors</h3>
                                         </div>
                                     <div class="card-body">
-                                        <div class="table-responsive deleted-table">
-                                            <table id="example" class="table table-bordered text-nowrap border-bottom">
+                                        <div class="table-responsive ">
+                                            <table id="datatableq" class="table table-bordered text-nowrap border-bottom">
                                                 <thead>
                                                     <tr>
                                                         <th class="wd-15p border-bottom-0">Author</th>
@@ -416,8 +416,8 @@
                                             <h3 class="card-title">List of Books</h3>
                                         </div>
                                     <div class="card-body">
-                                        <div class="table-responsive deleted-table">
-                                                <table id="example" class="table table-bordered text-nowrap border-bottom">
+                                        <div class="table-responsive ">
+                                                <table id="myTable" class="table table-bordered text-nowrap border-bottom">
                                                     <thead>
                                                         <tr>
                                                             <th class="wd-15p border-bottom-0">Books</th>
@@ -470,4 +470,10 @@
     </div>
 </div><!-- COL-END -->
  
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+<script>
  

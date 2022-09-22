@@ -73,6 +73,7 @@ class BookController extends CI_Controller {
     $this->load->view('sidebar');       
     $this->load->view('Book',$data);     
   }
+  
 
   
   // public function chapterview($id)
