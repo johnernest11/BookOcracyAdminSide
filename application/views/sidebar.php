@@ -25,7 +25,7 @@
         <link href="<?php echo site_url('assets/css/dark-style.css')?>" rel="stylesheet" />
         <link href="<?php echo site_url('assets/css/skin-modes.css')?>" rel="stylesheet" />
         <link href="<?php echo site_url('assets/css/transparent-style.css')?>" rel="stylesheet" />
-        <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" />
+        <!-- <link type="text/css" href="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.12/css/dataTables.checkboxes.css" rel="stylesheet" /> -->
         <!--- FONT-ICONS CSS -->
         <link href="<?php echo site_url('assets/css/icons.css')?>" rel="stylesheet" />
 
@@ -38,7 +38,7 @@
 
         <!-- GLOBAL-LOADER -->
         <div id="global-loader">
-        <span id="year" class="hidden">
+        <span id="" class="hidden">
             <img src="<?php echo site_url('assets/images/loader.svg')?>" class="loader-img" alt="Loader">
         </div>
         <!-- /GLOBAL-LOADER -->
@@ -243,7 +243,7 @@
                                                     <a class="dropdown-item" href="#">
                                                         <i class="dropdown-icon fe fe-alert-triangle"></i> Need help?
                                                     </a>
-                                                    <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/AuthController/logout"">
+                                                    <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/AuthController/logout">
                                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                                     </a>
                                                 </div>
@@ -292,12 +292,13 @@
                                     <h3>Account</h3>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">User Settings</span><i class="angle fa fa-angle-right"></i></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-settings"></i><span class="side-menu__label">Accounts</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
                                         <li class="side-menu-label1"><a href="javascript:void(0)">Account</a></li>
-                                        <li><a href="#" class="slide-item">Account Settings</a></li>
-                                        <li><a href="<?php echo site_url('Authors-Users'); ?>"  class="slide-item">Authors/Users</a></li>
-                                        <li><a href="<?php echo site_url('Admin-Setting'); ?>" class="slide-item">Admin Settings</a></li>
+                                        <!-- <li><a href="#" class="slide-item">Account Settings</a></li> -->
+                                        <li><a href="<?php echo site_url('Authors-List'); ?>"  class="slide-item">Authors List</a></li>
+                                        <li><a href="<?php echo site_url('Users-List'); ?>"  class="slide-item">Users List</a></li>
+                                        <!-- <li><a href="<?php echo site_url('Admin-Setting'); ?>" class="slide-item">Admin Settings</a></li> -->
                                     </ul>
                                 </li>
                                 <li class="slide">

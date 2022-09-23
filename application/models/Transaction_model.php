@@ -1,7 +1,7 @@
 <?php
 class Transaction_model extends CI_Model{
 
-//TRANSACTION RECENT
+    //TRANSACTION RECENT
     function transaction_recent(){
         $this->db->select('*');
         $this->db->from('transaction_details');
@@ -12,8 +12,7 @@ class Transaction_model extends CI_Model{
         return $transaction->result();
     }
 
-
-
+    //TRANSACTION HISTORY
     function transaction_history(){
         $this->db->select('*');
         $this->db->from('transaction_details');
@@ -22,8 +21,5 @@ class Transaction_model extends CI_Model{
         $transaction = $this->db->get();
         return $transaction->result();
     }
-
-   
-
 }
  

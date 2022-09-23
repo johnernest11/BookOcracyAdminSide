@@ -43,7 +43,6 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">TRANSACTION RECIEPT</h5>
-                          <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                   </div>
 						<div class="modal-body">
 							<div class=" row mb-4">
@@ -228,7 +227,6 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">TRANSACTION RECIEPT</h5>
-                          <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" ><span aria-hidden="true">&times;</span></button>
                   </div>
 						<div class="modal-body">
 							<div class=" row mb-4">
@@ -420,7 +418,7 @@
 								' data-trasaction_orderid="'+data[i].order_id+'"'+
 								' data-trasaction_amount="'+data[i].amount+'"'+
 								' data-trasaction_description="'+data[i].description+'"'+
-								' data-trasaction_created_at="'+data[i].ocreated_at+'"'+
+								' data-trasaction_created_at="'+data[i].created_at+'"'+
 								' data-trasaction_firstname="'+data[i].First_Name+'"'+
                                 ' data-trasaction_lastname="'+data[i].Last_Name+'"'+
 								' data-trasaction_email="'+data[i].Email+'"'+

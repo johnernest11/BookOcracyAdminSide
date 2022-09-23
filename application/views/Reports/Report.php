@@ -5,7 +5,7 @@
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="javascript:void(0);">Reports</a></li>
 		</ol>
-	</div>>
+	</div>
 </div>
 <!-- PAGE-HEADER END -->
 
@@ -39,7 +39,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
                                                 <div class="row">
-                                                    <div class="col-lg-6 col-md-6">
+                                                    <div class="col-lg-12 col-md-12">
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Sales Stats</h3>
@@ -104,41 +104,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                                                        <div class="card overflow-hidden">
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <h6 class="">Total Credits</h6>
-                                                                        <h3 class="mb-2 number-font" > <?php echo $this->db->count_all('accounts'); ?></h3>
-                                                                    </div>
-                                                                    <div class="col col-auto">
-                                                                        <div class="counter-icon bg-secondary-gradient box-shadow-secondary brround ms-auto">
-                                                                            <i class="fe fe-book-open text-white mb-5 "></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3">
-                                                        <div class="card overflow-hidden">
-                                                            <div class="card-body">
-                                                                <div class="row">
-                                                                    <div class="col">
-                                                                        <h6 class="">Visitors</h6>
-                                                                        <h3 class="mb-2 number-font" ><?php echo $this->db->count_all('accounts'); ?></h3>
-                                                                    </div>
-                                                                    <div class="col col-auto">
-                                                                        <div class="counter-icon bg-secondary-gradient box-shadow-secondary brround ms-auto">
-                                                                            <i class="fe fe-book-open text-white mb-5 "></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    </div>  
                                                     <div class="col-lg-6 col-md-6 col-sm-12 col-xl-12">
                                                         <div class="card overflow-hidden">
                                                             <div class="card-body">
@@ -343,7 +309,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-12 col-xl-12">
+                                                    <!-- <div class="col-lg-6 col-md-6 col-sm-12 col-xl-12">
                                                         <div class="card overflow-hidden">
                                                             <div class="card-body">
                                                                 <div class="row">
@@ -361,7 +327,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -370,7 +336,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- AUTHORS LIST -->
+                    <!-- AUTHORS BOOK COUNT  LIST -->
                     <div class="tab-pane " id="Authors">
                         <div class="row row-sm">
                             <div class="col-lg-12">
@@ -379,25 +345,16 @@
                                             <h3 class="card-title">List of Authors</h3>
                                         </div>
                                     <div class="card-body">
-                                        <div class="table-responsive ">
-                                            <table id="datatableq" class="table table-bordered text-nowrap border-bottom">
+                                        <div class="table-responsive deleted-table">
+                                            <table id="AuthorList_datatable" class="table table-bordered text-nowrap border-bottom">
                                                 <thead>
                                                     <tr>
                                                         <th class="wd-15p border-bottom-0">Author</th>
                                                         <th class="wd-15p border-bottom-0">Number of Books</th>
                                                     </tr>
                                                 </thead>
-                                                <tbody>
-                                                        <?php foreach($accounts as $dataa):  ?>    
-                                                        <tr>
-                                                            <td><?php echo $dataa->Full_Name; ?></td>
-                                                            <td><?php echo $dataa->Book_Title; ?></td>
-                                                           
-                                                            
-                                                            
-                                                        </tr>
-                                                        <?php endforeach; ?>
-                                                </tbody>
+                                                    <tbody id="AuthorList">
+                                                    </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -405,7 +362,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--END  AUTHORS LIST -->
+                    <!--END  AUTHORS BOOK COUNT LIST -->
 
                     <!-- LIST OF BOOK -->
                     <div class="tab-pane " id="Books">
@@ -417,40 +374,19 @@
                                         </div>
                                     <div class="card-body">
                                         <div class="table-responsive ">
-                                                <table id="myTable" class="table table-bordered text-nowrap border-bottom">
+                                                <table id="listbook_datatable" class="table table-bordered text-nowrap border-bottom">
                                                     <thead>
                                                         <tr>
+                                                            <th class="wd-15p border-bottom-0">#</th>
                                                             <th class="wd-15p border-bottom-0">Books</th>
                                                             <th class="wd-15p border-bottom-0">Author</th>
-                                                            <th class="wd-15p border-bottom-0">Views</th>
+                                                            <th class="wd-15p border-bottom-0">Caterogy</th>
                                                             <th class="wd-15p border-bottom-0">Votes</th>
                                                             <th class="wd-15p border-bottom-0"></th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                            <?php foreach($book as $dataa):  ?>
-                                                                <?php
-
-                                                                    $id=$dataa->Book_ID;
-                                                                    $Status=$dataa->Book_Status;
-
-                                                                    if ($Status ==1) {
-                                                                        $Status1="Publish";
-                                                                    } else {
-                                                                        $Status1="Unpublish";
-                                                                    }
-                                                                    ?>
-                                                                                                        
-                                                            <tr>
-                                                                <td><?php echo $dataa->Book_Title; ?></td>
-                                                                <td><?php echo $dataa->Full_Name; ?></td>
-                                                                <td><?php echo $dataa->Book_Category; ?></td>
-                                                                <td><?php echo $Status1; ?></td>   
-                                                                <td><a href="<?php echo site_url('/Book/'.$id); ?>"><i class="fa fa-book" aria-hidden="true"></i></a></td>
-                                                                
-                                                                
-                                                            </tr>
-                                                            <?php endforeach; ?>
+                                                    <tbody id="listbook">
+                                                            
                                                     </tbody>
                                                     
                                                 </table>
@@ -471,9 +407,101 @@
 </div><!-- COL-END -->
  
 
-<script>
-    $(document).ready( function () {
-    $('#myTable').DataTable();
-} );
-<script>
+<script type="text/javascript">
+    //COUNT AUTHORS BOOKS//
+    $(document).ready(function(){
+        recent_transaction(); //call function recent_transaction
+        //function show recent_transaction
+        function recent_transaction(){
+            $.ajax({
+                type  : 'ajax',
+                url   : '<?php echo site_url('ReportController/countauthor')?>',
+                async : true,
+                dataType : 'json',
+				success : function(data){
+                    var html = '';
+                    var i;
+					for(i=0; i<data.length; i++){
+                        html += '<tr>'+
+                                    '<td>'+data[i].Full_Name+'</td>'+
+                                    '<td>'+data[i].num+'</td>'+
+                                '</tr>';
+                    }
+                    $('#AuthorList').html(html);  
+					
+                    var table = $('#AuthorList_datatable').DataTable();
+                    $('#AuthorList_datatable tbody').on('click', 'tr', function () {
+                        console.log( table.row( this ).data() );
+                          if ($(this).hasClass('selected')) {
+                              $(this).removeClass('selected');
+                          } else {
+                              table.$('tr.selected').removeClass('selected');
+                              $(this).addClass('selected');
+                          }
+                    });
+                }
+            });
+              //COUNT AUTHORS BOOKS//
+			
+
+
+            //LIST OF BOOK REPORT//
+			$.ajax({
+                type  : 'ajax',
+                url   : '<?php echo site_url('ReportController/listbook')?>',
+                async : true,
+                dataType : 'json',
+				success : function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+
+                        
+
+                        if(data[i].Book_Status == 0)
+                        {
+                            BookStatus ="UNPUBLISH"
+                        }else{
+                            BookStatus ="PUBLISH"
+
+                        }
+                        $id=data[i].Book_ID
+                        html += '<tr>'+
+                                    '<td>'+$id+'</td>'+
+                                    '<td>'+data[i].Book_Title+'</td>'+
+                                    '<td>'+data[i].Full_Name+'</td>'+
+                                    '<td>' +data[i].Book_Category+'</td>'+
+                                    '<td>'+BookStatus+'</td>'+
+                                    '<td><a href="<?php echo site_url();?>Book/'+$id+'"><i class="fa fa-book" aria-hidden="true"></i></a>'+
+                                '</tr>';
+                    }
+
+                                                                
+                    $('#listbook').html(html);  
+                    var table = $('#listbook_datatable').DataTable();
+                    $('#listbook_datatable tbody').on('click', 'tr', function () {
+                        console.log( table.row( this ).data() );
+                          if ($(this).hasClass('selected')) {
+                              $(this).removeClass('selected');
+                          } else {
+                              table.$('tr.selected').removeClass('selected');
+                              $(this).addClass('selected');
+                          }
+                    });
+					$('.filter-date').on('change', function(e){
+                      var Type = $(this).val();
+                      $('.filter-date').val(Type)
+                      console.log(Type)
+                      //dataTable.column(6).search('\\s' + status + '\\s', true, false, true).draw();
+                      table.column(4).search(Type).draw();
+                    })
+                }
+            });
+
+ 
+        }
+    });
+    //LIST OF BOOK REPORT//
+
+</script>
  

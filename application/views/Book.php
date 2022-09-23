@@ -23,11 +23,11 @@
 
 							<!-- ROW-1 OPEN -->
 							<div class="row">
-								<div class="col-xl-2 col-md-12 col-sm-12">
+								<div class="col-xl-3 col-md-12 col-sm-12">
 									<div class="card panel-theme">
 										<div class="card-header">
 											<div class="float-start">
-												<h3 class="card-title">Title: <?php echo $book->Book_Title; ?></h3>
+												<h3 class="card-title"><?php echo $book->Book_Title; ?></h3>
 											</div>
 											<div class="clearfix"></div>
 										</div>
@@ -36,7 +36,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-10 col-md-12 col-sm-12">
+								<div class="col-xl-9 col-md-12 col-sm-12">
 								<div class="col-xl-12">
 									<div class="card">
 										<div>
@@ -116,12 +116,13 @@
 													
 														<div class="tab-pane  " id="tab2">
 															<div class="card-body">
-																<div class="col-lg-2 col-md-2">
+																<div class="col-lg-12 col-md-12">
 																	<table id="example" class="table table-bordered text-nowrap border-bottom">
 																		<thead>
 																			<tr>
 																				<th class="wd-15p border-bottom-0">#</th>
 																				<th class="wd-15p border-bottom-0">Title</th>
+																				<th class="wd-15p border-bottom-0">Date Added</th>
 																				<th class="wd-15p border-bottom-0">Content</th>
 																			</tr>
 																		</thead>
@@ -131,10 +132,27 @@
 																															
 																				<tr>
 																					<td><?php echo $dataa->Chapter_No; ?></td>
-																					<td><?php echo $dataa->Chapter_Title; ?></td>
-																					<td><p><?php echo $dataa->Chapter_Content; ?></p></td>   
-																					
-																					
+																					<td><?php echo $dataa->Chapter_Title; ?></td>	
+																					<td><?php echo $dataa->Date_Time; ?></td>
+																					<td><button  class="btn  mt-3" data-bs-toggle="modal" data-bs-target="#Chapter<?php echo $dataa->Chapter_No; ?>"><i class="fa fa-book text-blue" aria-hidden="true"></i></button></td>
+																					<!--MODAL RESET PASSWORD-->
+																					<!-- Modal -->
+																						<div class="modal fade"  id="Chapter<?php echo $dataa->Chapter_No; ?>" tabindex="-1" role="dialog" >
+																							<div class="modal-dialog modal-dialog-scrollable" role="document">
+																								<div class="modal-content">
+																									<div class="modal-header">
+																										<h5 class="modal-title" >Chapter <?php echo $dataa->Chapter_No; ?>:<?php echo $dataa->Chapter_Title; ?></h5>
+																										<button  class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+																											<span aria-hidden="true">×</span>
+																										</button>
+																									</div>
+																									<div class="modal-body">
+																									<p><?php echo $dataa->Chapter_Content; ?></p>
+																									</div>
+																								</div>
+																							</div>
+																						</div>
+																				<!--MODAL RESET PASSWORD-->
 																					
 																				</tr>
 																				<?php endforeach; ?>
@@ -170,9 +188,6 @@
 					  'columnDefs': [
 						{
 							'targets': 0,
-							'checkboxes': {
-							  'selectRow': false
-							}
 						}
 					  ],
 					  'select': {

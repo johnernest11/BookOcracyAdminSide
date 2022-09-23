@@ -54,8 +54,32 @@ class AuthController extends CI_Controller {
 			$data = array();
 			$data['book'] = $this->Main_model->Most_Read_books();
 			$data['author'] = $this->Main_model->Top_Authors();
+			$data['vote'] = $this->Main_model->Top_voted();
+			
+			
+
             $this->load->view('sidebar');       
-            $this->load->view("Dashboard", $data);  
+            $this->load->view("Dashboard", $data); 
+		}
+		else{
+			redirect('/');
+		}
+ 
+	}
+
+
+	public function Dashboardtable(){
+		//load session library
+		$this->load->library('session');
+ 
+		//restrict users to go to home if not logged in
+		if($this->session->userdata('user')){
+			//fetch  most reader books
+			
+			
+			$data= $this->Main_model->New_Book();
+			echo json_encode($data); 
+
 		}
 		else{
 			redirect('/');

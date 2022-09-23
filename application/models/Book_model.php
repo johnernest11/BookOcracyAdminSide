@@ -41,6 +41,7 @@ class Book_model extends CI_Model{
         $project = $this->db->get_where('book', ['BOOK_ID' => $id ])->row();
         return $project;
     }
+    
         public function getchapter($id)
     {
         $project1 = $this->db->get_where('book_chapter', ['BOOK_ID' => $id ])->result();

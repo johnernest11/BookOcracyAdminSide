@@ -6,15 +6,17 @@ $route['default_controller'] = 'AuthController';
 $route['Dashboard'] = 'AuthController/Dashboard';
 
 // USER SETTING
-$route['Authors-Users'] = 'UserSettingController/index';
-$route['Personal-Information'] = 'UserSettingController/index_Information';
-$route['Admin-Setting'] = 'UserSettingController/index_Admin';
+$route['Authors-List'] = 'AccountController/Author';
+$route['Users-List'] = 'AccountController/User';
+$route['Personal-Information'] = 'AccountController/index_Information';
+$route['Admin-Setting'] = 'AccountController/index_Admin';
 
 // REPORTS
 $route['Report'] = 'ReportController/index';
 $route['Book/(:num)'] = 'BookController/edit/$1';
-// $route['Book/(:num)'] = 'BookController/chapterview/$1';
+// $route['Book/(:num)'] = 'BookController/editt/$1';
 $route['Book/update(:num)']['put'] = 'BookController/update';
+// $route['Book/editt(:num)']['get'] = 'BookController/editt';
 
 // SETTING
 $route['Admin-Account-Archieved'] = 'SettingController/historyAdmin';

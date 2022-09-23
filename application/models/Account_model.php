@@ -1,5 +1,5 @@
 <?php
-class Usersetting_model extends CI_Model{
+class Account_model extends CI_Model{
  
     // USER SETTING 
     
@@ -7,27 +7,25 @@ class Usersetting_model extends CI_Model{
     function Author_list(){
         $this->db->select('accounts.*');
         $this->db->from('accounts');
-        $this->db->join('book', 'accounts.AID = book.AID', 'left');
+        $this->db->join('book', 'accounts.AID = book.AID','left');
         $this->db->where('Account_Status', 0 );
-        $this->db->where('book.AID',NULL,false);
-        // $this->db->or_where('book.AID',NULL,true);
+        $this->db->where('accounts.AID = book.AID');
         $this->db->group_by('accounts.AID');
         $hasil = $this->db->get();
         return $hasil->result();
     }
 
+    function User_list(){
+        $this->db->select('accounts.*');
+        $this->db->from('accounts');
+        $this->db->join('book', 'accounts.AID = book.AID','left');
+        $this->db->or_where('book.AID',NULL, FALSE);
+        $this->db->where('Account_Status', 0  );
+        $this->db->group_by('accounts.AID');
+        $hasil = $this->db->get();
+        return $hasil->result();
+    }
 
-//     SELECT accounts.*
-// FROM accounts
-// LEFT JOIN book ON accounts.AID = book.AID
-// WHERE book.AID IS NOT NULL GROUP BY accounts.AID
-    // function Author_list(){
-    //     $this->db->select('*');
-    //     $this->db->from('accounts');
-    //     $this->db->where('Account_Status', 0 );
-    //     $hasil = $this->db->get();
-    //     return $hasil->result();
-    // }
 
 
     function update_author(){

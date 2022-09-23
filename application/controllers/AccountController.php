@@ -1,49 +1,61 @@
 <?php
-class UserSettingController extends CI_Controller{
+class AccountController extends CI_Controller{
     function __construct(){
         parent::__construct();
-        $this->load->model('Usersetting_model');
+        $this->load->model('Account_model');
     }
 
-    //AUTHOR-USER ROUTES
-    function index(){
+    //AUTHOR ROUTES
+    function Author(){
         $this->load->view('sidebar');
-        $this->load->view('UserSetting/Authors-Users');
+        $this->load->view('UserSetting/Authors-List');
+    }
+    //AUTHOR-USER ROUTES
+
+     //AUTHOR ROUTES
+     function User(){
+        $this->load->view('sidebar');
+        $this->load->view('UserSetting/User-List');
     }
     //AUTHOR-USER ROUTES
 
     //AUTHOR-USER VIEW
-    function viewaccounts(){
-        $data=$this->Usersetting_model->Author_list();
+    function viewuseraccounts(){
+        $data=$this->Account_model->User_list();
+        echo json_encode($data);
+    }
+
+    function viewauthoraccounts(){
+        $data=$this->Account_model->Author_list();
         echo json_encode($data);
     }
     //AUTHOR-USER VIEW
   
  
     function update(){
-        $data=$this->Usersetting_model->update_author();
+        $data=$this->Account_model->update_author();
         echo json_encode($data);
     }   
 
     function reset(){
-        $data=$this->Usersetting_model->reset_author();
+        $data=$this->Account_model->reset_author();
         echo json_encode($data);
     }
 
 
     function archieve(){
-        $data=$this->Usersetting_model->archieve_author();
+        $data=$this->Account_model->archieve_author();
         echo json_encode($data);
     }
 
 
     function banned(){
-        $data=$this->Usersetting_model->banned_author();
+        $data=$this->Account_model->banned_author();
         echo json_encode($data);
     }
 
     function suspend(){
-        $data=$this->Usersetting_model->suspend_author();
+        $data=$this->Account_model->suspend_author();
         echo json_encode($data);
     }
  
@@ -53,7 +65,7 @@ class UserSettingController extends CI_Controller{
 // REPORTS SETTING
 //PERSONAL INFORMATION
     function index_Information(){
-        $data=$this->Usersetting_model->PesonalInfo();
+        $data=$this->Account_model->PesonalInfo();
         echo json_encode($data);
         $this->load->view('sidebar');
         $this->load->view('UserSetting/Personal-Information');
@@ -61,7 +73,7 @@ class UserSettingController extends CI_Controller{
 
      // show single user
      public function book_dataget(){
-        $data = $this->Usersetting_model->fetch_book();
+        $data = $this->Account_model->fetch_book();
         echo json_encode($data);
          echo "<pre>";
         echo print_r ($data);
@@ -89,7 +101,7 @@ function index_Admin(){
 }
 
 function AdminSetting_data(){
-    $data=$this->Usersetting_model->AdminSetting();
+    $data=$this->Account_model->AdminSetting();
     // echo "<pre>";
     // echo print_r ($data);
 
@@ -97,18 +109,18 @@ function AdminSetting_data(){
 }
 
 function update_admin(){
-    $data=$this->Usersetting_model->update_adminsetting();
+    $data=$this->Account_model->update_adminsetting();
     echo json_encode($data);
 }  
 
 function update_reset(){
-    $data=$this->Usersetting_model->reset_adminsetting();
+    $data=$this->Account_model->reset_adminsetting();
     echo json_encode($data);
 }
 
 
 function update_archieve(){
-    $data=$this->Usersetting_model->archieve_adminsetting();
+    $data=$this->Account_model->archieve_adminsetting();
     echo json_encode($data);
 }
 

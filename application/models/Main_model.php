@@ -14,12 +14,13 @@
      function Most_Read_books(){
           // SELECT book.Book_Title, 
           // SUM(vote.Vote_Value) AS Avalue FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID  GROUP BY vote.Book_ID ORDER BY Avalue DESC LIMIT 1;
-          
-          $this->db->select('book.Book_Title','SUM(vote.Vote_Value) ');
+      
+          $this->db->select('SUM(R_Stat) AS A,book.*,book_chapter.* ');
           $this->db->from('book');
-          $this->db->join('vote','book.Book_ID = vote.Book_ID');
-          $this->db->group_by("vote.Book_ID");
-          $this->db->order_by("vote.Vote_Value",'DESC');
+          $this->db->join('book_chapter','book.Book_ID = book_chapter.Book_ID');
+          $this->db->join('chapter_view','chapter_view.Chapter_ID = book_chapter.Chapter_ID');
+          $this->db->group_by("book.Book_Title");
+          $this->db->order_by("chapter_view.R_Stat",'DESC');
           $this->db->Limit(1);
           $projects = $this->db->get()->result();
         return $projects;
@@ -32,7 +33,7 @@ function Top_Authors(){
      // SELECT book.Book_Title, 
      // SUM(vote.Vote_Value) AS Avalue FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID  GROUP BY vote.Book_ID ORDER BY Avalue DESC LIMIT 1;
      
-     $this->db->select('accounts.Full_Name','SUM(vote.Vote_Value) ');
+     $this->db->select('accounts.Full_Name','SUM(vote.Vote_Value)  ');
      $this->db->from('accounts');
      $this->db->join('vote','accounts.AID = vote.AID');
      $this->db->group_by("vote.AID");
@@ -43,23 +44,35 @@ function Top_Authors(){
  }
 
 
-     //  
-      function delete_data($id){  
-           $this->db->where("AID", $id);  
-           $this->db->delete("accounts");  
-           //DELETE FROM tbl_user WHERE id = $id  
-      }  
-      function fetch_single_data($id)  
-      {  
-           $this->db->where("AID", $id);  
-           $query = $this->db->get("accounts");  
-           return $query;  
-           //Select * FROM tbl_user where id = '$id'  
-      }  
-      function update_data($data, $id)  
-      {  
-           $this->db->where("id", $id);  
-           $this->db->update("tbl_user", $data);  
-           //UPDATE tbl_user SET first_name = '$first_name', last_name = '$last_name' WHERE id = '$id'  
-      }  
+
+ //fetch  top Author
+function Top_voted(){
+     // SELECT book.Book_Title, 
+     // SUM(vote.Vote_Value) AS Avalue FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID  GROUP BY vote.Book_ID ORDER BY Avalue DESC LIMIT 1;
+     // SELECT SUM(Vote_Value) AS Total,book.* FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID GROUP BY Book_ID
+     $this->db->select('SUM(Vote_Value) AS Total,book.*');
+     $this->db->from('book');
+     $this->db->join('vote','book.Book_ID = vote.Book_ID');
+     $this->db->group_by("vote.Book_ID");
+     $this->db->order_by("vote.Book_ID",'DESC');
+     $this->db->Limit(1);
+     $projectsq = $this->db->get()->result();
+   return $projectsq;
+ }
+
+  //fetch  top Author
+function New_Book(){
+     // SELECT book.Book_Title, 
+     // SUM(vote.Vote_Value) AS Avalue FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID  GROUP BY vote.Book_ID ORDER BY Avalue DESC LIMIT 1;
+     // SELECT SUM(Vote_Value) AS Total,book.* FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID GROUP BY Book_ID
+     $this->db->select('*');
+     $this->db->from('book');
+     $this->db->join('accounts','book.AID = accounts.AID');
+     $this->db->where('MONTH(Date_Time) = MONTH(NOW())');
+     $this->db->where('Account_Status = 0');
+     $this->db->order_by("Date_Time",'DESC');
+     $this->db->Limit(5);
+     $projectsq = $this->db->get()->result();
+   return $projectsq;
+ }
  } 

@@ -1,11 +1,11 @@
 <!-- PAGE-HEADER -->
 <div class="page-header">
 	<div>
-		<h1 class="page-title">User Settings</h1>
+		<h1 class="page-title">Accounts</h1>
 		<ol class="breadcrumb">
 		</ol>
 	</div>
-  <div class="col-lg-4">
+  <!-- <div class="col-lg-4">
     <div class="">
       <div class="card-body">
         <div class="wd-200 mg-b-30">
@@ -19,7 +19,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 <hr>
 <!-- PAGE-HEADER END -->
@@ -28,8 +28,8 @@
   <div class="col-lg-2">
         <div>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="javascript:void(0);">User Settings</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Authors/Users</li>
+              <li class="breadcrumb-item"><a href="javascript:void(0);">Accounts</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Authors List</li>
             </ol>
         </div>
     </div>
@@ -58,7 +58,6 @@
                     <th></th>
                     <th class="wd-15p border-bottom-0"></th>
                     <th class="wd-10p border-bottom-0">Email</th>
-                    <th class="wd-10p border-bottom-0">Type</th>
                     <th class="wd-15p border-bottom-0">Date Added</th>
                     <th class="wd-10p border-bottom-0"></th>
                   </tr>
@@ -179,24 +178,20 @@
         function show_product(){
           $.ajax({
                 type  : 'ajax',
-                url   : '<?php echo site_url('UserSettingController/viewaccounts')?>',
+                url   : '<?php echo site_url('AccountController/viewauthoraccounts')?>',
                 async : true,
                 dataType : 'json',
                 success : function(data){
+                  
+                  // alert(data);
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                      if (data[i].AID == null) {
-                        Type = "Author";
-                      } else {
-                        Type = "User";
-                      }
                       var date = data[i].Date_created;
                         html += '<tr>'+
                                 '<td>'+data[i].AID+'</td>'+
                                 '<td>'+data[i].Full_Name+'</td>'+
                                 '<td>'+data[i].Email+'</td>'+
-                                '<td>'+Type+'</td>'+
 								                '<td>'+date+'</td>'+
                                 '<td style="text-align:right;">'+
                                 '<a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">'+
@@ -270,7 +265,7 @@
                                     var account_status = "2";
                                   $.ajax({
                                           type : "POST",
-                                          url  : "<?php echo site_url('PageController/banned')?>",
+                                          url  : "<?php echo site_url('AccountController/banned')?>",
                                           dataType : "JSON",
                                           data : {account_id:account_id ,account_status:account_status}
                                       })
@@ -328,7 +323,7 @@
                               var account_suspend = dateTime;
                             $.ajax({
                                     type : "POST",
-                                    url  : "<?php echo site_url('PageController/suspend')?>",
+                                    url  : "<?php echo site_url('AccountController/suspend')?>",
                                     dataType : "JSON",
                                     data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
                                 })
@@ -386,7 +381,7 @@
                               var account_suspend = dateTime;
                               $.ajax({
                                     type : "POST",
-                                    url  : "<?php echo site_url('PageController/suspend')?>",
+                                    url  : "<?php echo site_url('AccountController/suspend')?>",
                                     dataType : "JSON",
                                     data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
                               })
@@ -445,7 +440,7 @@
                             var account_suspend = dateTime;
                           $.ajax({
                                   type : "POST",
-                                  url  : "<?php echo site_url('PageController/suspend')?>",
+                                  url  : "<?php echo site_url('AccountController/suspend')?>",
                                   dataType : "JSON",
                                   data : {account_id:account_id,account_status:account_status,account_suspend:account_suspend}
                           })
@@ -507,7 +502,7 @@
             var account_email    = $('#account_email_edit').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('PageController/update')?>",
+                url  : "<?php echo site_url('AccountController/update')?>",
                 dataType : "JSON",
                 data : {account_id:account_id, account_fullname:account_fullname,
                         account_username:account_username,account_phone:account_phone , account_birth:account_birth, 
@@ -555,7 +550,7 @@
             var account_password = $('#account_password_reset').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('PageController/reset')?>",
+                url  : "<?php echo site_url('AccountController/reset')?>",
                 dataType : "JSON",
                 data : {account_id:account_id, account_password:account_password
                 },
@@ -589,7 +584,7 @@
             var account_id = $('#account_id_delete').val();
             $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('PageController/delete')?>",
+                url  : "<?php echo site_url('AccountController/delete')?>",
                 dataType : "JSON",
                 data : {account_id:account_id},
                 success: function(data){

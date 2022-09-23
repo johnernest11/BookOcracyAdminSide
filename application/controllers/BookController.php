@@ -10,58 +10,7 @@ class BookController extends CI_Controller {
  
    }
  
-   /*
-      Display all records in page
-   */
-  
 
- 
-  /*
- 
-    Display a record
-  */
-  // public function show($id)
-  // {
-  //   $data['project'] = $this->project->get($id);
-  //   $data['title'] = "Show Project";
-  //   $this->load->view('layout/header');
-  //   $this->load->view('project/show', $data);
-  //   $this->load->view('layout/footer'); 
-  // }
- 
-  /*
-    Create a record page
-  */
-  // public function create()
-  // {
-  //   $data['title'] = "Create Project";
-  //   $this->load->view('layout/header');
-  //   $this->load->view('project/create',$data);
-  //   $this->load->view('layout/footer');     
-  // }
- 
-  /*
-    Save the submitted record
-  */
-  // public function store()
-  // {
-  //   $this->form_validation->set_rules('name', 'Name', 'required');
-  //   $this->form_validation->set_rules('description', 'Description', 'required');
- 
-  //   if (!$this->form_validation->run())
-  //   {
-  //       $this->session->set_flashdata('errors', validation_errors());
-  //       redirect(base_url('project/create'));
-  //   }
-  //   else
-  //   {
-  //      $this->project->store();
-  //      $this->session->set_flashdata('success', "Saved Successfully!");
-  //      redirect(base_url('project'));
-  //   }
- 
-  // }
- 
   /*
     Edit a record page
   */
@@ -73,18 +22,8 @@ class BookController extends CI_Controller {
     $this->load->view('sidebar');       
     $this->load->view('Book',$data);     
   }
-  
 
-  
-  // public function chapterview($id)
-  // {
-  //   $data['chapter_book'] = $this->book_model->get_chapterview($id);
-  //   $this->load->view('Book',$data);    
-  // }
- 
-  /*
-    Update the submitted record
-  */
+
   public function update($id)
   {
     $this->form_validation->set_rules('Book_Title', 'Book_Title', 'required');
@@ -103,16 +42,5 @@ class BookController extends CI_Controller {
        return false;
     }
   }
- 
-  /*
-    Delete a record
-  */
-  public function delete($id)
-  {
-    $item = $this->project->delete($id);
-    $this->session->set_flashdata('success', "Deleted Successfully!");
-    redirect(base_url('project'));
-  }
- 
  
 }
