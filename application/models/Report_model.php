@@ -16,6 +16,7 @@ class Report_model extends CI_Model{
         $this->db->join('accounts','accounts.AID = book.AID');
         // $this->db->group_by('accounts.Full_Name');
         $this->db->where('accounts.Account_Status = 0 ');
+        $this->db->where('book.Book_Status = 1 ');
         $transaction = $this->db->get();
         return $transaction->result();
         $projects = $this->db->get("book")->result();
@@ -36,14 +37,25 @@ class Report_model extends CI_Model{
      //COUNT NUMBER OF BOOK BY AUTHOR
    
       //COUNT NUMBER OF BOOK BY AUTHOR
-    function list_book(){
+    function list_publishbook(){
         $this->db->select('*');
         $this->db->from('book');
         $this->db->join('accounts','accounts.AID = book.AID');
         $this->db->where('accounts.Account_Status = 0 ');
+        $this->db->where('book.Book_Status = 1 ');
         $listbook = $this->db->get();
         return $listbook->result();
    }
+
+   function list_unpublishbook(){
+    $this->db->select('*');
+    $this->db->from('book');
+    $this->db->join('accounts','accounts.AID = book.AID');
+    $this->db->where('accounts.Account_Status = 0 ');
+    $this->db->where('book.Book_Status = 0 ');
+    $listbook = $this->db->get();
+    return $listbook->result();
+}
     //COUNT NUMBER OF BOOK BY AUTHOR
   
 }

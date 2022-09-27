@@ -20,10 +20,17 @@ class ReportController extends CI_Controller{
 	echo json_encode($data);
   }
 
-  public function listbook()
+  public function publishlistbook()
   {
 
-	$data=$this->Report_model->list_book();
+	$data=$this->Report_model->list_publishbook();
+	echo json_encode($data);
+  }
+
+  public function unpublishlistbook()
+  {
+
+	$data=$this->Report_model->list_unpublishbook();
 	echo json_encode($data);
   }
 

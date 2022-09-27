@@ -1,13 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
- 
+use Google\Client as GoogleClient;
+use Google\Service\Oauth2;
 class AuthController extends CI_Controller {
  
 	function __construct(){
 		parent::__construct();
+		$this->load->database();
 		$this->load->helper('url');
 		$this->load->model('Users_model');
-		
+		$this->load->library('session');
 		$this->load->model('Main_model');
 		
 	}
@@ -21,9 +22,28 @@ class AuthController extends CI_Controller {
 			redirect('Dashboard');
 		}
 		else{
-			$this->load->view('Login');
+			$this->load->view('login_form');
 		}
 	}
+
+	// public function login(){
+	// 	//load session library
+	// 	$this->load->library('session');
+ 
+	// 	$email = $_POST['email'];
+	// 	$password = $_POST['password'];
+ 
+	// 	$data = $this->Users_model->login($email, $password);
+ 
+	// 	if($data){
+	// 		$this->session->set_userdata('user', $data);
+	// 		redirect('Dashboard');
+	// 	}
+	// 	else{
+	// 		header('location:'.base_url().$this->index());
+	// 		$this->session->set_flashdata('error','Invalid login. User not found');
+	// 	} 
+	// }
  
 	public function login(){
 		//load session library
@@ -32,7 +52,7 @@ class AuthController extends CI_Controller {
 		$email = $_POST['email'];
 		$password = $_POST['password'];
  
-		$data = $this->Users_model->login($email, $password);
+		$data = $this->Users_model->login($email);
  
 		if($data){
 			$this->session->set_userdata('user', $data);
@@ -91,8 +111,9 @@ class AuthController extends CI_Controller {
 		//load session library
 		$this->load->library('session');
 		$this->session->unset_userdata('user');
+		$this->session->sess_destroy();
 		redirect('/');
 	}
- 
+
 }
 

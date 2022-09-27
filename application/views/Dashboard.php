@@ -134,7 +134,7 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"><i class="fe fe-users  mb-5 "></i> Latest New Book to Read - This Month</h3>
+                            <h3 class="card-title"><i class="fe fe-users  mb-5 "></i> Latest New Publish Books- This Month</h3>
                         </div>
                         <div class="card-body pb-0 ">
                             <div class="table-responsive ">
@@ -164,6 +164,7 @@
                                                             success : function(data){
                                                                 var html = '';
                                                                 var i;
+                                                                // ;
                                                                 for(i=0; i<data.length; i++){
                                                                     if(data[i].Book_Status == 0)
                                                                     {
@@ -172,13 +173,14 @@
                                                                         BookStatus ="PUBLISH"
                                                                     }
                                                                     $id=data[i].Book_ID
+                                                                    $currentDateTime = data[i].Date_Time
                                                                     html += '<tr>'+
                                                                                 '<td>'+$id+'</td>'+
                                                                                 '<td>'+data[i].Book_Title+'</td>'+
                                                                                 '<td>'+data[i].Full_Name+'</td>'+
                                                                                 '<td>' +data[i].Book_Category+'</td>'+
                                                                                 '<td>'+BookStatus+'</td>'+
-                                                                                '<td>' +data[i].Date_Time+'</td>'+
+                                                                                '<td>' +$currentDateTime+'</td>'+
                                                                             '</tr>';
                                                             }                              
                                                                 $('#listbook').html(html);  

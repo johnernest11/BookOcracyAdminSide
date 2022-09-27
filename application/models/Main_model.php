@@ -70,6 +70,7 @@ function New_Book(){
      $this->db->join('accounts','book.AID = accounts.AID');
      $this->db->where('MONTH(Date_Time) = MONTH(NOW())');
      $this->db->where('Account_Status = 0');
+     $this->db->where('Book_Status = 1');
      $this->db->order_by("Date_Time",'DESC');
      $this->db->Limit(5);
      $projectsq = $this->db->get()->result();

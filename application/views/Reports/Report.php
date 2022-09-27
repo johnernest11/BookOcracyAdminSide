@@ -368,34 +368,77 @@
                     <div class="tab-pane " id="Books">
                         <div class="row row-sm">
                             <div class="col-lg-12">
-                                <div class="card">
-                                        <div class="card-header">
-                                            <h3 class="card-title">List of Books</h3>
-                                        </div>
-                                    <div class="card-body">
-                                        <div class="table-responsive ">
-                                                <table id="listbook_datatable" class="table table-bordered text-nowrap border-bottom">
-                                                    <thead>
-                                                        <tr>
-                                                            <th class="wd-15p border-bottom-0">#</th>
-                                                            <th class="wd-15p border-bottom-0">Books</th>
-                                                            <th class="wd-15p border-bottom-0">Author</th>
-                                                            <th class="wd-15p border-bottom-0">Caterogy</th>
-                                                            <th class="wd-15p border-bottom-0">Votes</th>
-                                                            <th class="wd-15p border-bottom-0"></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="listbook">
-                                                            
-                                                    </tbody>
-                                                    
-                                                </table>
-
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="row">
+								<div class="col-xl-12">
+									<div class="card">
+										<div class="card-header">
+											<h3 class="card-title">List of Books</h3>
+										</div>
+										<div class="card-body p-6">
+											<div class="panel panel-primary">
+												<div class="tab-menu-heading">
+													<div class="tabs-menu1 ">
+														<!-- Tabs -->
+														<ul class="nav panel-tabs">
+															<li ><a href="#tab1" class="active me-1" data-bs-toggle="tab">Publish Books</a></li>
+															<li><a href="#tab2" data-bs-toggle="tab" class="me-1">Unpublish Books</a></li>
+														</ul>
+													</div>
+												</div>
+												<div class="panel-body tabs-menu-body">
+													<div class="tab-content">
+														<div class="tab-pane active " id="tab1">
+                                                            <div class="card-header">
+                                                                <h3 class="card-title">List of Publish  Books</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                    <div class="table-responsive ">
+                                                                        <table id="publishlistbook_datatable" class="table table-bordered text-nowrap border-bottom">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="wd-15p border-bottom-0">#</th>
+                                                                                    <th class="wd-15p border-bottom-0">Books</th>
+                                                                                    <th class="wd-15p border-bottom-0">Author</th>
+                                                                                    <th class="wd-15p border-bottom-0">Caterogy</th>
+                                                                                    <th class="wd-15p border-bottom-0">Status</th>
+                                                                                    <th class="wd-15p border-bottom-0"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="publishlistbook">
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+														<div class="tab-pane  " id="tab2">
+                                                        <div class="card-header">
+                                                                <h3 class="card-title">List of Unpublish  Books</h3>
+                                                            </div>
+                                                            <div class="card-body">
+                                                                    <div class="table-responsive ">
+                                                                        <table id="unpublishlistbook_datatable" class="table table-bordered text-nowrap border-bottom">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="wd-15p border-bottom-0">#</th>
+                                                                                    <th class="wd-15p border-bottom-0">Books</th>
+                                                                                    <th class="wd-15p border-bottom-0">Author</th>
+                                                                                    <th class="wd-15p border-bottom-0">Caterogy</th>
+                                                                                    <th class="wd-15p border-bottom-0">Status</th>
+                                                                                    <th class="wd-15p border-bottom-0"></th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody id="unpublishlistbook">
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                            </div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div><!-- COL-END -->
                             </div>
                         </div>
                     </div>
@@ -445,25 +488,20 @@
 			
 
 
-            //LIST OF BOOK REPORT//
+                //LIST OF PUBLISH BOOK REPORT//
 			$.ajax({
                 type  : 'ajax',
-                url   : '<?php echo site_url('ReportController/listbook')?>',
+                url   : '<?php echo site_url('ReportController/publishlistbook')?>',
                 async : true,
                 dataType : 'json',
 				success : function(data){
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-
-                        
-
-                        if(data[i].Book_Status == 0)
+                        if(data[i].Book_Status == 1)
                         {
-                            BookStatus ="UNPUBLISH"
-                        }else{
                             BookStatus ="PUBLISH"
-
+                        }else{
                         }
                         $id=data[i].Book_ID
                         html += '<tr>'+
@@ -475,11 +513,10 @@
                                     '<td><a href="<?php echo site_url();?>Book/'+$id+'"><i class="fa fa-book" aria-hidden="true"></i></a>'+
                                 '</tr>';
                     }
-
-                                                                
-                    $('#listbook').html(html);  
+                                     
+                    $('#publishlistbook').html(html);  
                     var table = $('#listbook_datatable').DataTable();
-                    $('#listbook_datatable tbody').on('click', 'tr', function () {
+                    $('#publishlistbook_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {
                               $(this).removeClass('selected');
@@ -488,20 +525,54 @@
                               $(this).addClass('selected');
                           }
                     });
-					$('.filter-date').on('change', function(e){
-                      var Type = $(this).val();
-                      $('.filter-date').val(Type)
-                      console.log(Type)
-                      //dataTable.column(6).search('\\s' + status + '\\s', true, false, true).draw();
-                      table.column(4).search(Type).draw();
-                    })
                 }
             });
+                //LIST OF PUBLISH BOOK REPORT//
 
- 
+                    //LIST OF UNPUBLISH BOOK REPORT//
+			$.ajax({
+                type  : 'ajax',
+                url   : '<?php echo site_url('ReportController/unpublishlistbook')?>',
+                async : true,
+                dataType : 'json',
+				success : function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        if(data[i].Book_Status == 0)
+                        {
+                            BookStatus ="UNPUBLISH"
+                        }else{
+                        }
+                        $id=data[i].Book_ID
+                        html += '<tr>'+
+                                    '<td>'+$id+'</td>'+
+                                    '<td>'+data[i].Book_Title+'</td>'+
+                                    '<td>'+data[i].Full_Name+'</td>'+
+                                    '<td>' +data[i].Book_Category+'</td>'+
+                                    '<td>'+BookStatus+'</td>'+
+                                    '<td><a href="<?php echo site_url();?>Book/'+$id+'"><i class="fa fa-book" aria-hidden="true"></i></a>'+
+                                '</tr>';
+                    }
+                                     
+                    $('#unpublishlistbook').html(html);  
+                    var table = $('#listbook_datatable').DataTable();
+                    $('#unpublishlistbook_datatable tbody').on('click', 'tr', function () {
+                        console.log( table.row( this ).data() );
+                          if ($(this).hasClass('selected')) {
+                              $(this).removeClass('selected');
+                          } else {
+                              table.$('tr.selected').removeClass('selected');
+                              $(this).addClass('selected');
+                          }
+                    });
+                }
+            });
+                //LIST OF UNPUBLISH BOOK REPORT//
+
         }
     });
-    //LIST OF BOOK REPORT//
+     //LIST OF PUBLISH BOOK REPORT//
 
 </script>
  
