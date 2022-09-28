@@ -19,6 +19,12 @@ class AccountController extends CI_Controller{
     }
     //AUTHOR-USER ROUTES
 
+
+    function WaitList(){
+        $this->load->view('sidebar');
+        $this->load->view('UserSetting/WaitList-Users');
+    }
+
     //AUTHOR-USER VIEW
     function viewuseraccounts(){
         $data=$this->Account_model->User_list();
@@ -27,6 +33,11 @@ class AccountController extends CI_Controller{
 
     function viewauthoraccounts(){
         $data=$this->Account_model->Author_list();
+        echo json_encode($data);
+    }
+
+    function viewwaitlistaccounts(){
+        $data=$this->Account_model->Wait_list();
         echo json_encode($data);
     }
     //AUTHOR-USER VIEW

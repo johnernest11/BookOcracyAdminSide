@@ -329,7 +329,7 @@
 								'<td>'+data[i].order_id+'</td>'+
 								'<td>'+data[i].description+'</td>'+
                                 '<td> $ '+data[i].amount+'</td>'+
-                                '<td>'+data[i].created_at+'</td>'+
+                                '<td>'+data[i].added_date+'</td>'+
                                 '<td>'+
                                 '<a  class="btn  btn-sm recent_transactionbtn"'+
                                 ' data-trasaction_tid="'+data[i].TID+'"'+
@@ -351,7 +351,9 @@
                     }
                     $('#recent_transaction').html(html);  
 					
-                    var table = $('#recent_transaction_datatable').DataTable();
+                    var table = $('#recent_transaction_datatable').DataTable({
+										order: [[3, 'desc']],
+									});
                     $('#recent_transaction_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {
@@ -411,7 +413,7 @@
                                 '<td>'+data[i].order_id+'</td>'+
 								'<td>'+data[i].description+'</td>'+
                                 '<td> $ '+data[i].amount+'</td>'+
-                                '<td>'+data[i].created_at+'</td>'+
+                                '<td>'+data[i].added_date+'</td>'+
                                 '<td>'+
                                 '<a  class="btn  btn-sm history_transactionbtn"'+
                                 ' data-trasaction_tid="'+data[i].TID+'"'+
@@ -432,7 +434,9 @@
                                 '</tr>';
                     }
                     $('#history_transaction').html(html);  
-                    var table = $('#history_transaction_datatable').DataTable();
+                    var table = $('#history_transaction_datatable').DataTable({
+										order: [[3, 'desc']],
+									});
                     $('#history_transactionn_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {

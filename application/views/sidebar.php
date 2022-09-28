@@ -298,6 +298,7 @@
                                         <!-- <li><a href="#" class="slide-item">Account Settings</a></li> -->
                                         <li><a href="<?php echo site_url('Authors-List'); ?>"  class="slide-item">Authors List</a></li>
                                         <li><a href="<?php echo site_url('Users-List'); ?>"  class="slide-item">Users List</a></li>
+                                        <li><a href="<?php echo site_url('WaitList-Users'); ?>"  class="slide-item">Waitlist Users</a></li>
                                         <!-- <li><a href="<?php echo site_url('Admin-Setting'); ?>" class="slide-item">Admin Settings</a></li> -->
                                     </ul>
                                 </li>

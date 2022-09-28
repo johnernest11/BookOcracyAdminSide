@@ -1,6 +1,10 @@
 <?php  
  class Main_model extends CI_Model  
  {  
+  function __construct(){
+    parent::__construct();
+    $this->load->database();
+}
       function test_main()  
       {  
            echo "This is model function";  
@@ -65,7 +69,7 @@ function New_Book(){
      // SELECT book.Book_Title, 
      // SUM(vote.Vote_Value) AS Avalue FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID  GROUP BY vote.Book_ID ORDER BY Avalue DESC LIMIT 1;
      // SELECT SUM(Vote_Value) AS Total,book.* FROM book INNER JOIN vote ON book.Book_ID = vote.Book_ID GROUP BY Book_ID
-     $this->db->select('*');
+     $this->db->select('* ,DATE_FORMAT(Date_Time, "%Y-%m-%d %h:%i %p") as added_date');
      $this->db->from('book');
      $this->db->join('accounts','book.AID = accounts.AID');
      $this->db->where('MONTH(Date_Time) = MONTH(NOW())');

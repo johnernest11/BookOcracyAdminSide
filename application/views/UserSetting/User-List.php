@@ -187,12 +187,11 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                      var date = data[i].Date_created;
                         html += '<tr>'+
                                 '<td>'+data[i].AID+'</td>'+
                                 '<td>'+data[i].Full_Name+'</td>'+
                                 '<td>'+data[i].Email+'</td>'+
-                                '<td>'+date+'</td>'+
+                                '<td>'+data[i].added_date+'</td>'+
                                 '<td style="text-align:right;">'+
                                 '<a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">'+
                                 '<i class="fa fa-ellipsis-v"></i></a>'+

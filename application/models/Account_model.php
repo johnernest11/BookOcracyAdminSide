@@ -1,11 +1,16 @@
 <?php
 class Account_model extends CI_Model{
+    function __construct(){
+        parent::__construct();
+        $this->load->database();
+    }
+
  
     // USER SETTING 
     
     //AUTHORS/USERS
     function Author_list(){
-        $this->db->select('accounts.*');
+        $this->db->select('* ,DATE_FORMAT(Date_created, "%Y-%m-%d %h:%i %p") as added_date');
         $this->db->from('accounts');
         $this->db->join('book', 'accounts.AID = book.AID','left');
         $this->db->where('Account_Status', 0 );
@@ -16,7 +21,7 @@ class Account_model extends CI_Model{
     }
 
     function User_list(){
-        $this->db->select('accounts.*');
+        $this->db->select('* ,DATE_FORMAT(Date_created, "%Y-%m-%d %h:%i %p") as added_date');
         $this->db->from('accounts');
         $this->db->join('book', 'accounts.AID = book.AID','left');
         $this->db->or_where('book.AID',NULL, FALSE);
@@ -25,6 +30,14 @@ class Account_model extends CI_Model{
         $hasil = $this->db->get();
         return $hasil->result();
     }
+
+    function Wait_list(){
+        $this->db->select('* ,DATE_FORMAT(DateTime, "%Y-%m-%d %h:%i %p") as added_date');
+        $this->db->from('waitlist');
+        $hasil = $this->db->get();
+        return $hasil->result();
+    }
+
 
 
 

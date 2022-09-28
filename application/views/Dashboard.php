@@ -180,7 +180,7 @@
                                                                                 '<td>'+data[i].Full_Name+'</td>'+
                                                                                 '<td>' +data[i].Book_Category+'</td>'+
                                                                                 '<td>'+BookStatus+'</td>'+
-                                                                                '<td>' +$currentDateTime+'</td>'+
+                                                                                '<td>' +data[i].added_date+'</td>'+
                                                                             '</tr>';
                                                             }                              
                                                                 $('#listbook').html(html);  

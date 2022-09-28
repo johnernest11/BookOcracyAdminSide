@@ -59,15 +59,12 @@
                 $data['author'] = $this->Main_model->Top_Authors();
                 $data['vote'] = $this->Main_model->Top_voted();
                 
-                
-    
                 $this->load->view('sidebar');       
                 $this->load->view("Dashboard", $data); 
             }
             else{
                 redirect('/');
             }
-     
         }
 
 		public function google_login(){
@@ -77,7 +74,7 @@
             $client->setClientId('667863586490-0drh95kj0quvafm5o4v8p8tihv3fcnhv.apps.googleusercontent.com');
             $client->setClientSecret('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');
             $client->setRedirectUri('http://localhost:8080/BookAdmin/home/google_login');
-            $client->addScope(['https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile','https://www.googleapis.com/auth/user.phonenumbers.read']);
+            $client->addScope(['https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile']);
 			if($code = $this->input->get('code')){
 				$token = $client->fetchAccessTokenWithAuthCode($code);
 				$client->setAccessToken($token);
@@ -89,30 +86,19 @@
                 $data['Phone_Number'] = $user_info->phonenumber;
 				$data['Email'] = $user_info->email;
                 $data['Picture'] = $user_info->picture;
-                // $data['Password'] = $user_info->name;
+                $data['Password'] = $user_info->at_hash;
 				
 				if($user = $this->user_model->getUser($user_info->email)){
 					$this->session->set_userdata('user',$user);
                     redirect('Dashboard');
 				}else{
 					$this->user_model->createUser($data);
+					
                     redirect('Dashboard');
 				}
-				
-				
-
-
 			}else{
-			
-				
-
 				$url = $client->createAuthUrl();
 				header('Location:'.filter_var($url,FILTER_SANITIZE_URL));
 			}
-			
-
-			
 		}
-
-		
 	}
