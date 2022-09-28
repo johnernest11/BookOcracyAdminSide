@@ -73,7 +73,7 @@
 			$client->setApplicationName('bookocracy-admin');
             $client->setClientId('667863586490-0drh95kj0quvafm5o4v8p8tihv3fcnhv.apps.googleusercontent.com');
             $client->setClientSecret('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');
-            $client->setRedirectUri('http://localhost:8080/BookAdmin/home/google_login');
+            $client->setRedirectUri('https://admin.bookocracy.com/home/google_login');
             $client->addScope(['https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile']);
 			if($code = $this->input->get('code')){
 				$token = $client->fetchAccessTokenWithAuthCode($code);
