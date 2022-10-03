@@ -35,6 +35,14 @@ class ReportController extends CI_Controller{
   }
 
 
+  public function sales_report()
+  {
+
+	$data=$this->Report_model->sales_report_data();
+	echo json_encode($data);
+  }
+
+
    
 
 }

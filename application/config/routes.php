@@ -28,6 +28,9 @@ $route['Admin-Setting'] = 'PageController/index_Admin';
 //TRANSACTION
 $route['Transaction'] = 'TransactionController/transaction';
 
+//EMAILS
+$route['Emails'] = 'EmailController/Emails';
+
 $route['translate_uri_dashes'] = FALSE;
 
 

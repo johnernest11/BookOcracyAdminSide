@@ -306,7 +306,7 @@
                                     <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Report'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Report</span></a>
                                 </li>
                                 <li class="slide">
-                                    <a class="side-menu__item" data-bs-toggle="slide" href="#"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Email</span></a>
+                                    <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Emails'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Email</span></a>
                                 </li>
                                 <li class="slide">
                                 <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Transaction'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Transaction</span></a>

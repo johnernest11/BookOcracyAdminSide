@@ -353,6 +353,10 @@
 					
                     var table = $('#recent_transaction_datatable').DataTable({
 										order: [[3, 'desc']],
+										dom: 'Bfrtip',
+										buttons: [
+											'csv', 'excel'
+										]
 									});
                     $('#recent_transaction_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );

@@ -58,6 +58,17 @@ class Report_model extends CI_Model{
     $listbook = $this->db->get();
     return $listbook->result();
 }
+
+
+function sales_report_data(){
+    $this->db->select('SUM(amount) as amounts');
+    $this->db->from('transactions');
+    $this->db->where('type = Payment ');
+    $this->db->where('description = Book Upload ');
+    $this->db->group_by('MONTH(created_at) as months ');
+    $sales = $this->db->get();
+    return $sales->result();
+}
     //COUNT NUMBER OF BOOK BY AUTHOR
   
 }
