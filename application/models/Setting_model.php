@@ -30,5 +30,18 @@ class Setting_model extends CI_Model{
         return $result;
     }
 
+
+
+
+    function gift_history_list(){
+        $this->db->select('*');
+        $this->db->from('gift');
+        $this->db->join('accounts','accounts.AID = gift.AID');
+        $this->db->join('book','book.Book_ID = gift.Book_ID');
+        $this->db->join('book_chapter','gift.Chapter_ID = book_chapter.Chapter_ID');
+        $hasil = $this->db->get();
+        return $hasil->result();
+    }
+
 }
  

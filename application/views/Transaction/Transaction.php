@@ -440,7 +440,11 @@
                     $('#history_transaction').html(html);  
                     var table = $('#history_transaction_datatable').DataTable({
 										order: [[3, 'desc']],
-									});
+										dom: 'Bfrtip',
+										buttons: [
+											'csv', 'excel'
+										]
+											});
                     $('#history_transactionn_datatable tbody').on('click', 'tr', function () {
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {

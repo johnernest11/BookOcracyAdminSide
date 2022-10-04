@@ -20,7 +20,7 @@ class BookController extends CI_Controller {
     $data['book'] = $this->Book_model->get($id);
     $data['book_chapter'] = $this->Book_model->getchapter($id);
     $this->load->view('sidebar');       
-    $this->load->view('Book',$data);     
+    $this->load->view('Book-Chapter',$data);     
   }
 
 
@@ -32,15 +32,27 @@ class BookController extends CI_Controller {
     if (!$this->form_validation->run())
     {
         $this->session->set_flashdata('errors', validation_errors());
-        redirect(base_url('Book/' . $id));
+        redirect(base_url('Book-Chapter/' . $id));
     }
     else
     {
-       $this->book->update($id);
+       $this->Book_model->update($id);
        $this->session->set_flashdata('success', "Updated Successfully!");
-       redirect(base_url('Book/' . $id));
+       redirect(base_url('Book-Chapter/' . $id));
        return false;
     }
   }
+
+
+
+  public function listbook($AID)
+  {
+    $data = array();
+    $data['book'] = $this->Book_model->list_publishbook($AID);
+    $data['accounts'] = $this->Book_model->book_Author($AID);
+    $this->load->view('sidebar');       
+    $this->load->view('Book',$data);     
+  }
+  
  
 }

@@ -187,6 +187,7 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+                      $AID =data[i].AID;
                         html += '<tr>'+
                                 '<td>'+data[i].AID+'</td>'+
                                 '<td>'+data[i].Full_Name+'</td>'+
@@ -202,6 +203,7 @@
                                       'data-account_phone="'+data[i].Phone_Number+'" data-account_birth="'+data[i].Birth_Date+'" data-account_credits="'+data[i].Credits+'"'+
                                       'data-account_votes="'+data[i].Votes_Credit+'" data-account_email="'+data[i].Email+'" ><i class="dropdown-icon fe fe-edit item_edit"></i>Update</a>'+' '+
                                   '<a href="#" class="dropdown-item reset_password" data-account_id="'+data[i].AID+'" data-account_password="'+data[i].Password+'"><i class="dropdown-icon fe fe-refresh-cw"></i>Reset Password</a>'+
+                                  '<a href="<?php echo site_url();?>Author-Profile/'+$AID+'" class="dropdown-item"><i class="dropdown-icon fe fe-users-cw"></i>View Profile</a>'+
                                 '</div>'+
                                 '</td>'+
                                 '</tr>';

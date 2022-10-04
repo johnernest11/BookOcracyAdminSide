@@ -135,4 +135,20 @@ function update_archieve(){
     echo json_encode($data);
 }
 
+
+
+
+public function viewprofile($AID)
+{
+  $data = array();
+  $data['accounts'] = $this->Account_model->accounts($AID);
+  $data['gift'] = $this->Account_model->book_gift($AID);
+  $data['gift_wallet'] = $this->Account_model->book_giftwallet($AID);
+  $data['book'] = $this->Account_model->books($AID);
+  $this->load->view('sidebar');       
+  $this->load->view('UserSetting/Author-Profile',$data);     
+}
+
+
+
 }

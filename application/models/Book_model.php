@@ -77,6 +77,18 @@ class Book_model extends CI_Model{
         $result = $this->db->delete('projects', array('id' => $id));
         return $result;
     }
-     
+
+
+
+    function list_publishbook($AID){
+        $project1 = $this->db->get_where('book', ['AID' => $AID ])->result();
+        return $project1;
+   }
+
+   function book_Author($AID){
+    $project1 = $this->db->get_where('accounts', ['AID' => $AID ])->row();
+    return $project1;
+}
+
 }
 ?>

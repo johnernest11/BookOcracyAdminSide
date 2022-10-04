@@ -314,6 +314,9 @@
                                 <li class="slide">
                                     <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0);"><i class="side-menu__icon fe fe-sliders"></i><span class="side-menu__label">Settings</span><i class="angle fa fa-angle-right"></i></a>
                                     <ul class="slide-menu">
+                                            <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="<?php echo site_url('Gift-History'); ?>"><i class="side-menu__icon fe fe-mail"></i><span class="side-menu__label">Gift History</span></a>
+                                            </li>
                                         <!-- <li class="side-menu-label1"><a href="javascript:void(0)">Settings</a></li>
                                         <li><a href="#" class="slide-item"> Branding</a></li>
                                         <li><a href="#" class="slide-item"> Notification</a></li>

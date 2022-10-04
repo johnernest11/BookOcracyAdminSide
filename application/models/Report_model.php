@@ -38,27 +38,7 @@ class Report_model extends CI_Model{
     }
      //COUNT NUMBER OF BOOK BY AUTHOR
    
-      //COUNT NUMBER OF BOOK BY AUTHOR
-    function list_publishbook(){
-        $this->db->select('*');
-        $this->db->from('book');
-        $this->db->join('accounts','accounts.AID = book.AID');
-        $this->db->where('accounts.Account_Status = 0 ');
-        $this->db->where('book.Book_Status = 1 ');
-        $listbook = $this->db->get();
-        return $listbook->result();
-   }
-
-   function list_unpublishbook(){
-    $this->db->select('*');
-    $this->db->from('book');
-    $this->db->join('accounts','accounts.AID = book.AID');
-    $this->db->where('accounts.Account_Status = 0 ');
-    $this->db->where('book.Book_Status = 0 ');
-    $listbook = $this->db->get();
-    return $listbook->result();
-}
-
+      
 
 function sales_report_data(){
     $this->db->select('SUM(amount) as amounts');

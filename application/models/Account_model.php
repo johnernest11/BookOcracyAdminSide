@@ -38,6 +38,56 @@ class Account_model extends CI_Model{
         return $hasil->result();
     }
 
+    // $this->db->select('*');
+    // $this->db->from('gift');
+    // $this->db->join('accounts','accounts.AID = gift.AID');
+    // $this->db->join('book','book.Book_ID = gift.Book_ID');
+    // $this->db->join('book_chapter','gift.Chapter_ID = book_chapter.Chapter_ID');
+
+//AUTHORS PROFILE//
+    // function book($AID){
+    //     // $this->db->join('book_chapter','book.Book_ID = book_chapter.Book_ID');
+    //      $this->db->get_where('accounts', ['AID' => $AID ]);
+    //     $hasil = $this->db->get();
+    //     return $hasil->row();
+    // }
+    
+    function gift_history_list($AID){
+        $this->db->select('*');
+        $this->db->from('gift');
+        $this->db->join('accounts','accounts.AID = gift.AID');
+        $this->db->join('book','book.Book_ID = gift.Book_ID');
+        $this->db->join('book_chapter','gift.Chapter_ID = book_chapter.Chapter_ID');
+        $this->db->get_where('accounts', ['AID' => $AID ]  );
+        $hasil = $this->db->get();
+        return $hasil->result();
+    }
+
+
+    function accounts($AID){
+        $project1 = $this->db->get_where('accounts', ['AID' => $AID ])->row();
+         return $project1;
+    }
+
+    function books($AID){
+        $project1 = $this->db->get_where('book', ['AID' => $AID ])->result();
+         return $project1;
+    }
+
+    function book_gift($AID){
+        $project1 = $this->db->join('book','book.AID = accounts.AID')->join('book_chapter','book_chapter.Book_ID = book.Book_ID')->join('gift','gift.Chapter_ID = book_chapter.Chapter_ID')->get_where('accounts', ['gift.AID' => $AID ])->result();
+        return $project1;
+    }
+
+    function book_giftwallet($AID){
+        $project1 = $this->db->join('book','book.AID = accounts.AID')->join('gift_wallet','gift_wallet.Book_ID = book.Book_ID')->get_where('accounts', ['gift_wallet.AID' => $AID ])->result();
+        return $project1;
+    }
+//AUTHORS PROFILE//
+
+
+
+
 
 
 
