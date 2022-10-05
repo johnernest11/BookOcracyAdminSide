@@ -79,6 +79,19 @@ class SettingController extends CI_Controller{
         $data=$this->Setting_model->gift_history_list();
         echo json_encode($data);
     }
+
+
+    function vote(){
+        $this->load->view('sidebar');
+        $this->load->view('Setting/Vote-History');
+    }
+
+    function vote_history(){
+        $data=$this->Setting_model->vote_history_list();
+        echo json_encode($data);
+    }
+
+
 }
 // USER SETTING
 

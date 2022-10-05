@@ -43,7 +43,7 @@
 											<div class="clearfix"></div>
 										</div>
 										<div class="card-body no-padding">
-													<img src="<?php echo  base_url();?>/assets/images/books/sample.png"  class="center"  >
+										<img src="<?=  base_url('images/'.$book->Book_Cover)?>">
 										</div>
 									</div>
 								</div>

@@ -25,6 +25,7 @@ $route['Book-Chapter/update(:num)']['put'] = 'BookController/update';
 $route['Admin-Account-Archieved'] = 'SettingController/historyAdmin';
 $route['Authors-Users-Archieved'] = 'SettingController/historyAuthors';
 $route['Gift-History'] = 'SettingController/gift';
+$route['Vote-History'] = 'SettingController/vote';
 
 $route['Personal-Information'] = 'PageController/index_Information';
 $route['Admin-Setting'] = 'PageController/index_Admin';
