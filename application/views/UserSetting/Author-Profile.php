@@ -11,11 +11,11 @@
 							<!-- PAGE-HEADER -->
 							<div class="page-header">
 								<div>
-									<h1 class="page-title">Book</h1>
+									<h1 class="page-title">Author`s Profile</h1>
 									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="javascript:void(0);">Chapter</a></li>
+										<li class="breadcrumb-item"><a href="javascript:void(0);">Author</a></li>
 										<li class="breadcrumb-item active" aria-current="page"><?php echo $accounts->Full_Name; ?></li>
-										<li class="breadcrumb-item active" aria-current="page">Chapters</li>
+										<li class="breadcrumb-item active" aria-current="page">Profile</li>
 									</ol>
 								</div>
 								<div class="col-lg-4">
@@ -34,7 +34,7 @@
 
 							<!-- ROW-1 OPEN -->
 							 <div class="row">
-								<div class="col-xl-3 col-md-12 col-sm-12">
+								<div class="col-xl-2 col-md-12 col-sm-12">
 									<div class="card panel-theme">
 										<div class="card-header">
 											<div class="float-start">
@@ -43,11 +43,12 @@
 											<div class="clearfix"></div>
 										</div>
 										<div class="card-body no-padding">
-													<img src="<?php echo  base_url();?>/assets/images/books/sample.png"  class="center"  >
+										<!-- <img src=https://bookocracy.com/Assets/'+data[i].Book_Cover+ -->
+										<img src="<?php echo  base_url('https://bookocracy.com/Assets/'.$accounts->Profile_Photo);?>">
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-9 col-md-12 col-sm-12">
+								<div class="col-xl-10 col-md-12 col-sm-12">
 								<div class="col-xl-12">
 									<div class="card">
 										<div>

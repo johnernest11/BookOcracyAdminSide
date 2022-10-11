@@ -50,6 +50,34 @@ function sales_report_data(){
     return $sales->result();
 }
     //COUNT NUMBER OF BOOK BY AUTHOR
+
+//REPORT GRAPH
+
+    function fetch_year()
+ {
+    $this->db->select('YEAR(created_at) as year');
+    $this->db->from('transactions');
+    $this->db->group_by('year');
+//   $this->db->select('year');
+//   $this->db->from('chart_data');
+//   $this->db->group_by('year');
+//   $this->db->order_by('year', 'DESC');
+  return $this->db->get();
+ }
+
+ function fetch_chart_data($year)
+ {
+//   $this->db->where('year', $year);
+//   $this->db->order_by('year', 'ASC');
+//   return $this->db->get('chart_data');
+//   $this->db->select('Month(created_at) as month, amount');
+$this->db->select('SUM(amount) as amounts, MONTHNAME(created_at) as month');
+  $this->db->where('YEAR(created_at)', $year);
+  $this->db->order_by('created_at', 'ASC');
+  $this->db->group_by('month');
+  $this->db->group_by('YEAR(created_at)');
   
+  return $this->db->get('transactions');
+ }//REPORT GRAPH
 }
 ?>

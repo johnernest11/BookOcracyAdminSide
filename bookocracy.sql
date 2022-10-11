@@ -1,6 +1,6 @@
 /*
 SQLyog Community v13.1.9 (64 bit)
-MySQL - 5.7.31 : Database - bookocracy
+MySQL - 10.4.24-MariaDB : Database - bookocracy
 *********************************************************************
 */
 
@@ -12,7 +12,7 @@ MySQL - 5.7.31 : Database - bookocracy
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`bookocracy` /*!40100 DEFAULT CHARACTER SET latin1 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`bookocracy` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
 
 USE `bookocracy`;
 
@@ -28,7 +28,7 @@ CREATE TABLE `accounts` (
   `Username` varchar(25) NOT NULL,
   `Phone_Number` varchar(25) DEFAULT NULL,
   `Birth_Date` date NOT NULL,
-  `Credits` int(11) NOT NULL DEFAULT '0',
+  `Credits` int(11) NOT NULL DEFAULT 0,
   `Votes_Credit` int(11) NOT NULL,
   `Email` varchar(50) NOT NULL,
   `Password` varchar(300) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `accounts` (
   `Type` varchar(225) NOT NULL,
   `Date_created` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`AID`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Data for the table `accounts` */
 
@@ -46,8 +46,7 @@ insert  into `accounts`(`AID`,`Profile_Photo`,`Cover_Photo`,`Full_Name`,`Usernam
 (3,'no_file','reader-bg.jpg','JANICE HALLETT','HALLETT','091714236412','2009-01-01',45,12,'Hallet@gmail.com','759730a97e4373f3a0ee12805db065e3a4a649a5','0',NULL,'Author','2022-08-01 21:09:02'),
 (4,'no_file','reader-bg.jpg','DIANE CHAMBERLAIN','CHAMBERLAIN','091715216317','2022-09-02',10,5,'Chamberlain@gmail.com','$2y$10$rZthhcdWGWfbDBRWKYd75ORwYp6bdl5eacdSv6Jji04tRn/SHMQjS','0','','Author','2022-09-20 21:09:00'),
 (5,'no_file','reader-bg.jpg','DANYA KUKAFKA','KUKAFKA','091715616416','2022-09-03',10,5,'Kukafka@gmail.com','$2y$10$OmtKX.iuQscL9VQvwCrEiOt7spd/dWxUaMCvRP0cR97q2c0KDNtJK','0','2022-10-23 19:14:10','User','2022-09-20 21:09:03'),
-(10,'no_file','reader-bg.jpg','SARAH VAUGHAN','VAUGHAN','091718216812','2022-09-15',10,-5,'Vaughan@gmail.com','759730a97e4373f3a0ee12805db065e3a4a649a5','0',NULL,'User','2022-09-20 21:09:04'),
-(11,'no_file','reader-bg.jpg','ASDSADASD','ASDASDASD',NULL,'2022-11-10',0,5,'ASDASDAS@AHSDASD','SDADASDSAD','0',NULL,'uSER','2022-10-20 01:19:00');
+(10,'no_file','reader-bg.jpg','SARAH VAUGHAN','VAUGHAN','091718216812','2022-09-15',10,-5,'Vaughan@gmail.com','759730a97e4373f3a0ee12805db065e3a4a649a5','0',NULL,'User','2022-09-20 21:09:04');
 
 /*Table structure for table `admin` */
 
@@ -55,25 +54,23 @@ DROP TABLE IF EXISTS `admin`;
 
 CREATE TABLE `admin` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Full_Name` varchar(50) DEFAULT NULL,
-  `Username` varchar(25) DEFAULT NULL,
-  `Birthday` date DEFAULT NULL,
+  `Full_Name` varchar(50) NOT NULL,
+  `Username` varchar(25) NOT NULL,
   `Phone_Number` varchar(25) DEFAULT NULL,
-  `Email` varchar(50) DEFAULT NULL,
-  `Password` varchar(100) DEFAULT NULL,
-  `Picture` varchar(100) DEFAULT NULL,
+  `Birth_Date` date NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Password` varchar(300) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 /*Data for the table `admin` */
 
-insert  into `admin`(`Id`,`Full_Name`,`Username`,`Birthday`,`Phone_Number`,`Email`,`Password`,`Picture`) values 
-(3,'Justine Jusi','Justine',NULL,'112233','Justinejusi98@gmail.com','759730a97e4373f3a0ee12805db065e3a4a649a5',NULL),
-(4,'Test','test',NULL,'1','test@sample.com','$2y$10$rZthhcdWGWfbDBRWKYd75ORwYp6bdl5eacdSv6Jji04tRn/SHMQjS',NULL),
-(5,'My Test','test',NULL,'123123123','mytest@sample.com','$2y$10$OmtKX.iuQscL9VQvwCrEiOt7spd/dWxUaMCvRP0cR97q2c0KDNtJK',NULL),
-(37,'John Ernest Catungal','John Ernest',NULL,NULL,'%Bookocracy%',NULL,'https://lh3.googleusercontent.com/a-/ACNPEu9_f1iMJsywEDEtSb8W0ERGPElUjXMSRDUCkcEe=s96-c'),
-(38,'John Ernest Catungal','John Ernest',NULL,NULL,'johnernest.catungal1997@gmail.com',NULL,'https://lh3.googleusercontent.com/a-/ACNPEu9_f1iMJsywEDEtSb8W0ERGPElUjXMSRDUCkcEe=s96-c'),
-(39,'John Ernest Catungal','John Ernest',NULL,NULL,'jcatungal14552@student.dmmmsu.edu.ph',NULL,'https://lh3.googleusercontent.com/a/ALm5wu3y7WkBRr3Rq17wg2vVPMOwylknKfUgnfxuN5AG=s96-c');
+insert  into `admin`(`Id`,`Full_Name`,`Username`,`Phone_Number`,`Birth_Date`,`Email`,`Password`) values 
+(1,'Jose Mari Chan','Chan','1234','2009-01-21','johnernest.catungal1997@gmail.com','123456789'),
+(3,'Justine Jusi','Justine','112233','2009-01-01','Justinejusi98@gmail.com','759730a97e4373f3a0ee12805db065e3a4a649a5'),
+(4,'Test','test','1','2022-09-02','test@sample.com','$2y$10$rZthhcdWGWfbDBRWKYd75ORwYp6bdl5eacdSv6Jji04tRn/SHMQjS'),
+(5,'My Test','test','123123123','2022-09-03','mytest@sample.com','$2y$10$OmtKX.iuQscL9VQvwCrEiOt7spd/dWxUaMCvRP0cR97q2c0KDNtJK'),
+(10,'Justine Jusi','Justine','123','2022-09-15','justine@bookocracy.com','759730a97e4373f3a0ee12805db065e3a4a649a5');
 
 /*Table structure for table `book` */
 
@@ -88,22 +85,21 @@ CREATE TABLE `book` (
   `Book_Tag` varchar(100) NOT NULL,
   `Book_Description` text NOT NULL,
   `Book_Status` varchar(11) NOT NULL COMMENT '2 = Writing 1 = Unpublish 0 = Publish ',
-  `Date_Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date_Time` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`Book_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 /*Data for the table `book` */
 
 insert  into `book`(`Book_ID`,`AID`,`Book_Title`,`Book_Cover`,`Book_Category`,`Book_Tag`,`Book_Description`,`Book_Status`,`Date_Time`) values 
-(2,1,'CODING IS LIFE','code.jpeg','Adventure','Life in Books','Don Quixote (/?d?n ki??ho?ti/, also US: /-te?/)[1] is a Spanish epic novel by Miguel de Cervantes. Originally published in two parts, in 1605 and 1615, its full title is The Ingenious Gentleman Don Quixote of La Mancha or, in Spanish, El ingenioso hidalgo (or caballero, in Part 2) don Quijote de la Mancha.[a] A founding work of Western literature, it is often labelled as the first modern novel[2][3] and one of the greatest works ever written.[4][5] Don Quixote is also one of the most-translated books in the world.[6]\r\n\r\nThe plot revolves around the adventures of a member of the lowest nobility, an hidalgo from La Mancha named Alonso Quijano, who reads so many chivalric romances that he either loses or pretends to have lost his mind in order to become a knight-errant (caballero andante) to revive chivalry and serve his nation, under the name Don Quixote de la Mancha (in modern-day Spanish, spelled Quijote). He recruits a simple farmer, Sancho Panza, as his squire, who often employs a unique, earthy wit in dealing with Don Quixote\'s rhetorical monologues on knighthood, already considered old-fashioned at the time, and representing the most droll realism in contrast to his master\'s idealism. In the first part of the book, Don Quixote does not see the world for what it is and prefers to imagine that he is living out a knightly story that\'s meant for the annals of all time.\r\n\r\nThe book had a major influence on the literary community, as evidenced by direct references in Alexandre Dumas\' The Three Musketeers (1844), Mark Twain\'s Adventures of Huckleberry Finn (1884), and Edmond Rostand\'s Cyrano de Bergerac (1897), as well as the word quixotic and the epithet Lothario; the latter refers to a character in \"El curioso impertinente\" (\"The Impertinently Curious Man\"), an intercalated story that appears in Part One, chapters 33–35.[citation needed]\r\n\r\nWhen first published, Don Quixote was usually interpreted as a comic novel. After the successful French Revolution, it was better known for its presumed central ethic that in some ways individuals can be intelligent while their society is quite fanciful and was seen as a fascinating, enchanting or disenchanting book in this dynamic (and for among books). In the 19th century, it was seen as social commentary, but no one could easily tell \"whose side Cervantes was on\". Many critics came to view the work as a tragedy in which Don Quixote\'s idealism and nobility are viewed by the post-chivalric world as insane, and are defeated and rendered useless by common reality; by the 20th century, the novel had come to occupy a canonical space as one of the foundations of letters in literature.','0','2022-08-30 22:25:52'),
-(3,3,'Habits','cover.jpg','Classics','Fall Books','orem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor\r\nin, accumsan non quam. Nam consectetur porttitor rhoncus. Curabitur eu est et leo feugiat\r\nauctor vel quis lorem. Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed\r\nvelit imperdiet egestas. Maecenas tempus eros ut diam ullamcorper id dictum libero\r\ntempor. Donec quis augue quis magna condimentum lobortis. Quisque imperdiet ipsum vel\r\nmagna viverra rutrum. Cras viverra molestie urna, vitae vestibulum turpis varius id.\r\nVestibulum mollis, arcu iaculis bibendum varius, velit sapien blandit metus, ac posuere lorem\r\nnulla ac dolor. Maecenas urna elit, tincidunt in dapibus nec, vehicula eu dui. Duis lacinia\r\nfringilla massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur\r\nridiculus mus. U','0','2022-08-30 22:29:07'),
-(4,3,'LUNA STORM','lunar_storm.jpeg','Suspense','Shelfie by Shelfie','Don Quixote (/?d?n ki??ho?ti/, also US: /-te?/)[1] is a Spanish epic novel by Miguel de Cervantes. Originally published in two parts, in 1605 and 1615, its full title is The Ingenious Gentleman Don Quixote of La Mancha or, in Spanish, El ingenioso hidalgo (or caballero, in Part 2) don Quijote de la Mancha.[a] A founding work of Western literature, it is often labelled as the first modern novel[2][3] and one of the greatest works ever written.[4][5] Don Quixote is also one of the most-translated books in the world.[6]\r\n\r\nThe plot revolves around the adventures of a member of the lowest nobility, an hidalgo from La Mancha named Alonso Quijano, who reads so many chivalric romances that he either loses or pretends to have lost his mind in order to become a knight-errant (caballero andante) to revive chivalry and serve his nation, under the name Don Quixote de la Mancha (in modern-day Spanish, spelled Quijote). He recruits a simple farmer, Sancho Panza, as his squire, who often employs a unique, earthy wit in dealing with Don Quixote\'s rhetorical monologues on knighthood, already considered old-fashioned at the time, and representing the most droll realism in contrast to his master\'s idealism. In the first part of the book, Don Quixote does not see the world for what it is and prefers to imagine that he is living out a knightly story that\'s meant for the annals of all time.\r\n\r\nThe book had a major influence on the literary community, as evidenced by direct references in Alexandre Dumas\' The Three Musketeers (1844), Mark Twain\'s Adventures of Huckleberry Finn (1884), and Edmond Rostand\'s Cyrano de Bergerac (1897), as well as the word quixotic and the epithet Lothario; the latter refers to a character in \"El curioso impertinente\" (\"The Impertinently Curious Man\"), an intercalated story that appears in Part One, chapters 33–35.[citation needed]\r\n\r\nWhen first published, Don Quixote was usually interpreted as a comic novel. After the successful French Revolution, it was better known for its presumed central ethic that in some ways individuals can be intelligent while their society is quite fanciful and was seen as a fascinating, enchanting or disenchanting book in this dynamic (and for among books). In the 19th century, it was seen as social commentary, but no one could easily tell \"whose side Cervantes was on\". Many critics came to view the work as a tragedy in which Don Quixote\'s idealism and nobility are viewed by the post-chivalric world as insane, and are defeated and rendered useless by common reality; by the 20th century, the novel had come to occupy a canonical space as one of the foundations of letters in literature.','0','2022-08-30 22:34:43'),
-(6,1,'MEMORY','memory.jpg','Thriller','Reading Habits:','asd','0','2022-09-01 21:24:48'),
-(21,1,'THE SIN OF US','sin.jpg','Adult','Spring Cleaning','aasdasd','0','2022-09-14 21:19:22'),
-(25,1,'The Brothers Karamazo','#amico_test.png','Thriller','Writer’s Tag','HELLO WORLD','1','2022-09-15 03:20:42'),
-(26,1,'Crime and Punishment','Gutter_Cleaning_Tacoma_Pressure_Washing_Safety_Pointers.jpeg','Adventure','Spring Cleaning','HELLO WORLD','1','2022-09-17 00:20:07'),
-(30,10,'The Catcher in the Rye','19680.jpg','Adventure','Shelfie by Shelfie','123asdasd','0','2022-09-17 02:14:11'),
-(31,10,'ASDASDA','ASDASD','ADASD','ASDASD','SDAS\r\n','1','2022-10-01 01:19:43');
+(2,1,'The Best We Could Do','book-seven.jpg','Adventure','Life in Books','Don Quixote (/?d?n ki??ho?ti/, also US: /-te?/)[1] is a Spanish epic novel by Miguel de Cervantes. Originally published in two parts, in 1605 and 1615, its full title is The Ingenious Gentleman Don Quixote of La Mancha or, in Spanish, El ingenioso hidalgo (or caballero, in Part 2) don Quijote de la Mancha.[a] A founding work of Western literature, it is often labelled as the first modern novel[2][3] and one of the greatest works ever written.[4][5] Don Quixote is also one of the most-translated books in the world.[6]\r\n\r\nThe plot revolves around the adventures of a member of the lowest nobility, an hidalgo from La Mancha named Alonso Quijano, who reads so many chivalric romances that he either loses or pretends to have lost his mind in order to become a knight-errant (caballero andante) to revive chivalry and serve his nation, under the name Don Quixote de la Mancha (in modern-day Spanish, spelled Quijote). He recruits a simple farmer, Sancho Panza, as his squire, who often employs a unique, earthy wit in dealing with Don Quixote\'s rhetorical monologues on knighthood, already considered old-fashioned at the time, and representing the most droll realism in contrast to his master\'s idealism. In the first part of the book, Don Quixote does not see the world for what it is and prefers to imagine that he is living out a knightly story that\'s meant for the annals of all time.\r\n\r\nThe book had a major influence on the literary community, as evidenced by direct references in Alexandre Dumas\' The Three Musketeers (1844), Mark Twain\'s Adventures of Huckleberry Finn (1884), and Edmond Rostand\'s Cyrano de Bergerac (1897), as well as the word quixotic and the epithet Lothario; the latter refers to a character in \"El curioso impertinente\" (\"The Impertinently Curious Man\"), an intercalated story that appears in Part One, chapters 33–35.[citation needed]\r\n\r\nWhen first published, Don Quixote was usually interpreted as a comic novel. After the successful French Revolution, it was better known for its presumed central ethic that in some ways individuals can be intelligent while their society is quite fanciful and was seen as a fascinating, enchanting or disenchanting book in this dynamic (and for among books). In the 19th century, it was seen as social commentary, but no one could easily tell \"whose side Cervantes was on\". Many critics came to view the work as a tragedy in which Don Quixote\'s idealism and nobility are viewed by the post-chivalric world as insane, and are defeated and rendered useless by common reality; by the 20th century, the novel had come to occupy a canonical space as one of the foundations of letters in literature.','0','2022-08-30 22:25:52'),
+(3,3,'Habits','habits.png','Classics','Fall Books','orem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor\r\nin, accumsan non quam. Nam consectetur porttitor rhoncus. Curabitur eu est et leo feugiat\r\nauctor vel quis lorem. Ut et ligula dolor, sit amet consequat lorem. Aliquam porta eros sed\r\nvelit imperdiet egestas. Maecenas tempus eros ut diam ullamcorper id dictum libero\r\ntempor. Donec quis augue quis magna condimentum lobortis. Quisque imperdiet ipsum vel\r\nmagna viverra rutrum. Cras viverra molestie urna, vitae vestibulum turpis varius id.\r\nVestibulum mollis, arcu iaculis bibendum varius, velit sapien blandit metus, ac posuere lorem\r\nnulla ac dolor. Maecenas urna elit, tincidunt in dapibus nec, vehicula eu dui. Duis lacinia\r\nfringilla massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur\r\nridiculus mus. U','0','2022-08-30 22:29:07'),
+(4,3,'Don Quixote','book-eight.jpg','Suspense','Shelfie by Shelfie','Don Quixote (/?d?n ki??ho?ti/, also US: /-te?/)[1] is a Spanish epic novel by Miguel de Cervantes. Originally published in two parts, in 1605 and 1615, its full title is The Ingenious Gentleman Don Quixote of La Mancha or, in Spanish, El ingenioso hidalgo (or caballero, in Part 2) don Quijote de la Mancha.[a] A founding work of Western literature, it is often labelled as the first modern novel[2][3] and one of the greatest works ever written.[4][5] Don Quixote is also one of the most-translated books in the world.[6]\r\n\r\nThe plot revolves around the adventures of a member of the lowest nobility, an hidalgo from La Mancha named Alonso Quijano, who reads so many chivalric romances that he either loses or pretends to have lost his mind in order to become a knight-errant (caballero andante) to revive chivalry and serve his nation, under the name Don Quixote de la Mancha (in modern-day Spanish, spelled Quijote). He recruits a simple farmer, Sancho Panza, as his squire, who often employs a unique, earthy wit in dealing with Don Quixote\'s rhetorical monologues on knighthood, already considered old-fashioned at the time, and representing the most droll realism in contrast to his master\'s idealism. In the first part of the book, Don Quixote does not see the world for what it is and prefers to imagine that he is living out a knightly story that\'s meant for the annals of all time.\r\n\r\nThe book had a major influence on the literary community, as evidenced by direct references in Alexandre Dumas\' The Three Musketeers (1844), Mark Twain\'s Adventures of Huckleberry Finn (1884), and Edmond Rostand\'s Cyrano de Bergerac (1897), as well as the word quixotic and the epithet Lothario; the latter refers to a character in \"El curioso impertinente\" (\"The Impertinently Curious Man\"), an intercalated story that appears in Part One, chapters 33–35.[citation needed]\r\n\r\nWhen first published, Don Quixote was usually interpreted as a comic novel. After the successful French Revolution, it was better known for its presumed central ethic that in some ways individuals can be intelligent while their society is quite fanciful and was seen as a fascinating, enchanting or disenchanting book in this dynamic (and for among books). In the 19th century, it was seen as social commentary, but no one could easily tell \"whose side Cervantes was on\". Many critics came to view the work as a tragedy in which Don Quixote\'s idealism and nobility are viewed by the post-chivalric world as insane, and are defeated and rendered useless by common reality; by the 20th century, the novel had come to occupy a canonical space as one of the foundations of letters in literature.','0','2022-08-30 22:34:43'),
+(6,1,'In Search of Lost Time ','housev101.png','Thriller','Reading Habits:','asd','0','2022-09-01 21:24:48'),
+(21,1,'One Hundred Years of Solitude','amico.png','Adult','Spring Cleaning','aasdasd','0','2022-09-14 21:19:22'),
+(25,1,'The Brothers Karamazov','#amico_test.png','Thriller','Writer’s Tag','asd','1','2022-09-15 03:20:42'),
+(26,1,'Crime and Punishment','Gutter_Cleaning_Tacoma_Pressure_Washing_Safety_Pointers.jpeg','Adventure','Spring Cleaning','asd','1','2022-09-17 00:20:07'),
+(30,10,'The Catcher in the Rye','19680.jpg','Adventure','Shelfie by Shelfie','123asdasd','0','2022-09-17 02:14:11');
 
 /*Table structure for table `book_chapter` */
 
@@ -115,7 +111,7 @@ CREATE TABLE `book_chapter` (
   `Book_ID` int(11) NOT NULL,
   `Chapter_Title` varchar(100) NOT NULL,
   `Chapter_Content` text NOT NULL,
-  `Date_Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date_Time` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`Chapter_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
@@ -157,24 +153,6 @@ insert  into `chapter_view`(`CV_ID`,`Chapter_ID`,`AID`,`R_Stat`) values
 (5,4,0,'1'),
 (6,4,0,'1');
 
-/*Table structure for table `chat_user` */
-
-DROP TABLE IF EXISTS `chat_user`;
-
-CREATE TABLE `chat_user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `login_oauth_uid` varchar(225) DEFAULT NULL,
-  `first_name` varchar(225) DEFAULT NULL,
-  `last_name` varchar(225) DEFAULT NULL,
-  `email_address` varchar(255) DEFAULT NULL,
-  `profile_picture` varchar(225) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
-/*Data for the table `chat_user` */
-
 /*Table structure for table `coupon_logs` */
 
 DROP TABLE IF EXISTS `coupon_logs`;
@@ -183,9 +161,9 @@ CREATE TABLE `coupon_logs` (
   `Clogs_ID` int(11) NOT NULL AUTO_INCREMENT,
   `Coupon_Code` varchar(15) NOT NULL,
   `AID` int(11) NOT NULL,
-  `Date_Time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Date_Time` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`Clogs_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 /*Data for the table `coupon_logs` */
 
@@ -222,9 +200,9 @@ CREATE TABLE `gift` (
 /*Data for the table `gift` */
 
 insert  into `gift`(`GID`,`AID`,`Book_ID`,`Chapter_ID`,`Gift_Amount`) values 
-(1,3,2,28,20),
+(1,3,1,2,20),
 (2,3,2,14,1000),
-(3,1,3,3,500);
+(3,3,3,3,500);
 
 /*Table structure for table `gift_wallet` */
 
@@ -338,7 +316,7 @@ CREATE TABLE `transactions` (
   `response` text NOT NULL COMMENT 'response from stripe',
   `amount` int(11) NOT NULL,
   `status` int(11) NOT NULL COMMENT '1 = Success, 0 = Fail',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`TID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=latin1;
 
@@ -399,25 +377,6 @@ insert  into `users`(`id`,`email`,`password`,`fname`) values
 (1,'ndevierte@gmail.com','nurhodelta','Neovic Devierte'),
 (2,'gemalyn@gmail.com','cepe','Gemalyn Cepe');
 
-/*Table structure for table `userss` */
-
-DROP TABLE IF EXISTS `userss`;
-
-CREATE TABLE `userss` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(225) DEFAULT NULL,
-  `email` varchar(225) DEFAULT NULL,
-  `password` varchar(225) DEFAULT NULL,
-  `image` varchar(225) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
-/*Data for the table `userss` */
-
-insert  into `userss`(`id`,`name`,`email`,`password`,`image`) values 
-(1,'asd','qwe@gmail',NULL,NULL),
-(2,'John Ernest Catungal','ecatungal@dmmmsu.edu.ph',NULL,'https://lh3.googleusercontent.com/a-/ACNPEu8zxpC6CegcodlO-wFaDV0aHjDk4DhuQuWc6_F2=s96-c');
-
 /*Table structure for table `vote` */
 
 DROP TABLE IF EXISTS `vote`;
@@ -427,16 +386,16 @@ CREATE TABLE `vote` (
   `AID` int(11) NOT NULL,
   `Book_ID` int(11) NOT NULL,
   `Vote_Value` int(11) NOT NULL,
-  `Vote_Date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `Vote_Date` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`VID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `vote` */
 
 insert  into `vote`(`VID`,`AID`,`Book_ID`,`Vote_Value`,`Vote_Date`) values 
-(2,3,2,20,'2022-09-16 21:27:27'),
-(3,10,2,3,'2022-09-17 02:05:54'),
-(4,3,4,15,'2022-09-23 22:18:25');
+(2,3,6,1,'2022-09-16 21:27:27'),
+(3,10,3,3,'2022-09-17 02:05:54'),
+(4,3,6,3,'2022-09-23 22:18:25');
 
 /*Table structure for table `waitlist` */
 
@@ -446,7 +405,7 @@ CREATE TABLE `waitlist` (
   `WID` int(11) NOT NULL AUTO_INCREMENT,
   `Full_Name` varchar(50) DEFAULT NULL,
   `Email` varchar(25) NOT NULL,
-  `DateTime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `DateTime` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`WID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 

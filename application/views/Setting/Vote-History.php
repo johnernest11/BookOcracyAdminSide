@@ -49,7 +49,7 @@
           <br>
 					<table class="table table-bordered text-nowrap border-bottom w-100" id="datatable">
 						<thead> 
-                            <th class="wd-15p border-bottom-0">Picture</th>
+                            <th class="wd-15p border-bottom-0">Book Cover</th>
                             <th class="wd-15p border-bottom-0">Book Title</th>
                             <th class="wd-15p border-bottom-0">Author</th>
                             <th class="wd-15p border-bottom-0">Vote Value</th>
@@ -84,7 +84,7 @@
                     for(i=0; i<data.length; i++){
                         $picture =data[i].Book_Cover
                         html += '<tr>'+
-                                '<td><img src="<?=  base_url('images/+data[i].Book_Cover+')?>"></td>'+
+                                '<td><center><img src=https://bookocracy.com/Assets/'+data[i].Book_Cover+' width="100" height="120"></center> </td>'+
                                 '<td>'+data[i].Book_Title+'</td>'+
                                 '<td>'+data[i].Full_Name+'</td>'+
                                 '<td>'+data[i].Vote_Value+'</td>'+

@@ -75,6 +75,7 @@ class AuthController extends CI_Controller {
 			$data['book'] = $this->Main_model->Most_Read_books();
 			$data['author'] = $this->Main_model->Top_Authors();
 			$data['vote'] = $this->Main_model->Top_voted();
+			$data['year_list'] = $this->Main_model->fetch_year();
 			
 			
 
@@ -86,6 +87,28 @@ class AuthController extends CI_Controller {
 		}
  
 	}
+
+
+	//REPORT CHART
+	function fetch_data()
+	{
+			if($this->input->post('year'))
+	{
+	$chart_data = $this->Main_model->fetch_chart_data($this->input->post('year'));
+	
+	foreach($chart_data->result_array() as $row)
+	{
+		$output[] = array(
+		'month'  => $row["account_month"],
+		'amounts' => floatval($row["account_count"]),
+
+		
+		);
+	}
+	echo json_encode($output);
+	}
+	}
+   //REPORT CHART
 
 
 	public function Dashboardtable(){

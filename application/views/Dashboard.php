@@ -265,19 +265,95 @@
                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-10">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title"></h3>
+                            <h3 class="card-title">Total Number of accounts Report</h3>
+                            <div class="col-md-3">
+                            <select name="year" id="year" class="form-control">
+                                <option value="">Select Year</option>
+                            <?php
+                            foreach($year_list->result_array() as $row)
+                            {
+                                echo '<option value="'.$row["year"].'">'.$row["year"].'</option>';
+                            }
+                            ?>
+
+                            </select>
+                            </div>
                         </div>
                         <div class="card-body pb-0 ">
                                     <div class="chart-sort ">            
-                                        <div class="btn-group" role="group" aria-label="Sort results">
-                                        <button type="button" class="btn btn-primary">Day</button>
-                                        <button type="button" class="btn btn-primary">Week</button>
-                                        <button type="button" class="btn btn-primary">Month</button>
-                                        <button type="button" class="btn btn-primary">Year</button>
-                                        </div>
+                                        
                                     </div>
-                             <div id="chartArea" class="chart-donut"></div>
-                             <!-- <div id="chart-area-spline-sracked" class="chartsh"></div> -->
+                                    <div id="chartBar1" style="height: 620px;"></div>
+                                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script>
+            /* Bar-Chart1 */
+            google.charts.load('current', {packages:['corechart', 'bar']});
+                    google.charts.setOnLoadCallback();
+
+                    function load_monthwise_data(year, title)
+                    {
+                        var temp_title = title + ' ' + year;
+                        $.ajax({
+                            url:"<?php echo base_url(); ?>AuthController/fetch_data",
+                            method:"POST",
+                            data:{year:year},
+                            dataType:"JSON",
+                            success:function(data)
+                            {
+                                drawMonthwiseChart(data, temp_title);
+                            }
+                        })
+                    }
+
+                    function drawMonthwiseChart(chart_data)
+                    {
+                        var jsonData = chart_data;
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'month');
+                        data.addColumn('number', 'Total');
+
+                        $.each(jsonData, function(i, jsonData){
+                            var month = jsonData.month;
+                            var profit = parseFloat($.trim(jsonData.amounts));
+                            data.addRows([[month, profit]]);
+                            data.addRows([[month, profit]]);
+                        });
+
+                        var options = {
+                            
+                            hAxis: {
+                                title: "Months"
+                            },
+                            vAxis: {
+                                title: 'Numbers'
+                            },
+                            chartArea:{width:'70%',height:'60%'}
+                        }
+
+                        var chart = new google.visualization.ColumnChart(document.getElementById('chartBar1'));
+
+                        chart.draw(data, options);
+                    }
+
+                    </script>
+                <script>
+                                                                                
+                        $(document).ready(function(){
+                            $('#year').change(function(){
+                                var year = $(this).val();
+                                if(year != '')
+                                {
+                                    load_monthwise_data(year,'Dashboard');
+                                }
+                            });
+                        });
+                </script>
+
+
+
+
+
+                                    
                         </div>
                     </div>
                 </div>
@@ -292,134 +368,4 @@
 
 
 
-<script>
-
-
-(function($) {
-	 
-     /*-----echart1-----*/
-     var options = {
-         chart: {
-             height: 300,
-             type: "line",
-             stacked: false,
-             toolbar: {
-                 enabled: false
-             },
-             dropShadow: {
-                 enabled: true,
-                 opacity: 0.1,
-             },
-         },
-         colors: [myVarVal, "#f99433", 'rgba(119, 119, 142, 0.05)'],
-         dataLabels: {
-             enabled: false
-         },
-         stroke: {
-             curve: "smooth",
-             width: [3, 3, 0],
-             dashArray: [0, 4],
-             lineCap: "round"
-         },
-         grid: {
-             padding: {
-                 left: 0,
-                 right: 0
-             },
-             strokeDashArray: 3
-         },
-         markers: {
-             size: 0,
-             hover: {
-                 size: 0
-             }
-         },
-         series: [{
-             name: "Total Users",
-             type: 'line',
-             data: [<?php echo $this->db->like('Date_created','-01-','both')->from("accounts")->count_all_results(); ?>, 
-                    <?php echo $this->db->like('Date_created','-02-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-03-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-04-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-05-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-06-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-07-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-08-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-09-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-10-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-11-','both')->from("accounts")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_created','-12-','both')->from("accounts")->count_all_results(); ?>]
-             
-         },
-         
-         {
-             name: "Total Number of Books",
-             type: 'line',
-             data: [<?php echo $this->db->like('Date_Time','-01-','both')->from("book")->count_all_results(); ?>, 
-                    <?php echo $this->db->like('Date_Time','-02-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-03-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-04-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-05','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-06-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-07-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-08-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-09-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-10-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-11-','both')->from("book")->count_all_results(); ?>,
-                    <?php echo $this->db->like('Date_Time','-12-','both')->from("book")->count_all_results(); ?>]
-         }],
-         xaxis: {
-             type: "month",
-             categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-             axisBorder: {
-                 show: false,
-                 color: 'rgba(119, 119, 142, 0.08)',
-             },
-             labels: {
-                 style: {
-                     color: '#8492a6',
-                     fontSize: '12px',
-                 },
-             },
-         },
-         yaxis: {
-             labels: {
-                 style: {
-                     color: '#8492a6',
-                     fontSize: '12px',
-                 },
-             },
-             axisBorder: {
-                 show: false,
-                 color: 'rgba(119, 119, 142, 0.08)',
-             },
-         },
-         fill: {
-             gradient: {
-               inverseColors: false,
-               shade: 'light',
-               type: "vertical",
-               opacityFrom: 0.85,
-               opacityTo: 0.55,
-               stops: [0, 100, 100, 100]
-             }
-           },
-         tooltip: {
-             show:false
-         },
-         legend: {
-             position: "top",
-             show:true
-         }
-     }
-     document.querySelector("#chartArea").innerHTML = "";
-     var chart = new ApexCharts(document.querySelector("#chartArea"), options);
-     chart.render();
-  
-})(jQuery);
-</script>
-
-
-
-
-
+            

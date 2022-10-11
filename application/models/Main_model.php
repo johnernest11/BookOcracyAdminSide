@@ -80,4 +80,33 @@ function New_Book(){
      $projectsq = $this->db->get()->result();
    return $projectsq;
  }
+
+
+
+ function fetch_year()
+ {
+    $this->db->select('YEAR(Date_created) as year');
+    $this->db->from('accounts');
+    $this->db->group_by('year');
+//   $this->db->select('year');
+//   $this->db->from('chart_data');
+//   $this->db->group_by('year');
+//   $this->db->order_by('year', 'DESC');
+  return $this->db->get();
+ }
+
+ function fetch_chart_data($year)
+ {
+//   $this->db->where('year', $year);
+//   $this->db->order_by('year', 'ASC');
+//   return $this->db->get('chart_data');
+//   $this->db->select('Month(created_at) as month, amount');
+  $this->db->select('COUNT(AID) as account_count, MONTHNAME(Date_created) as account_month');
+  $this->db->where('YEAR(Date_created)', $year);
+  $this->db->order_by('Date_created', 'ASC');
+  $this->db->group_by('account_month');
+  $this->db->group_by('YEAR(Date_created)');
+  
+  return $this->db->get('accounts');
+ }//REPORT GRAPH
  } 

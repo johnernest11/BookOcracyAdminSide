@@ -21,6 +21,8 @@
         <link id="style" href="<?php echo site_url('assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet')?>" />
 
         <!-- STYLE CSS -->
+  
+      
         <link href="<?php echo site_url('assets/css/style.css')?>" rel="stylesheet" />
         <link href="<?php echo site_url('assets/css/dark-style.css')?>" rel="stylesheet" />
         <link href="<?php echo site_url('assets/css/skin-modes.css')?>" rel="stylesheet" />
@@ -31,6 +33,10 @@
 
         <!-- COLOR SKIN CSS -->
         <link id="theme" rel="stylesheet" type="text/css" media="all" href="assets/colors/color1.css" />
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+       
+</head>
 
     </head>
 
@@ -427,6 +433,9 @@
 <script src="<?php echo site_url('assets/js/sweet-alert.js') ?>"></script>
 <script src="<?php echo site_url('assets/js/sweetalert2.all.js') ?>"></script>
 <script src="<?php echo site_url('assets/js/sweetalert2.min.js') ?>"></script>
+
+<script src="https://cdn.datatables.net/datetime/1.1.2/css/dataTables.dateTime.min.css"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.2/moment.min.js"></script>
 
     </body>
 </html>

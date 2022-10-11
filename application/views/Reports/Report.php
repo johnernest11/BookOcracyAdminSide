@@ -1,4 +1,5 @@
 <!-- PAGE-HEADER -->
+
 <div class="page-header">
 	<div>
 		<h1 class="page-title">Reports</h1>
@@ -43,62 +44,84 @@
                                                         <div class="card">
                                                             <div class="card-header">
                                                                 <h3 class="card-title">Sales Stats</h3>
+                                                                <div class="col-md-3">
+                                                                <select name="year" id="year" class="form-control">
+                                                                    <option value="">Select Year</option>
+                                                                <?php
+                                                                foreach($year_list->result_array() as $row)
+                                                                {
+                                                                    echo '<option value="'.$row["year"].'">'.$row["year"].'</option>';
+                                                                }
+                                                                ?>
+
+                                                                </select>
+                                                                </div>
                                                             </div>
                                                             <div class="card-body">
                                                                 <div class="chart-container">
-                                                                    <canvas id="chartBar1" class="h-275"></canvas>
+                                                                <div id="chartBar1" style="height: 620px;"></div>
+                                                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                                                                     <script>
-                                                                                                                                            /* Bar-Chart1 */
-                                                                            var ctx = document.getElementById("chartBar1").getContext('2d');
-                                                                            var myChart = new Chart(ctx, {
-                                                                                type: 'bar',
-                                                                                data: {
-                                                                                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"],
-                                                                                    datasets: [{
-                                                                                        label: 'Sales',
-                                                                                        data: [200, 450, 290, 367, 256, 543, 345, 290, 367],
-                                                                                        borderWidth: 2,
-                                                                                        backgroundColor: '#6259ca',
-                                                                                        borderColor: '#6259ca',
-                                                                                        borderWidth: 2.0,
-                                                                                        pointBackgroundColor: '#ffffff',
+                                                                    /* Bar-Chart1 */
+                                                                    google.charts.load('current', {packages:['corechart', 'bar']});
+                                                                            google.charts.setOnLoadCallback();
 
-                                                                                    }]
-                                                                                },
-                                                                                options: {
-                                                                                    responsive: true,
-                                                                                    maintainAspectRatio: false,
-                                                                                    legend: {
-                                                                                        display: true
+                                                                            function load_monthwise_data(year, title)
+                                                                            {
+                                                                                var temp_title = title + ' ' + year;
+                                                                                $.ajax({
+                                                                                    url:"<?php echo base_url(); ?>ReportController/fetch_data",
+                                                                                    method:"POST",
+                                                                                    data:{year:year},
+                                                                                    dataType:"JSON",
+                                                                                    success:function(data)
+                                                                                    {
+                                                                                        drawMonthwiseChart(data, temp_title);
+                                                                                    }
+                                                                                })
+                                                                            }
+
+                                                                            function drawMonthwiseChart(chart_data, chart_main_title)
+                                                                            {
+                                                                                var jsonData = chart_data;
+                                                                                var data = new google.visualization.DataTable();
+                                                                                data.addColumn('string', 'month');
+                                                                                data.addColumn('number', 'amounts');
+
+                                                                                $.each(jsonData, function(i, jsonData){
+                                                                                    var month = jsonData.month;
+                                                                                    var profit = parseFloat($.trim(jsonData.amounts));
+                                                                                    data.addRows([[month, profit]]);
+                                                                                });
+
+                                                                                var options = {
+                                                                                    title:chart_main_title,
+                                                                                    hAxis: {
+                                                                                        title: "Months"
                                                                                     },
-                                                                                    scales: {
-                                                                                        yAxes: [{
-                                                                                            ticks: {
-                                                                                                beginAtZero: true,
-                                                                                                stepSize: 150,
-                                                                                                fontColor: "#77778e",
-                                                                                            },
-                                                                                            gridLines: {
-                                                                                                color: 'rgba(119, 119, 142, 0.2)'
-                                                                                            }
-                                                                                        }],
-                                                                                        xAxes: [{
-                                                                                            ticks: {
-                                                                                                display: true,
-                                                                                                fontColor: "#77778e",
-                                                                                            },
-                                                                                            gridLines: {
-                                                                                                display: false,
-                                                                                                color: 'rgba(119, 119, 142, 0.2)'
-                                                                                            }
-                                                                                        }]
+                                                                                    vAxis: {
+                                                                                        title: 'Profit'
                                                                                     },
-                                                                                    legend: {
-                                                                                        labels: {
-                                                                                            fontColor: "#77778e"
-                                                                                        },
-                                                                                    },
+                                                                                    chartArea:{width:'70%',height:'60%'}
                                                                                 }
+
+                                                                                var chart = new google.visualization.ColumnChart(document.getElementById('chartBar1'));
+
+                                                                                chart.draw(data, options);
+                                                                            }
+
+                                                                            </script>
+
+                                                                            <script>
+                                                                                
+                                                                            $(document).ready(function(){
+                                                                                $('#year').change(function(){
+                                                                                    var year = $(this).val();
+                                                                                    if(year != '')
+                                                                                    {
+                                                                                        load_monthwise_data(year, 'Report');
+                                                                                    }
+                                                                                });
                                                                             });
                                                                     </script>
                                                                 </div>
@@ -582,4 +605,3 @@
      //LIST OF PUBLISH BOOK REPORT//
 
 </script>
- 

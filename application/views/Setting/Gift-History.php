@@ -50,7 +50,7 @@
 					<table class="table table-bordered text-nowrap border-bottom w-100" id="datatable">
 						<thead>
 							<tr>
-								<th class="wd-15p border-bottom-0">Picture</th>
+								<th class="wd-15p border-bottom-0">Book Cover</th>
 								<th class="wd-15p border-bottom-0">Book Title</th>
                 <th class="wd-15p border-bottom-0">Book Chapter</th>
                 <th class="wd-15p border-bottom-0">Author</th>
@@ -84,7 +84,7 @@
                     var i;
                     for(i=0; i<data.length; i++){
                         html += '<tr>'+
-                                '<td>'+data[i].Profile_Photo+'</td>'+
+                                '<td><center><img src=https://bookocracy.com/Assets/'+data[i].Book_Cover+' width="100" height="120"></center> </td>'+
                                 '<td>'+data[i].Book_Title+'</td>'+
 								                '<td>'+data[i].Chapter_Title+'</td>'+
                                 '<td>'+data[i].Full_Name+'</td>'+
