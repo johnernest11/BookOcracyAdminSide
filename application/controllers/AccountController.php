@@ -1,9 +1,24 @@
 <?php
 class AccountController extends CI_Controller{
+        private $userid;
+
     function __construct(){
         parent::__construct();
+        $this->load->database();
+        
+			$this->load->library('session');
         $this->load->model('Account_model');
+
+
+
     }
+
+    function AdminSetting(){
+
+           $this->load->view('sidebar');
+           $this->load->view('UserSetting/Admin-Settings');
+      
+  }
 
     //AUTHOR ROUTES
     function Author(){
@@ -82,6 +97,8 @@ class AccountController extends CI_Controller{
         $this->load->view('UserSetting/Personal-Information');
     }
 
+    
+
      // show single user
      public function book_dataget(){
         $data = $this->Account_model->fetch_book();
@@ -106,10 +123,7 @@ class AccountController extends CI_Controller{
 
 // REPORTS SETTING
 //ADMIN SETTING
-function index_Admin(){
-    $this->load->view('sidebar');
-    $this->load->view('UserSetting/Admin-Setting');
-}
+
 
 function AdminSetting_data(){
     $data=$this->Account_model->AdminSetting();
@@ -148,6 +162,8 @@ public function viewprofile($AID)
   $this->load->view('sidebar');       
   $this->load->view('UserSetting/Author-Profile',$data);     
 }
+
+
 
 
 

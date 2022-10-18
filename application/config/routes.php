@@ -10,7 +10,7 @@ $route['Authors-List'] = 'AccountController/Author';
 $route['Author-Profile/(:num)'] = 'AccountController/viewprofile/$1';
 $route['Users-List'] = 'AccountController/User';
 $route['Personal-Information'] = 'AccountController/index_Information';
-$route['Admin-Setting'] = 'AccountController/index_Admin';
+$route['Admin-Settings'] = 'AccountController/AdminSetting';
 $route['WaitList-Users'] = 'AccountController/WaitList';
 
 // REPORTS

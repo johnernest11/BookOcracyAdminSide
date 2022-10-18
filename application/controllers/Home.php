@@ -12,41 +12,6 @@
 			$this->load->library('session');
 		}
 
-		// public function index(){
-		// 	$this->load->view('login_form');
-		// }
-
-		// public function login(){
-		// 	$email = $this->input->post('email');
-		// 	$password = $this->input->post('password');
-
-		// 	if($user = $this->user_model->getUser($email)){
-		// 		if($password == $user->password){
-		// 			$this->session->set_userdata('user',$user);
-		// 			redirect('Dashboard');
-		// 		}else{
-		// 			$this->load->view('login_form',array('message'=>'Invalid Login Credentials!'));
-		// 		}
-				
-		// 	}else{
-		// 		$this->load->view('login_form',array('message'=>'No account exists!'));
-		// 	}
-		// }
-
-		// public function dashboard(){
-		// 	if($this->session->has_userdata('user')){
-		// 		$user = $this->session->userdata('user');
-		// 		$this->load->view('home',array('user'=>$user));
-		// 	}else{
-		// 		redirect('home');
-		// 	}
-			
-		// }
-		// public function logout(){
-		// 	$this->session->sess_destroy();
-		// 	redirect('home');
-		// }
-
         public function Dashboard(){
             //load session library
             $this->load->library('session');
@@ -66,6 +31,8 @@
                 redirect('/');
             }
         }
+
+		
 
 		public function google_login(){
             $this->load->library('session');
@@ -90,8 +57,17 @@
 				
 				
 				
-				if($user = $this->user_model->getUser($user_info->email)){
-					$this->session->set_userdata('user',$user);
+				if($this->user_model->getUser($user_info->email)){
+					// $this->session->set_userdata('user',$user);
+					$array = array(
+						'Full_Name' => $user_info->name,
+						'Username' => $user_info->given_name,
+						'Phone_Number' => $user_info->phonenumber,
+						'Email'=> $user_info->email,
+						'Picture' => $user_info->picture,
+						);
+						// $this->session->set_userdata($array);
+					$this->session->set_userdata('user',$array);
                     redirect('Dashboard');
 				}else{
 					$this->user_model->createUser($data);

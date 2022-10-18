@@ -1,10 +1,23 @@
 <?php
 class Account_model extends CI_Model{
-    function __construct(){
-        parent::__construct();
-        $this->load->database();
-    }
 
+    // function get_adminaccount($userid){
+
+    //     // $project = $this->db->get_where('admin', ['Id' => $userid ])->row();
+    //     // return $project;
+    //     // $this->db->select('*');
+    //     // $this->db->from('admin');
+    //     // $this->db->where('Id', $userid);
+    //     // $query = $this->db->get()->row_array();;
+    //     // return $query->row();
+    //     $this->db->where('Id',$userid);
+    //     $hasil = $this->db->get('admin');
+    //     if($hasil->num_rows() >0){
+    //         return  $hasil->row();
+    //        }else{
+    //         return false;
+    //        }
+    // }
  
     // USER SETTING 
     
@@ -246,6 +259,9 @@ function archieve_adminsetting(){
     $result=$this->db->update('admin');
     return $result;
 }
+
+
+
 
 
 }
