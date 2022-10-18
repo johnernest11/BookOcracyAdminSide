@@ -104,7 +104,7 @@ function New_Book(){
   $this->db->select('COUNT(AID) as account_count, MONTHNAME(Date_created) as account_month');
   $this->db->where('YEAR(Date_created)', $year);
   $this->db->order_by('Date_created', 'ASC');
-  $this->db->group_by('account_month');
+  $this->db->group_by(' MONTHNAME(Date_created)');
   $this->db->group_by('YEAR(Date_created)');
   
   return $this->db->get('accounts');

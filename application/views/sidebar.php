@@ -121,18 +121,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="dropdown-divider m-0"></div>
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="<?php echo site_url('Admin-Settings'); ?>">
                                                         <i class="dropdown-icon fe fe-user"></i> Profile
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="dropdown-icon fe fe-mail"></i> Inbox
-                                                        <span class="badge bg-secondary float-end">3</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="dropdown-icon fe fe-settings"></i> Settings
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i class="dropdown-icon fe fe-alert-triangle"></i> Need help?
                                                     </a>
                                                     <a class="dropdown-item" href="<?php echo base_url(); ?>index.php/AuthController/logout">
                                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
@@ -190,7 +180,6 @@
                                         <li><a href="<?php echo site_url('Authors-List'); ?>"  class="slide-item">Authors List</a></li>
                                         <li><a href="<?php echo site_url('Users-List'); ?>"  class="slide-item">Users List</a></li>
                                         <li><a href="<?php echo site_url('WaitList-Users'); ?>"  class="slide-item">Waitlist Users</a></li>
-                                        <li><a href="<?php echo site_url('Admin-Settings'); ?>" class="slide-item">Admin Settings</a></li>
                                     </ul>
                                 </li>
                                 <li class="slide">

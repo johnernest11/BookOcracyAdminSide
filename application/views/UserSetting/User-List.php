@@ -38,13 +38,13 @@
         <div class="card-header">
           <div class="ms-auto pageheader-btn">
             <div class="form-group text-right">
-                  <button class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-pause-circle" aria-hidden="true"></i> Suspend Account</button> 
+                  <button class="btn btn-primary dropdown-toggle"  id="suspendaccountbtn" data-bs-toggle="dropdown" disabled><i class="fa fa-pause-circle" aria-hidden="true"></i> Suspend Account</button> 
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="javascript:void(0)" id="btn3daySuspend">3 Days</a>
                           <a class="dropdown-item" href="javascript:void(0)"  id="btn7daySuspend">7 Days</a>
                           <a class="dropdown-item" href="javascript:void(0)"  id="btn1monthSuspend">1 Month</a>
                         </div>
-                  <button class="btn btn-danger" id="btnBan"><i class="fa fa-ban" aria-hidden="true"></i> Ban Account</button>
+                  <button class="btn btn-danger" id="banaccountbtn" disabled><i class="fa fa-ban" aria-hidden="true" ></i> Ban Account</button>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
                     <th class="wd-15p border-bottom-0"></th>
                     <th class="wd-10p border-bottom-0">Email</th>
                     <th class="wd-15p border-bottom-0">Date Added</th>
-                    <th class="wd-10p border-bottom-0"></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody id="show_data">
@@ -208,6 +208,7 @@
                       }
                     $('#show_data').html(html);
                       var table = $('#datatable').DataTable({
+                        
                         'columnDefs': [
                           {
                               'targets': 0,
@@ -221,12 +222,18 @@
                           }
                        });
                       $('#datatable tbody').on('click', 'tr', function () {
+                        let buttonsuspend = document.querySelector("#suspendaccountbtn");
+                        let buttonbann = document.querySelector("#banaccountbtn");
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {
                               $(this).removeClass('selected');
+                              buttonsuspend.disabled = true;
+                              buttonbann.disabled = true;
                           } else {
                               table.$('tr.selected').removeClass('selected');
                               $(this).addClass('selected');
+                              buttonsuspend.disabled = false;
+                              buttonbann.disabled = false;
                           }
                       });
                     

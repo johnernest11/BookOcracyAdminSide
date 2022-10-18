@@ -45,7 +45,7 @@
 												<div class="col-lg-12 col-md-12">
 													<div class="form-group">
 														<label for="exampleInputname">Birthday</label>
-														<input type="email" class="form-control" id="exampleInputname" value="<?php echo $this->session->userdata('Full_Name'); ?>" disabled>
+														<input type="email" class="form-control" id="exampleInputname" value="<?php echo $this->session->userdata('Birthday'); ?>" disabled>
 													</div>
 												</div>
 												<div class="col-lg-6 col-md-12">

@@ -14,7 +14,7 @@
 	<div class="col-lg-12">
 		<div class="card">
 			<div class="card-header">
-				<h3 class="card-title"> <i class="side-menu__icon fe fe-settings">Registered Emails</i></h3>
+				<h3 class="card-title"> <i class="side-menu__icon fe fe-settings"> Registered Emails</i></h3>
 		
 			</div>
 			<div class="card-body">

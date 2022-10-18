@@ -39,7 +39,7 @@
         <!-- <div class="text-wrap">
             <div class="example"> -->
             <div class="btn-list text-end">
-                  <button  class="btn btn-secondary"  id="btnRetrieve"><i class="fa fa-file-archive-o" aria-hidden="true"> Unsuspend/Unbanned Account</i></button> 
+                  <button  class="btn btn-secondary"  id="archieveaccountbtn" disabled><i class="fa fa-file-archive-o" aria-hidden="true"> Unsuspend/Unbanned Account</i></button> 
                 </div>
 
               <!-- </div>
@@ -126,12 +126,15 @@
                         }
                   });
                   $('#datatable tbody').on('click', 'tr', function () {
+                    let buttonarchieve = document.querySelector("#archieveaccountbtn");
                         console.log( table.row( this ).data() );
                           if ($(this).hasClass('selected')) {
                               $(this).removeClass('selected');
+                              buttonarchieve.disabled = true;
                           } else {
                               table.$('tr.selected').removeClass('selected');
                               $(this).addClass('selected');
+                              buttonarchieve.disabled = false;
                           }
                       });
 

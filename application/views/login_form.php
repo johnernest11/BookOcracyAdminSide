@@ -43,7 +43,7 @@
 				    <!-- CONTAINER OPEN -->
 					<div class="col col-login mx-auto">
 						<div class="text-center">
-							<img src="../assets/images/brand/logo.png" class="header-brand-img" alt="">
+							<img src="../assets/images/brand/booklogo1.png" class="header-brand-img" alt="">
 						</div>
 					</div>
 					<div class="container-login100">
@@ -68,7 +68,7 @@
 										</span>
 									</div>
 									<div class="text-end pt-1">
-										<p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
+										<!-- <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p> -->
 									</div>
 									<div class="container-login100-form-btn">
 									<button type="submit" class="btn btn-lg btn-primary btn-block"><span class="glyphicon glyphicon-log-in"></span> Login</button>
@@ -87,15 +87,8 @@
 							</div>
 							<div class="card-footer">
 								<div class="d-flex justify-content-center my-3">	
-									<a href="<?=base_url('home/google_login')?>" class="social-login  text-center me-4">
-										<i class="fa fa-google"></i>
-									</a>
-									<a href="" class="social-login  text-center me-4">
-										<i class="fa fa-facebook"></i>
-									</a>
-									<a href="" class="social-login  text-center">
-										<i class="fa fa-twitter"></i>
-									</a>
+									<a href="<?=base_url('home/google_login')?>" class="btn btn-white mt-1 mb-1"><i class="fa fa-google"></i> Google Login</a>
+									
 								</div>
 							</div>
 						</div>

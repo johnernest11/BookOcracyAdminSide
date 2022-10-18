@@ -133,9 +133,17 @@ class AuthController extends CI_Controller {
 	public function logout(){
 		//load session library
 		$this->load->library('session');
-		unset($_SESSION['user']);
+		$array = array(
+			'Full_Name' => '',
+			'Username' => '',
+			'Phone_Number' => '',
+			'Email'=> '',
+			'Picture' => '',
+			);
+		
+		$this->session->unset_userdata($array);
 		// $this->session->unset_userdata('user');
-		$this->session->sess_destroy();
+		$this->session->sess_destroy($array);
 		redirect('/');
 	}
 

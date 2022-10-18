@@ -15,7 +15,6 @@
         public function Dashboard(){
             //load session library
             $this->load->library('session');
-     
             //restrict users to go to home if not logged in
             if($this->session->userdata('user')){
                 //fetch  most reader books
@@ -23,7 +22,6 @@
                 $data['book'] = $this->Main_model->Most_Read_books();
                 $data['author'] = $this->Main_model->Top_Authors();
                 $data['vote'] = $this->Main_model->Top_voted();
-                
                 $this->load->view('sidebar');       
                 $this->load->view("Dashboard", $data); 
             }
@@ -33,7 +31,7 @@
         }
 
 		
-
+//GOOGLE LOGIN FUNCTION//
 		public function google_login(){
             $this->load->library('session');
 			$client = new GoogleClient();
@@ -55,10 +53,10 @@
                 $data['Picture'] = $user_info->picture;
                 $data['Password'] = $user_info->at_hash;
 				
-				
-				
-				if($this->user_model->getUser($user_info->email)){
-					// $this->session->set_userdata('user',$user);
+				$login=$this->user_model->getUser($user_info->email);
+				$this->session->set_userdata('user',$login);
+				// GET USER LOGIN SESSION//
+				if($login){
 					$array = array(
 						'Full_Name' => $user_info->name,
 						'Username' => $user_info->given_name,
@@ -66,8 +64,9 @@
 						'Email'=> $user_info->email,
 						'Picture' => $user_info->picture,
 						);
-						// $this->session->set_userdata($array);
-					$this->session->set_userdata('user',$array);
+						$this->session->set_userdata($array);
+						$this->session->all_userdata();
+				// GET USER LOGIN SESSION//
                     redirect('Dashboard');
 				}else{
 					$this->user_model->createUser($data);

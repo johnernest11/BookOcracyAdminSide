@@ -8,17 +8,12 @@ class AccountController extends CI_Controller{
         
 			$this->load->library('session');
         $this->load->model('Account_model');
-
-
-
     }
 
     function AdminSetting(){
-
            $this->load->view('sidebar');
            $this->load->view('UserSetting/Admin-Settings');
-      
-  }
+    }
 
     //AUTHOR ROUTES
     function Author(){
@@ -33,7 +28,6 @@ class AccountController extends CI_Controller{
         $this->load->view('UserSetting/User-List');
     }
     //AUTHOR-USER ROUTES
-
 
     function WaitList(){
         $this->load->view('sidebar');
@@ -57,7 +51,6 @@ class AccountController extends CI_Controller{
     }
     //AUTHOR-USER VIEW
   
- 
     function update(){
         $data=$this->Account_model->update_author();
         echo json_encode($data);
@@ -68,12 +61,10 @@ class AccountController extends CI_Controller{
         echo json_encode($data);
     }
 
-
     function archieve(){
         $data=$this->Account_model->archieve_author();
         echo json_encode($data);
     }
-
 
     function banned(){
         $data=$this->Account_model->banned_author();
@@ -97,9 +88,7 @@ class AccountController extends CI_Controller{
         $this->load->view('UserSetting/Personal-Information');
     }
 
-    
-
-     // show single user
+     // show book
      public function book_dataget(){
         $data = $this->Account_model->fetch_book();
         echo json_encode($data);
@@ -108,60 +97,42 @@ class AccountController extends CI_Controller{
         
         $this->load->view('Reports/Book',$data);
     }
-    // function book_dataget(){
-    //     $this->load->view('sidebar');
-    //     $this->load->view('Reports/Book');
-    // }
-
-//     public function book_dataget($account_id)
-// {
-//     $data['res']=$this->page_model->fetch_book($account_id);
-//     echo json_encode($data);
-//     $this->load->view('sidebar');
-//     $this->load->view('Reports/Book');
-// }
 
 // REPORTS SETTING
 //ADMIN SETTING
 
 
-function AdminSetting_data(){
-    $data=$this->Account_model->AdminSetting();
-    // echo "<pre>";
-    // echo print_r ($data);
+    function AdminSetting_data(){
+        $data=$this->Account_model->AdminSetting();
+        echo json_encode($data);
+    }
 
-    echo json_encode($data);
-}
+    function update_admin(){
+        $data=$this->Account_model->update_adminsetting();
+        echo json_encode($data);
+    }  
 
-function update_admin(){
-    $data=$this->Account_model->update_adminsetting();
-    echo json_encode($data);
-}  
+    function update_reset(){
+        $data=$this->Account_model->reset_adminsetting();
+        echo json_encode($data);
+    }
 
-function update_reset(){
-    $data=$this->Account_model->reset_adminsetting();
-    echo json_encode($data);
-}
-
-
-function update_archieve(){
-    $data=$this->Account_model->archieve_adminsetting();
-    echo json_encode($data);
-}
+    function update_archieve(){
+        $data=$this->Account_model->archieve_adminsetting();
+        echo json_encode($data);
+    }
 
 
-
-
-public function viewprofile($AID)
-{
-  $data = array();
-  $data['accounts'] = $this->Account_model->accounts($AID);
-  $data['gift'] = $this->Account_model->book_gift($AID);
-  $data['gift_wallet'] = $this->Account_model->book_giftwallet($AID);
-  $data['book'] = $this->Account_model->books($AID);
-  $this->load->view('sidebar');       
-  $this->load->view('UserSetting/Author-Profile',$data);     
-}
+    public function viewprofile($AID)
+    {
+    $data = array();
+    $data['accounts'] = $this->Account_model->accounts($AID);
+    $data['gift'] = $this->Account_model->book_gift($AID);
+    $data['gift_wallet'] = $this->Account_model->book_giftwallet($AID);
+    $data['book'] = $this->Account_model->books($AID);
+    $this->load->view('sidebar');       
+    $this->load->view('UserSetting/Author-Profile',$data);     
+    }
 
 
 

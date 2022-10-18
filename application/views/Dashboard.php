@@ -1,13 +1,22 @@
 <!-- PAGE-HEADER -->
 <style>
+
 @media screen and (min-width: 601px) {
-  h3 {
+    h3 {
+    font-size: 15px;
+  }
+
+  h6 {
     font-size: 15px;
   }
 }
 
 @media screen and (max-width: 600px) {
-  h3 {
+    h3{
+    font-size: 5px;
+  }
+
+  h6{
     font-size: 5px;
   }
 }
@@ -37,7 +46,7 @@
                                     <div class="row">
                                         <div class="col">
                                        
-                                            <h6 class="">Total Number of Users <?php echo $this->session->userdata('Full_Name'); ?><?php echo $this->session->userdata('Email'); ?></h6>
+                                            <h6 class="">Total Number of Users</h6>
                                             
                                             <h3 class="mb-2 number-font"><?php echo $this->db->count_all('accounts'); ?></h3>
                                         </div>
@@ -309,6 +318,8 @@
 
                     function drawMonthwiseChart(chart_data)
                     {
+
+                        
                         var jsonData = chart_data;
                         var data = new google.visualization.DataTable();
                         data.addColumn('string', 'month');
@@ -317,7 +328,6 @@
                         $.each(jsonData, function(i, jsonData){
                             var month = jsonData.month;
                             var profit = parseFloat($.trim(jsonData.amounts));
-                            data.addRows([[month, profit]]);
                             data.addRows([[month, profit]]);
                         });
 
@@ -329,13 +339,18 @@
                             vAxis: {
                                 title: 'Numbers'
                             },
-                            chartArea:{width:'70%',height:'60%'}
+                            chartArea:{width:'83%',height:'60%'}
                         }
 
                         var chart = new google.visualization.ColumnChart(document.getElementById('chartBar1'));
 
                         chart.draw(data, options);
                     }
+
+                    $(window).resize(function(){
+                        drawMonthwiseChart();
+                        load_monthwise_data();
+                        });
 
                     </script>
                 <script>

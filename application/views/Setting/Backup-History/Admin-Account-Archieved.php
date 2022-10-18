@@ -200,6 +200,18 @@
                       "searching": true,
                       retrieve: true,
                   });
+                  $('#datatable tbody').on('click', 'tr', function () {
+                        let buttonarchieve= document.querySelector("archieveaccountbtn");
+                        console.log( table.row( this ).data() );
+                          if ($(this).hasClass('selected')) {
+                              $(this).removeClass('selected');
+                              buttonarchieve.disabled = true;
+                          } else {
+                              table.$('tr.selected').removeClass('selected');
+                              $(this).addClass('selected');
+                              buttonarchieve.disabled = false;
+                          }
+                      });
                 }
             });
         }
