@@ -146,7 +146,7 @@
                       table.column(9).search(Type).draw();
                     })
                       // RETRIEVE DATA BUTTON
-                      $('#btnRetrieve').click(function () {
+                      $('#archieveaccountbtn').click(function () {
                               var arr = [];
                               var arr1 = [];
                               $.each(table.rows('.selected').data(), function() {

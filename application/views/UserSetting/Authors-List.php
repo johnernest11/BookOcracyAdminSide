@@ -189,12 +189,12 @@
                     for(i=0; i<data.length; i++){
                       $AID =data[i].AID;
                         html += '<tr>'+
-                                '<td>'+data[i].AID+'</td>'+
-                                '<td>'+data[i].Full_Name+'</td>'+
-                                '<td>'+data[i].Email+'</td>'+
-								                '<td>'+data[i].added_date+'</td>'+
+                                '<td data-bs-placement="left" data-bs-toggle="tooltip" title="Select">'+data[i].AID+'</td>'+
+                                '<td data-bs-placement="left" data-bs-toggle="tooltip" title="Select">'+data[i].Full_Name+'</td>'+
+                                '<td data-bs-placement="left" data-bs-toggle="tooltip" title="Select">'+data[i].Email+'</td>'+
+								                '<td  data-bs-placement="left" data-bs-toggle="tooltip" title="Select" >'+data[i].added_date+'</td>'+
                                 '<td style="text-align:right;">'+
-                                '<a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1">'+
+                                '<a href="javascript:void(0);" data-bs-toggle="dropdown" class="nav-link leading-none d-flex px-1"  data-bs-placement="top" data-bs-toggle="tooltip" title="Settings" >'+
                                 '<i class="fa fa-ellipsis-v"></i></a>'+
                                 '<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">'+
                                 '<div class="dropdown-divider m-0"></div>'+
@@ -210,12 +210,14 @@
                       }
                     $('#show_data').html(html);
                       var table = $('#datatable').DataTable({
+                  
                         'columnDefs': [
                           {
-                              'targets': 0,
-                              'checkboxes': {
-                                'selectRow': false
-                              }
+                            'targets': [0,4], /* column index */
+                             'orderable': false, /* true or false */
+                              // 'checkboxes': {  
+                              //   'selectRow': true
+                              // }
                           }
                         ],
                         'select': {

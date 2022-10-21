@@ -93,6 +93,7 @@
                     }
                     $('#show_data').html(html);
                     var table = $('#datatable').DataTable( {
+                        
                                 dom: 'Bfrtip',
                                 buttons: [
                                     'csv', 'excel'

@@ -32,13 +32,21 @@ class Account_model extends CI_Model{
         $hasil = $this->db->get();
         return $hasil->result();
     }
+// SELECT * ,DATE_FORMAT(Date_created, "%Y-%m-%d %h:%i %p") AS added_date 
+// FROM accounts LEFT JOIN book ON accounts.AID = book.AID  
+// WHERE  ISNULL(book.AID) GROUP BY accounts.AID ; 
+
+
 
     function User_list(){
-        $this->db->select('* ,DATE_FORMAT(Date_created, "%Y-%m-%d %h:%i %p") as added_date');
+        
+        $this->db->select('accounts.* ,DATE_FORMAT(Date_created, "%Y-%m-%d %h:%i %p") as added_date');
         $this->db->from('accounts');
         $this->db->join('book', 'accounts.AID = book.AID','left');
-        $this->db->or_where('book.AID',NULL, FALSE);
-        $this->db->where('Account_Status', 0  );
+        // $this->db->is_null('book.AID');
+        // $this->db->where('book.AID IS NULL',NULL,false);
+        $this->db->where('book.AID IS NULL');
+        $this->db->where('Account_Status', 0 );
         $this->db->group_by('accounts.AID');
         $hasil = $this->db->get();
         return $hasil->result();

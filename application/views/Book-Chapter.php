@@ -277,7 +277,7 @@
 																			    <th class="wd-15p border-bottom-0"></th>
 																				<th class="wd-15p border-bottom-0"></th>
 																				<th class="wd-15p border-bottom-0"></th>
-																				<th class="wd-15p border-bottom-0">/th>
+																				<th class="wd-15p border-bottom-0"></th>
 																			</tr>
 																		</thead>
 																		<tbody>

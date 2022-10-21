@@ -95,6 +95,10 @@
                                                                                 });
 
                                                                                 var options = {
+                                                                                    backgroundColor: { fill:'transparent' },
+                                                                                    if(isDarkMode) {
+                                                                                        chartTextStyle = {color: '#FFFFFF'};
+                                                                                    },
                                                                                     title:chart_main_title,
                                                                                     hAxis: {
                                                                                         title: "Months"
