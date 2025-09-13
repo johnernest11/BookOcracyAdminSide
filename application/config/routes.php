@@ -35,7 +35,22 @@ $route['Transaction'] = 'TransactionController/transaction';
 
 //EMAILS
 $route['Emails'] = 'EmailController/Emails';
+$route['email-data'] = 'EmailController/email_data';
+
 
 $route['translate_uri_dashes'] = FALSE;
+
+
+// JSON API routes for AccountController
+$route['viewauthoraccounts'] = 'AccountController/viewauthoraccounts';
+$route['viewuseraccounts'] = 'AccountController/viewuseraccounts';
+$route['viewwaitlistaccounts'] = 'AccountController/viewwaitlistaccounts';
+
+$route['update-author'] = 'AccountController/update';
+$route['reset-author'] = 'AccountController/reset';
+$route['archieve-author'] = 'AccountController/archieve';
+$route['banned-author'] = 'AccountController/banned';
+$route['suspend-author'] = 'AccountController/suspend';
+
 
 

@@ -11,6 +11,7 @@ class EmailController extends CI_Controller{
     function Emails(){
         $this->load->view('sidebar');
         $this->load->view('Email/Emails');
+        
     }
  
     function email_data(){
